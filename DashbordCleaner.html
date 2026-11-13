@@ -1,0 +1,775 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilee Tech Group | Staff Dashboard</title>
+
+    <link rel="stylesheet" href="dashstyle.css">
+
+    <style>
+        /* =========================
+           GLOBAL STYLES
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #111827;
+        }
+
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+        .sidebar {
+            width: 260px;
+            min-width: 260px;
+            min-height: 100vh;
+            padding: 32px 20px;
+            background: #fff;
+            border-right: 1px solid #e5eaf1;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 10px 12px 22px;
+            border-bottom: 1px solid #e5eaf1;
+        }
+
+        .profile-icon {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: #dceaff;
+            color: #1767c8;
+            font-size: 23px;
+        }
+
+        .profile h3 {
+            font-size: 15px;
+        }
+
+        .profile p {
+            margin-top: 4px;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .navigation {
+            display: flex;
+            flex-direction: column;
+            margin-top: 24px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 13px 14px;
+            margin-bottom: 7px;
+            border-radius: 10px;
+            color: #344054;
+            text-decoration: none;
+            font-size: 15px;
+            line-height: 1.35;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: #e6f0ff;
+            color: #1258a8;
+        }
+
+        .nav-icon {
+            width: 25px;
+            flex-shrink: 0;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .logout {
+            margin-top: 18px;
+        }
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+        .main-content {
+            flex: 1;
+            min-width: 0;
+            max-width: 1400px;
+            padding: 36px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .dashboard-header h1 {
+            color: #172b4d;
+            font-size: 26px;
+            line-height: 1.35;
+            font-weight: 600;
+        }
+
+        .dashboard-header p {
+            margin-top: 6px;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* =========================
+           JOB CARDS
+        ========================= */
+        .job-card {
+            display: block;
+            width: 100%;
+            margin-bottom: 22px;
+            padding: 25px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.035);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .job-header h3 {
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .awaiting {
+            background: #ffe0a5;
+            color: #925a00;
+        }
+
+        .completed {
+            background: #d9f5df;
+            color: #087b35;
+        }
+
+        .job-card h2 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
+        .job-card hr {
+            border: none;
+            border-top: 1px solid #dedede;
+            margin: 18px 0 12px;
+        }
+
+        /* =========================
+           NEW ASSIGNMENT DETAILS
+        ========================= */
+        .job-summary {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-bottom: 18px;
+            padding: 18px;
+            background: #f7faff;
+            border: 1px solid #e8eff8;
+            border-radius: 12px;
+        }
+
+        .job-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 0;
+        }
+
+        .job-item strong,
+        .detail-item strong {
+            color: #344054;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .job-item span,
+        .detail-item span {
+            overflow-wrap: anywhere;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .job-details {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            padding: 18px;
+            background: #fff;
+            border: 1px solid #e5eaf1;
+            border-radius: 12px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            min-width: 0;
+        }
+
+        /* =========================
+           TODAY'S JOB CARD
+        ========================= */
+        .today-job-card {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .today-job-card .job-header {
+            order: 0;
+        }
+
+        .today-job-card > h2 {
+            order: 1;
+        }
+
+        .today-job-card > hr {
+            order: 2;
+        }
+
+        .today-job-card #arrivalProgress {
+            order: 3;
+        }
+
+        .today-job-card #completionProgress {
+            order: 4;
+        }
+
+        .today-job-card > .job-stats {
+            order: 5;
+        }
+
+        /* =========================
+           ARRIVAL AND COMPLETION
+        ========================= */
+        .job-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+            width: 100%;
+            padding: 14px 0;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .job-progress h3 {
+            color: #172b4d;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .job-progress p {
+            margin-top: 6px;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* =========================
+           SWIPE CONTROLS
+        ========================= */
+        .swipe-container {
+            position: relative;
+            flex-shrink: 0;
+            width: 200px;
+            max-width: 42%;
+            height: 55px;
+            overflow: hidden;
+            border: 1px solid #d2d2d2;
+            border-radius: 30px;
+            background: #f7f7f7;
+            user-select: none;
+            touch-action: none;
+        }
+
+        .swipe-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 35px;
+            color: #687386;
+            font-size: 12px;
+            font-weight: bold;
+            pointer-events: none;
+        }
+
+        .swipe-button {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 47px;
+            height: 47px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4b008f, #1767c8);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: grab;
+            touch-action: none;
+        }
+
+        .swipe-button:active {
+            cursor: grabbing;
+        }
+
+        .swipe-container.disabled {
+            opacity: 0.45;
+            pointer-events: none;
+        }
+
+        .swipe-container.confirmed {
+            background: #dceaff;
+            border-color: #9fc4ef;
+        }
+
+        .swipe-container.completed {
+            background: #d9f3dc;
+            border-color: #9ed6a5;
+        }
+
+        .swipe-container.completed .swipe-button {
+            background: #16834b;
+        }
+
+        /* =========================
+           STATISTICS CARDS
+        ========================= */
+        .today-job-card .job-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 18px;
+            min-width: 0;
+            min-height: 125px;
+            padding: 22px 20px;
+            border-radius: 16px;
+            background: #fafafa;
+        }
+
+        .stat p {
+            color: #526071;
+            font-size: 16px;
+        }
+
+        .stat strong {
+            color: #111827;
+            font-size: 23px;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+        @media (max-width: 900px) {
+            .sidebar {
+                width: 225px;
+                min-width: 225px;
+                padding: 25px 14px;
+            }
+
+            .main-content {
+                padding: 25px 20px;
+            }
+
+            .job-summary {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .swipe-container {
+                width: 165px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .dashboard-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                min-width: 0;
+                min-height: auto;
+                padding: 15px;
+                border-right: none;
+                border-bottom: 1px solid #e5eaf1;
+            }
+
+            .profile {
+                padding: 5px 5px 15px;
+            }
+
+            .navigation {
+                flex-direction: row;
+                gap: 5px;
+                overflow-x: auto;
+                margin-top: 15px;
+                padding-bottom: 5px;
+            }
+
+            .nav-link {
+                flex-shrink: 0;
+                gap: 7px;
+                margin: 0;
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            .nav-icon {
+                width: auto;
+                font-size: 17px;
+            }
+
+            .logout {
+                margin-top: 0;
+            }
+
+            .main-content {
+                width: 100%;
+                max-width: none;
+                padding: 22px 14px;
+            }
+
+            .dashboard-header h1 {
+                font-size: 22px;
+            }
+
+            .job-card {
+                padding: 18px;
+            }
+
+            .job-summary,
+            .job-details,
+            .today-job-card .job-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .job-header {
+                align-items: flex-start;
+            }
+
+            .status {
+                white-space: normal;
+                text-align: center;
+            }
+
+            .job-progress {
+                gap: 10px;
+            }
+
+            .job-progress h3 {
+                font-size: 14px;
+            }
+
+            .job-progress p {
+                max-width: 180px;
+                font-size: 12px;
+            }
+
+            .swipe-container {
+                width: 145px;
+                max-width: 48%;
+                height: 44px;
+            }
+
+            .swipe-button {
+                width: 36px;
+                height: 36px;
+            }
+
+            .stat {
+                min-height: 100px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .job-progress {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .swipe-container {
+                align-self: flex-end;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+
+        <!-- =========================
+             SIDEBAR
+        ========================= -->
+        <aside class="sidebar">
+            <div class="profile">
+                <div class="profile-icon" aria-hidden="true">👤</div>
+
+                <div>
+                    <h3>Name</h3>
+                    <p>Surname</p>
+                </div>
+            </div>
+
+            <nav class="navigation" aria-label="Dashboard navigation">
+
+                <a href="DashbordCleaner.html"
+                   class="nav-link active"
+                   aria-current="page">
+                    <span class="nav-icon" aria-hidden="true">▦</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="SCHEDULEDBOOKINGPAGE.html" class="nav-link">
+                    <span class="nav-icon" aria-hidden="true">▣</span>
+                    <span>Scheduled bookings</span>
+                </a>
+
+                <a href="Request-Supplies.html" class="nav-link">
+                    <span class="nav-icon" aria-hidden="true">⚒</span>
+                    <span>Request supplies</span>
+                </a>
+
+                <a href="PREVIOUSbOOKING.html" class="nav-link">
+                    <span class="nav-icon" aria-hidden="true">◷</span>
+                    <span>Previous bookings</span>
+                </a>
+
+                <a href="ReportPage.html" class="nav-link">
+                    <span class="nav-icon" aria-hidden="true">⚑</span>
+                    <span>Report an issue</span>
+                </a>
+
+            <a href="CleanerSupport.html"
+               class="nav-link active"
+               aria-current="page">
+
+                <span class="nav-icon" aria-hidden="true">▤</span>
+                <span>Support Documents</span>
+
+            </a>
+
+
+                <a href="cleaner-login-page.html" class="nav-link logout">
+                    <span class="nav-icon" aria-hidden="true">⇥</span>
+                    <span>Log out</span>
+                </a>
+
+                
+
+            </nav>
+        </aside>
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================= -->
+        <main class="main-content">
+
+            <!-- PAGE HEADER -->
+            <header class="dashboard-header">
+                <div>
+                    <h1>Welcome back, Name Surname</h1>
+                    <p id="currentDate">Today</p>
+                </div>
+            </header>
+
+            <!-- =========================
+                 NEW ASSIGNMENT
+            ========================= -->
+            <section class="job-card" aria-labelledby="assignmentHeading">
+
+                <div class="job-header">
+                    <h3 id="assignmentHeading">New assignment</h3>
+
+                    
+                </div>
+
+                <div class="job-summary">
+
+                    <div class="job-item">
+                        <strong>Location:</strong>
+                        <span>Client Location</span>
+                    </div>
+
+                    <div class="job-item">
+                        <strong>Time:</strong>
+                        <span>Job Time</span>
+                    </div>
+
+                    <div class="job-item">
+                        <strong>Job Type:</strong>
+                        <span>Cleaning</span>
+                    </div>
+
+                </div>
+
+                <div class="job-details">
+
+                    <div class="detail-item">
+                        <strong>Client's Name:</strong>
+                        <span>Client Name</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <strong>Client's Contact Details:</strong>
+                        <span>Client Contact Number</span>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- =========================
+                 TODAY'S JOB
+            ========================= -->
+            <section class="job-card today-job-card"
+                     aria-labelledby="todayJobHeading">
+
+                <!-- Card heading and status -->
+                <div class="job-header">
+                    <h3 id="todayJobHeading">Today's job</h3>
+
+                    <span class="status awaiting" id="jobStatus">
+                        Awaiting arrival
+                    </span>
+                </div>
+
+                <!-- Job location -->
+                <h2>Location: Client Location</h2>
+
+                <hr>
+
+                <!-- ARRIVAL SWIPE -->
+                <div class="job-progress" id="arrivalProgress">
+
+                    <div>
+                        <h3 id="arrivedTitle">I've arrived</h3>
+                        <p id="arrivedTime">Swipe when you arrive</p>
+                    </div>
+
+                    <div class="swipe-container" id="arrivedSlider">
+                        <span class="swipe-text">Swipe →</span>
+
+                        <button
+                            class="swipe-button"
+                            id="arrivedButton"
+                            type="button"
+                            aria-label="Confirm arrival">
+                            →
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- JOB COMPLETION SWIPE -->
+                <div class="job-progress" id="completionProgress">
+
+                    <div>
+                        <h3 id="completedTitle">Job completed</h3>
+                        <p id="completedTime">Swipe when finished</p>
+                    </div>
+
+                    <div class="swipe-container disabled"
+                         id="completedSlider">
+
+                        <span class="swipe-text">Swipe →</span>
+
+                        <button
+                            class="swipe-button"
+                            id="completedButton"
+                            type="button"
+                            aria-label="Confirm job completion">
+                            →
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- JOB STATISTICS -->
+                <div class="job-stats">
+
+                    <div class="stat">
+                        <p>Arrived</p>
+                        <strong id="arrivalStat">--</strong>
+                    </div>
+
+                    <div class="stat">
+                        <p>Completed</p>
+                        <strong id="completionStat">--</strong>
+                    </div>
+
+                    <div class="stat">
+                        <p>Time on site</p>
+                        <strong id="durationStat">--</strong>
+                    </div>
+
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <!-- DASHBOARD JAVASCRIPT -->
+    <script src="dashboard.js"></script>
+</body>
+</html>

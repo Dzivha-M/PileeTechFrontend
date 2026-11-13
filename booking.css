@@ -1,0 +1,1852 @@
+
+/* =========================================================
+   PILEE TECH GROUP
+   PROFESSIONAL CLEANING BOOKING PAGE
+   UPDATED WHITE HEADER AND HOMEPAGE THEME
+========================================================= */
+
+/* =========================================================
+   1. GOOGLE FONTS
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   2. COLOUR VARIABLES
+========================================================= */
+
+:root {
+    --navy: #061a2d;
+    --navy2: #092844;
+
+    --blue: #08a9e8;
+    --blue2: #0879bd;
+
+    --ink: #102b49;
+    --muted: #5d7084;
+
+    --pale: #f3f7fa;
+    --white: #ffffff;
+
+    --line: #dce6ee;
+
+    --shadow: 0 18px 45px rgba(6,26,45,.10);
+
+    --danger: #dc3545;
+    --success: #168451;
+}
+
+
+/* =========================================================
+   3. GLOBAL SETTINGS
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--pale);
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   4. WHITE WEBSITE HEADER
+========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+
+    background: #ffffff;
+    border-bottom: 1px solid var(--line);
+
+    box-shadow: 0 5px 20px rgba(6,26,45,.06);
+}
+
+.header-inner {
+    max-width: 1400px;
+    min-height: 82px;
+
+    margin: auto;
+    padding: 12px 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+/* LOGO CONTAINER */
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* CIRCULAR P LOGO */
+
+.brand-mark {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+
+    background: var(--navy);
+    color: var(--white);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 27px;
+    font-weight: 800;
+
+    box-shadow: 0 0 15px rgba(8,169,232,.12);
+
+    flex-shrink: 0;
+}
+
+/* BRAND TEXT */
+
+.brand-copy {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.brand-copy strong {
+    color: var(--navy);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.brand-copy small {
+    color: var(--blue2);
+
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+/* RIGHT HEADER CONTENT */
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+/* SECURE BOOKING LABEL */
+
+.secure-label {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.secure-dot {
+    width: 8px;
+    height: 8px;
+
+    background: #27c786;
+    border-radius: 50%;
+}
+
+/* BACK LINK */
+
+.back-link {
+    color: var(--navy);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: .2s;
+}
+
+.back-link:hover {
+    color: var(--blue2);
+}
+
+
+/* =========================================================
+   5. PAGE LAYOUT
+========================================================= */
+
+.page-shell {
+    width: min(1400px, 92%);
+
+    margin: auto;
+    padding: 48px 0 80px;
+}
+
+.page-intro {
+    margin-bottom: 35px;
+}
+
+.eyebrow {
+    color: var(--blue2);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.page-intro h1 {
+    margin-top: 8px;
+
+    color: var(--navy);
+
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+.intro-copy {
+    margin-top: 10px;
+
+    color: var(--muted);
+    font-size: 14px;
+
+    max-width: 650px;
+}
+
+.booking-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+
+    align-items: start;
+    gap: 25px;
+}
+
+.booking-form {
+    display: grid;
+    gap: 22px;
+}
+
+
+/* =========================================================
+   6. FORM CARDS
+========================================================= */
+
+.form-card,
+.summary-card {
+    background: var(--white);
+
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+}
+
+.form-card {
+    padding: 27px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.step-number {
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--navy);
+    color: var(--white);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.section-heading h2 {
+    color: var(--navy);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   7. FORM FIELDS
+========================================================= */
+
+.form-grid {
+    display: grid;
+    gap: 18px;
+}
+
+.form-grid.two {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+}
+
+.form-grid.three {
+    grid-template-columns: repeat(3, minmax(0,1fr));
+}
+
+.field {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    min-width: 0;
+}
+
+.field > span {
+    color: var(--ink);
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.field small {
+    color: var(--muted);
+
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    min-height: 46px;
+
+    padding: 11px 13px;
+
+    border: 1px solid var(--line);
+    border-radius: 2px;
+
+    outline: none;
+
+    background: #fff;
+    color: var(--ink);
+
+    font-size: 13px;
+
+    transition: .2s;
+}
+
+.field textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    border-color: var(--blue);
+
+    box-shadow: 0 0 0 3px rgba(8,169,232,.10);
+}
+
+.field input[readonly] {
+    background: #f4f7fa;
+    color: var(--muted);
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+.account-notice {
+    margin-top: 15px;
+    padding: 10px 13px;
+
+    background: #eff8fd;
+    border-left: 3px solid var(--blue);
+
+    color: var(--muted);
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   8. LOCATION
+========================================================= */
+
+.choice-row {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.radio-card {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 15px;
+
+    border: 1px solid var(--line);
+
+    cursor: pointer;
+    transition: .2s;
+}
+
+.radio-card:has(input:checked) {
+    border-color: var(--blue);
+    background: #f2faff;
+}
+
+.radio-card input {
+    accent-color: var(--blue2);
+}
+
+.radio-card strong,
+.radio-card small {
+    display: block;
+}
+
+.radio-card strong {
+    font-size: 12px;
+    color: var(--navy);
+}
+
+.radio-card small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.location-fields {
+    display: grid;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.saved-address {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 15px;
+
+    background: #f4f8fb;
+    border: 1px solid var(--line);
+}
+
+.pin-icon {
+    font-size: 24px;
+    color: var(--blue2);
+}
+
+.saved-address strong,
+.saved-address small {
+    display: block;
+}
+
+.saved-address strong {
+    font-size: 12px;
+}
+
+.saved-address small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.saved-tag {
+    margin-left: auto;
+
+    color: var(--success);
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.suggestions {
+    position: absolute;
+    z-index: 20;
+
+    top: 78px;
+    left: 0;
+    right: 0;
+
+    background: white;
+    border: 1px solid var(--line);
+
+    box-shadow: var(--shadow);
+}
+
+.suggestion-item {
+    display: block;
+    width: 100%;
+
+    padding: 12px;
+
+    background: white;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+
+    text-align: left;
+    font-size: 12px;
+}
+
+.suggestion-item:hover {
+    background: #eff8fd;
+}
+
+
+/* =========================================================
+   9. FREQUENCY OPTIONS
+========================================================= */
+
+.frequency-options {
+    display: grid;
+    grid-template-columns: repeat(5,minmax(0,1fr));
+
+    gap: 10px;
+    margin-bottom: 23px;
+}
+
+.frequency-option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 5px;
+
+    min-height: 76px;
+    padding: 13px 11px;
+
+    background: white;
+    border: 1px solid var(--line);
+
+    text-align: left;
+    transition: .2s;
+}
+
+.frequency-option strong {
+    color: var(--navy);
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.frequency-option small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.frequency-option:hover {
+    border-color: var(--blue);
+}
+
+.frequency-option.active {
+    background: var(--navy);
+    border-color: var(--navy);
+}
+
+.frequency-option.active strong {
+    color: white;
+}
+
+.frequency-option.active small {
+    color: #a9d9ef;
+}
+
+.frequency-date {
+    margin-bottom: 20px;
+}
+
+.recurring-options {
+    padding: 20px;
+    margin-top: 5px;
+
+    background: #f5f9fc;
+    border: 1px solid var(--line);
+
+    display: grid;
+    gap: 20px;
+}
+
+.recurring-heading {
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+}
+
+.recurring-heading h3 {
+    color: var(--navy);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+}
+
+.recurring-heading p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.days-field {
+    display: grid;
+    gap: 10px;
+}
+
+.day-options {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 8px;
+}
+
+.day-option {
+    min-height: 43px;
+
+    border: 1px solid var(--line);
+
+    background: white;
+    color: var(--ink);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    transition: .2s;
+}
+
+.day-option:hover {
+    border-color: var(--blue);
+}
+
+.day-option.active {
+    background: var(--blue2);
+    color: white;
+    border-color: var(--blue2);
+}
+
+.frequency-notice {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    margin-top: 15px;
+    padding: 13px 15px;
+
+    background: #eef7fc;
+    border-left: 3px solid var(--blue);
+
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.frequency-notice strong {
+    color: var(--navy);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   10. STEPPERS
+========================================================= */
+
+.stepper {
+    display: flex;
+    align-items: center;
+
+    width: fit-content;
+    min-width: 135px;
+    height: 43px;
+
+    border: 1px solid var(--line);
+    background: white;
+}
+
+.stepper button {
+    width: 42px;
+    height: 100%;
+
+    border: 0;
+
+    background: #f0f5f9;
+    color: var(--navy);
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.stepper button:hover {
+    background: var(--blue);
+    color: white;
+}
+
+.stepper output {
+    min-width: 48px;
+
+    text-align: center;
+
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.team-size {
+    margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   11. SERVICE OPTIONS
+========================================================= */
+
+.pill-group {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 9px;
+    margin-top: 8px;
+}
+
+.pill {
+    padding: 9px 16px;
+
+    background: white;
+    border: 1px solid var(--line);
+
+    color: var(--ink);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: .2s;
+}
+
+.pill:hover {
+    border-color: var(--blue);
+}
+
+.pill.active {
+    color: white;
+
+    background: var(--navy);
+    border-color: var(--navy);
+}
+
+.service-main {
+    margin-top: 22px;
+}
+
+.price-guide {
+    display: flex;
+    align-items: center;
+
+    min-height: 46px;
+    padding: 10px 13px;
+
+    background: #eff8fd;
+    color: var(--blue2);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.quantity-grid {
+    margin-top: 20px;
+}
+
+.extras-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+    margin: 28px 0 15px;
+}
+
+.extras-heading h3 {
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+    color: var(--navy);
+}
+
+.extras-heading p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.count-tag {
+    padding: 7px 10px;
+
+    background: #eaf6fc;
+    color: var(--blue2);
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.extras-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 10px;
+}
+
+.extra-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 13px;
+
+    background: white;
+    border: 1px solid var(--line);
+
+    text-align: left;
+}
+
+.extra-card.selected {
+    border-color: var(--blue);
+    background: #f0f9fe;
+}
+
+.extra-icon {
+    font-size: 20px;
+}
+
+.extra-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.extra-info strong {
+    font-size: 11px;
+    color: var(--navy);
+}
+
+.extra-info small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.extra-check {
+    color: var(--blue2);
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   12. CLEANERS
+========================================================= */
+
+.cleaner-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.cleaner-assignment {
+    padding: 20px;
+
+    background: #eff8fd;
+    border-left: 3px solid var(--blue);
+}
+
+.cleaner-assignment strong {
+    color: var(--navy);
+    font-size: 13px;
+}
+
+.cleaner-assignment p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.cleaner-progress {
+    font-size: 11px;
+    color: var(--blue2);
+    font-weight: 800;
+}
+
+.cleaner-card {
+    display: grid;
+    grid-template-columns: 55px 1fr auto;
+
+    gap: 13px;
+    align-items: center;
+
+    padding: 14px;
+
+    border: 1px solid var(--line);
+}
+
+.cleaner-card.selected-cleaner {
+    background: #f0f9fe;
+    border-color: var(--blue);
+}
+
+.cleaner-disabled {
+    opacity: .45;
+}
+
+.cleaner-avatar {
+    width: 53px;
+    height: 53px;
+
+    object-fit: cover;
+}
+
+.cleaner-name {
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.cleaner-rating {
+    color: #c48b12;
+    font-size: 11px;
+}
+
+.cleaner-skills {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.cleaner-actions {
+    display: flex;
+    gap: 7px;
+}
+
+.notice {
+    margin-top: 18px;
+    padding: 13px;
+
+    background: #f3f7fa;
+
+    font-size: 11px;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   13. BUTTONS
+========================================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-height: 41px;
+    padding: 10px 17px;
+
+    border: 1px solid transparent;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    transition: .2s;
+}
+
+.btn-primary {
+    color: white;
+
+    background: var(--navy);
+    border-color: var(--navy);
+}
+
+.btn-primary:hover {
+    background: var(--blue2);
+    border-color: var(--blue2);
+}
+
+.btn-outline {
+    color: var(--navy);
+
+    background: white;
+    border-color: var(--line);
+}
+
+.btn-outline:hover {
+    color: white;
+
+    background: var(--navy);
+    border-color: var(--navy);
+}
+
+.btn-large {
+    min-height: 52px;
+    padding: 13px 24px;
+
+    font-size: 13px;
+}
+
+.btn-small {
+    min-height: 30px;
+    padding: 6px 12px;
+}
+
+.choose-btn.chosen {
+    background: var(--success);
+    border-color: var(--success);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.form-actions p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   14. BOOKING SUMMARY
+========================================================= */
+
+.summary-card {
+    position: sticky;
+    top: 105px;
+
+    padding: 24px;
+}
+
+.summary-top {
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+}
+
+.summary-top h2 {
+    margin-top: 4px;
+
+    color: var(--navy);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 19px;
+}
+
+.summary-details {
+    padding: 14px 0;
+}
+
+.summary-line,
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 12px;
+    padding: 9px 0;
+
+    border-bottom: 1px solid #edf1f4;
+
+    font-size: 10px;
+}
+
+.summary-line span,
+.price-row span {
+    color: var(--muted);
+}
+
+.summary-line strong,
+.price-row strong {
+    max-width: 60%;
+
+    text-align: right;
+
+    color: var(--ink);
+
+    overflow-wrap: anywhere;
+}
+
+.summary-divider {
+    height: 1px;
+
+    background: var(--line);
+
+    margin: 18px 0;
+}
+
+.price-title {
+    color: var(--navy);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+.price-row.quote strong {
+    color: var(--blue2);
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+    margin-top: 17px;
+    padding: 17px 0;
+
+    border-top: 2px solid var(--navy);
+
+    color: var(--navy);
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.summary-total strong {
+    font-family: "Manrope", sans-serif;
+    font-size: 20px;
+}
+
+.summary-disclaimer {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   15. MODALS
+========================================================= */
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(3,17,30,.78);
+
+    overflow-y: auto;
+}
+
+.modal {
+    position: relative;
+
+    width: min(500px,100%);
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 35px;
+
+    background: white;
+
+    box-shadow: var(--shadow);
+}
+
+.modal-close {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 32px;
+    height: 32px;
+
+    border: 0;
+
+    background: #eff4f8;
+    color: var(--navy);
+
+    font-size: 23px;
+}
+
+.modal h2 {
+    color: var(--navy);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 23px;
+}
+
+.modal-copy {
+    margin: 10px 0 20px;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.modal-kicker {
+    color: var(--blue2);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+.payment-amount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px;
+    margin: 20px 0;
+
+    background: #eff8fd;
+}
+
+.payment-amount span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.payment-amount strong {
+    color: var(--navy);
+
+    font-size: 24px;
+    font-family: "Manrope", sans-serif;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.modal-actions.stacked {
+    flex-direction: column;
+}
+
+.modal-actions.stacked > * {
+    width: 100%;
+}
+
+.success-mark {
+    width: 52px;
+    height: 52px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 20px;
+
+    background: #e8f7ef;
+    color: var(--success);
+
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.confirmation-modal {
+    width: min(620px,100%);
+}
+
+.reference-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    gap: 10px;
+    padding: 15px;
+
+    background: #f3f7fa;
+}
+
+.reference-box span {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.reference-box strong {
+    color: var(--navy);
+    font-size: 15px;
+}
+
+.confirmation-total {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 17px 0;
+
+    color: var(--navy);
+    font-weight: 800;
+}
+
+.paid-booking-summary {
+    padding: 20px;
+    margin-top: 15px;
+
+    background: #f7f9fb;
+}
+
+.paid-booking-summary h3,
+.paid-booking-summary h4 {
+    margin-bottom: 10px;
+    color: var(--navy);
+}
+
+.file-list {
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   16. RESPONSIVE DESIGN - TABLETS
+========================================================= */
+
+@media(max-width:1050px) {
+
+    .booking-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-card {
+        position: static;
+    }
+
+}
+
+
+/* =========================================================
+   17. RESPONSIVE DESIGN - SMALL TABLETS
+========================================================= */
+
+@media(max-width:750px) {
+
+    .form-grid.three {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .frequency-options {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .header-inner {
+        padding: 12px 4%;
+    }
+
+    .page-shell {
+        padding-top: 30px;
+    }
+
+}
+
+
+/* =========================================================
+   18. RESPONSIVE DESIGN - MOBILE
+========================================================= */
+
+@media(max-width:550px) {
+
+    .form-card {
+        padding: 19px;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
+
+    .secure-label {
+        display: none;
+    }
+
+    .brand-mark {
+        width: 40px;
+        height: 40px;
+
+        font-size: 23px;
+    }
+
+    .brand-copy strong {
+        font-size: 16px;
+        letter-spacing: 1.5px;
+    }
+
+    .brand-copy small {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .form-grid.two,
+    .form-grid.three,
+    .choice-row,
+    .extras-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .frequency-options {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .day-options {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .cleaner-card {
+        grid-template-columns: 45px 1fr;
+    }
+
+    .cleaner-avatar {
+        width: 43px;
+        height: 43px;
+    }
+
+    .cleaner-actions {
+        grid-column: 1 / -1;
+    }
+
+    .form-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+    }
+
+    .modal {
+        padding: 25px 18px;
+    }
+
+}
+
+
+/* =========================================
+   PILEE TECH GROUP — SHARED FOOTER
+========================================= */
+
+.site-footer {
+    background: #040D18;
+    color: #CBD5E1;
+    padding: 70px 0 35px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: "DM Sans", Arial, sans-serif;
+    width: 100%;
+}
+
+.footer-container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.3fr 1fr;
+    gap: 40px;
+    text-align: left;
+}
+
+/* COMPANY INFORMATION */
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-brand h3 {
+    color: #FFFFFF;
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin: 0 0 16px;
+}
+
+.footer-brand p {
+    color: #94A3B8;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0 0 6px;
+}
+
+/* FOOTER COLUMNS */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h4 {
+    color: #FFFFFF;
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.footer-line {
+    width: 38px;
+    height: 3px;
+    background: #08A9E8;
+    margin-top: 10px;
+    margin-bottom: 22px;
+}
+
+/* FOOTER LINKS */
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-column ul li a {
+    color: #CBD5E1;
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: color 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #08A9E8;
+}
+
+/* COPYRIGHT */
+
+.footer-bottom {
+    width: min(1200px, 90%);
+    margin: 55px auto 0;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #64748B;
+    font-size: 0.85rem;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 950px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-footer {
+        padding: 50px 0 25px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+    }
+}
+
+
+
+/* =========================================
+   NAVIGATION DROPDOWN
+========================================= */
+
+.nav-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown trigger */
+
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background: transparent;
+    border: none;
+
+    color: #061A2D;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    padding: 12px 10px;
+
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.dropdown-trigger:hover,
+.dropdown-trigger.active {
+    color: #08A9E8;
+}
+
+/* Dropdown arrow */
+
+.dropdown-arrow {
+    width: 8px;
+    height: 8px;
+
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+
+    transform: rotate(45deg);
+    margin-top: -4px;
+
+    transition: transform 0.3s ease;
+}
+
+/* Dropdown menu */
+
+.dropdown-menu {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    min-width: 220px;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    padding: 10px 0;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+
+    border: 1px solid #E2E8F0;
+
+    display: none;
+
+    z-index: 1000;
+}
+
+/* Dropdown links */
+
+.dropdown-menu a {
+    display: block;
+
+    padding: 12px 18px;
+
+    color: #102B49;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+.dropdown-menu a:hover {
+    background: #F0F8FC;
+    color: #08A9E8;
+    padding-left: 24px;
+}
+
+/* Show dropdown on hover and keyboard focus */
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(225deg);
+    margin-top: 4px;
+}
+
+/* Keep dropdown above other elements */
+
+.site-header {
+    position: relative;
+    z-index: 1000;
+}
+
+
+/* =========================================
+   CONSISTENT HEADER NAVIGATION STYLING
+========================================= */
+
+/* All navigation headings */
+.navigation > a,
+.navigation .dropdown-trigger {
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #102B49;
+
+    display: flex;
+    align-items: center;
+
+    padding: 9px 0;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+/* Consistent hover colour */
+.navigation > a:hover,
+.navigation .dropdown-trigger:hover,
+.navigation .dropdown-trigger.active {
+    color: #0879BD;
+}
+
+/* Consistent underline for Home and other normal links */
+.navigation > a:not(.nav-cta):not(.request-service) {
+    position: relative;
+}
+
+.navigation > a:not(.nav-cta):not(.request-service)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+
+    width: 0;
+    height: 2px;
+
+    background: #08A9E8;
+    transition: width 0.25s ease;
+}
+
+.navigation > a:not(.nav-cta):not(.request-service):hover::after {
+    width: 100%;
+}
+
+/* Dropdown headings */
+.dropdown-trigger {
+    gap: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Keep dropdown arrow consistent */
+.dropdown-arrow {
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+}
+
+/* Hide account elements when required */
+[hidden] {
+    display: none !important;
+}
+
+/* Login link */
+.login-link {
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.login-link:hover {
+    color: var(--blue2);
+}
+
+/* =========================================
+   HOME DROPDOWN — NAVY BLUE HOVER
+========================================= */
+
+/* Home dropdown button */
+.nav-dropdown .dropdown-trigger {
+    color: #061A2D !important;
+    background: transparent;
+}
+
+/* Prevent light-blue hover and active colour */
+.nav-dropdown .dropdown-trigger:hover,
+.nav-dropdown .dropdown-trigger:focus,
+.nav-dropdown .dropdown-trigger:active,
+.nav-dropdown .dropdown-trigger.active {
+    color: #061A2D !important;
+    background: transparent !important;
+}
+
+/* Dropdown arrow */
+.nav-dropdown .dropdown-trigger:hover .dropdown-arrow,
+.nav-dropdown .dropdown-trigger.active .dropdown-arrow {
+    border-color: #061A2D !important;
+}
+
+/* Dropdown menu links */
+.nav-dropdown .dropdown-menu a:hover {
+    color: #061A2D !important;
+    background: #F3F7FA !important;
+}

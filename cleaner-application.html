@@ -1,0 +1,964 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#061A2D">
+
+    <title>Cleaner Application | Pilee Tech Group</title>
+
+
+     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="cleaner-application.css">
+    <script src="cleaner-application.js" defer></script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <!-- PILEE TECH LOGO -->
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="Pilee Tech Group Logo">
+    </a>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="navigation" id="mainNavigation">
+
+    <!-- HOME DROPDOWN -->
+    <div class="nav-dropdown">
+
+        <button class="dropdown-trigger active"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="home-dropdown">
+
+            Home
+            <span class="dropdown-arrow"></span>
+
+        </button>
+
+        <div class="dropdown-menu" id="home-dropdown">
+            <a href="index.html#top">Homepage</a>
+            <a href="index.html#about">Who We Are</a>
+            <a href="index.html#values">Our Core Values</a>
+            <a href="index.html#why-us">Why Choose Us</a>
+            <a href="index.html#divisions">Business Divisions</a>
+            <a href="index.html#contact">Contact Section</a>
+        </div>
+
+    </div>
+
+
+    <!-- ABOUT US DROPDOWN -->
+    <div class="nav-dropdown">
+
+        <button class="dropdown-trigger"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="about-dropdown">
+
+            About Us
+            <span class="dropdown-arrow"></span>
+
+        </button>
+
+        <div class="dropdown-menu" id="about-dropdown">
+            <a href="AboutPage.html#who-we-are">Who We Are</a>
+            <a href="AboutPage.html#our-story">Our Story</a>
+            <a href="AboutPage.html#business-divisions">Business Divisions</a>
+            <a href="AboutPage.html#core-values">Our Core Values</a>
+            <a href="AboutPage.html#our-approach">Our Approach</a>
+            <a href="AboutPage.html#contact-section">Contact Section</a>
+        </div>
+
+    </div>
+        <a href="services.php">Pilee Cleaning Services</a>
+        <a href="projects.php">Other Divisions</a>
+        <a href="contact-us.php">Contact</a>
+        <a href="cleaning-partner-recruitment.html">Careers Page</a>
+
+        <a href="Request-service.html" class="request-service">
+            Book a  Cleaning Service
+        </a>
+
+    </nav>
+
+    
+
+   <!-- LOGIN LINK: Visible when logged out -->
+<a href="login.html" class="login-link" id="loginLink">
+    Login
+</a>
+
+<!-- PROFILE MENU: Visible when logged in -->
+<div class="profile-menu-container" id="profileMenuContainer" hidden>
+
+    <button class="profile-btn"
+            id="profileBtn"
+            type="button"
+            aria-label="Open customer profile menu"
+            aria-expanded="false"
+            aria-controls="profileDropdown">
+
+        <span class="profile-icon" aria-hidden="true"></span>
+    </button>
+
+    <div class="profile-dropdown" id="profileDropdown" hidden>
+
+        <div class="profile-dropdown-header">
+            <strong>My Account</strong>
+            <p>Welcome back!</p>
+        </div>
+
+        <a href="customer profile.html">👤 My Profile</a>
+        <a href="report-issue.html">🎧 My Support</a>
+        <a href="customer-booking-history-page.html">📋 Booking History</a>
+
+        <div class="profile-dropdown-divider"></div>
+
+        <a href="#" class="logout-link" id="logoutBtn">
+            ↪ Logout
+        </a>
+
+    </div>
+</div>
+
+    <!-- MOBILE MENU -->
+    <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+
+
+
+<main>
+
+    <!-- PAGE INTRODUCTION -->
+
+    <section class="page-intro">
+
+        <span class="eyebrow">CAREERS AT PILEE TECH GROUP</span>
+
+        <h1>Cleaner <span>Application</span></h1>
+
+        <p>
+            Join our professional cleaning team. Complete the application
+            form below to be considered for available opportunities.
+        </p>
+
+        <div class="intro-line">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </section>
+
+
+    <!-- APPLICATION FORM -->
+
+    <section class="application-card" id="application">
+
+        <form id="cleanerForm"
+              action="submit-cleaner-application.php"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <!-- 01 PERSONAL INFORMATION -->
+
+            <div class="card-heading">
+                <div class="heading-icon">01</div>
+
+                <div>
+                    <h2>Personal Information</h2>
+                    <p>Please provide your personal and contact details.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="firstName">First Name <span>*</span></label>
+                    <input type="text" id="firstName"
+                           name="first_name"
+                           placeholder="Enter your first name"
+                           autocomplete="given-name" required>
+                    <small class="field-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="surname">Surname <span>*</span></label>
+                    <input type="text" id="surname"
+                           name="surname"
+                           placeholder="Enter your surname"
+                           autocomplete="family-name" required>
+                    <small class="field-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Contact Number <span>*</span></label>
+                    <input type="tel" id="phone"
+                           name="phone"
+                           placeholder="e.g. 082 123 4567"
+                           autocomplete="tel" required>
+                    <small class="field-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address <span>*</span></label>
+                    <input type="email" id="email"
+                           name="email"
+                           placeholder="example@email.com"
+                           autocomplete="email" required>
+                    <small class="field-error"></small>
+                </div>
+
+            </div>
+
+
+            <!-- 02 RESIDENTIAL ADDRESS -->
+
+            <div class="section-divider"></div>
+
+            <div class="card-heading">
+                <div class="heading-icon">02</div>
+
+                <div>
+                    <h2>Residential Address</h2>
+                    <p>Provide your current physical residential address.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group full-width">
+                    <label for="address">Physical Address <span>*</span></label>
+                    <input type="text" id="address"
+                           name="address"
+                           placeholder="House number, street name and suburb"
+                           autocomplete="street-address" required>
+                    <small class="help-text">
+                        Include your house or unit number, street name and suburb.
+                    </small>
+                    <small class="field-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="province">Province <span>*</span></label>
+
+                    <select id="province" name="province" required>
+                        <option value="">Select a Province</option>
+                        <option>Eastern Cape</option>
+                        <option>Free State</option>
+                        <option>Gauteng</option>
+                        <option>KwaZulu-Natal</option>
+                        <option>Limpopo</option>
+                        <option>Mpumalanga</option>
+                        <option>Northern Cape</option>
+                        <option>North West</option>
+                        <option>Western Cape</option>
+                    </select>
+
+                    <small class="field-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City / Town <span>*</span></label>
+                    <input type="text" id="city"
+                           name="city"
+                           placeholder="Enter your city or town"
+                           autocomplete="address-level2" required>
+                    <small class="field-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="postalCode">Postal Code <span>*</span></label>
+                    <input type="text" id="postalCode"
+                           name="postal_code"
+                           placeholder="e.g. 1685"
+                           inputmode="numeric"
+                           maxlength="4"
+                           pattern="[0-9]{4}"
+                           required>
+                    <small class="help-text">
+                        Enter your four-digit South African postal code.
+                    </small>
+                    <small class="field-error"></small>
+                </div>
+
+            </div>
+
+
+            <!-- 03 IDENTITY VERIFICATION -->
+
+            <div class="section-divider"></div>
+
+            <div class="card-heading">
+                <div class="heading-icon">03</div>
+
+                <div>
+                    <h2>Identity Verification</h2>
+                    <p>Select your document type and enter its number.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="documentType">
+                    Type of Identity Document <span>*</span>
+                </label>
+
+                <select id="documentType" name="document_type" required>
+                    <option value="">Choose an identity document</option>
+                    <option value="sa_id">South African ID</option>
+                    <option value="passport">Passport</option>
+                </select>
+
+                <small class="field-error"></small>
+            </div>
+
+            <div class="form-group identity-number-group">
+                <label for="identityNumber" id="identityLabel">
+                    Identity Document Number <span>*</span>
+                </label>
+
+                <input type="text"
+                       id="identityNumber"
+                       name="identity_number"
+                       placeholder="Select your document type first"
+                       autocomplete="off"
+                       disabled required>
+
+                <small class="help-text" id="identityHelp">
+                    Select South African ID or Passport above.
+                </small>
+
+                <small class="field-error"></small>
+            </div>
+
+
+            <!-- 04 PROFESSIONAL PHOTOGRAPH -->
+
+            <div class="section-divider"></div>
+
+            <div class="card-heading">
+                <div class="heading-icon">04</div>
+
+                <div>
+                    <h2>Professional Applicant Photograph</h2>
+                    <p>Provide a professional photograph for your application.</p>
+                </div>
+            </div>
+
+            <div class="document-notice">
+                <span class="notice-icon">i</span>
+
+                <div>
+                    <strong>Professional Photograph Required</strong>
+                    <p>
+                        Upload a clear photograph with good lighting,
+                        a simple background and your face clearly visible.
+                    </p>
+                </div>
+            </div>
+
+            <div class="photo-panel">
+
+                <div class="photo-preview" id="photoPreview">
+
+                    <div class="photo-placeholder" id="photoPlaceholder">
+                        <div class="camera-icon">◎</div>
+                        <strong>Your photograph will appear here</strong>
+                        <p>Upload a professional photograph.</p>
+                    </div>
+
+                    <img id="photoImage"
+                         alt="Applicant photograph preview"
+                         hidden>
+
+                    <button type="button"
+                            id="removePhoto"
+                            class="remove-photo"
+                            hidden>×</button>
+                </div>
+
+                <div class="photo-controls">
+                    <h3>Upload Your Professional Photograph</h3>
+
+                    <p>
+                        Select a picture from your device or use your camera.
+                    </p>
+
+                    <label class="secondary-button upload-button"
+                           for="photoInput">
+                        ↑ Upload Photograph
+                    </label>
+
+                    <input type="file"
+                           id="photoInput"
+                           name="applicant_photo"
+                           accept="image/jpeg,image/png,image/webp"
+                           hidden>
+
+                    <button type="button"
+                            id="openCamera"
+                            class="secondary-button">
+                        ◎ Take a Photograph
+                    </button>
+
+                    <small class="help-text">
+                        JPG, PNG or WebP. Maximum 5 MB.
+                    </small>
+
+                    <small class="field-error" id="photoError"></small>
+                </div>
+
+            </div>
+
+            <div class="camera-panel" id="cameraPanel" hidden>
+
+                <div class="camera-heading">
+                    <div>
+                        <h3>Take Your Professional Photograph</h3>
+                        <p>Position yourself in the centre of the frame.</p>
+                    </div>
+
+                    <button type="button"
+                            id="closeCamera"
+                            class="close-camera">×</button>
+                </div>
+
+                <video id="cameraVideo"
+                       autoplay playsinline muted></video>
+
+                <canvas id="cameraCanvas" hidden></canvas>
+
+                <p id="cameraStatus" role="status">
+                    Preparing camera...
+                </p>
+
+                <button type="button"
+                        id="capturePhoto"
+                        class="primary-button" disabled>
+                    Capture Photograph
+                </button>
+            </div>
+
+
+            <!-- 05 SUPPORTING DOCUMENTS -->
+
+            <div class="section-divider"></div>
+
+            <div class="card-heading">
+                <div class="heading-icon">05</div>
+
+                <div>
+                    <h2>Supporting Documents</h2>
+                    <p>Upload the documents required to process your application.</p>
+                </div>
+            </div>
+
+            <div class="document-notice">
+                <span class="notice-icon">i</span>
+                <div>
+                    <strong>Documents required</strong>
+                    <p>
+                        Accepted formats: PDF, JPG, PNG and WebP.
+                        Maximum file size: 5 MB per file.
+                    </p>
+                </div>
+            </div>
+
+            <div class="document-grid">
+
+                <div class="document-card">
+                    <div class="document-icon">CV</div>
+
+                    <div class="document-info">
+                        <label for="cv">
+                            Curriculum Vitae (CV) <span class="required">*</span>
+                        </label>
+                        <p>Upload your latest CV or resume.</p>
+                    </div>
+
+                    <label class="file-picker" for="cv">Choose File</label>
+
+                    <input type="file" id="cv" name="cv"
+                           accept=".pdf,.jpg,.jpeg,.png,.webp"
+                           required>
+
+                    <span class="file-name" id="cvName">
+                        No file selected
+                    </span>
+                    <small class="field-error" id="cvError"></small>
+                </div>
+
+                <div class="document-card">
+                    <div class="document-icon">ID</div>
+
+                    <div class="document-info">
+                        <label for="certifiedIdentity">
+                            Certified ID / Passport <span class="required">*</span>
+                        </label>
+                        <p>Upload a certified copy of your identity document.</p>
+                    </div>
+
+                    <label class="file-picker" for="certifiedIdentity">
+                        Choose File
+                    </label>
+
+                    <input type="file" id="certifiedIdentity"
+                           name="certified_identity"
+                           accept=".pdf,.jpg,.jpeg,.png,.webp"
+                           required>
+
+                    <span class="file-name" id="certifiedIdentityName">
+                        No file selected
+                    </span>
+                    <small class="field-error" id="certifiedIdentityError"></small>
+                </div>
+
+                <div class="document-card">
+                    <div class="document-icon">POA</div>
+
+                    <div class="document-info">
+                        <label for="proofOfAddress">
+                            Certified Proof of Address <span class="required">*</span>
+                        </label>
+                        <p>Upload certified proof of your residential address.</p>
+                    </div>
+
+                    <label class="file-picker" for="proofOfAddress">
+                        Choose File
+                    </label>
+
+                    <input type="file" id="proofOfAddress"
+                           name="proof_of_address"
+                           accept=".pdf,.jpg,.jpeg,.png,.webp"
+                           required>
+
+                    <span class="file-name" id="proofOfAddressName">
+                        No file selected
+                    </span>
+                    <small class="field-error" id="proofOfAddressError"></small>
+                </div>
+
+                <div class="document-card">
+                    <div class="document-icon">CERT</div>
+
+                    <div class="document-info">
+                        <label for="certificates">
+                            Certificates <span class="optional">(Optional)</span>
+                        </label>
+                        <p>Cleaning certificates and qualifications.</p>
+                    </div>
+
+                    <label class="file-picker" for="certificates">
+                        Choose Files
+                    </label>
+
+                    <input type="file" id="certificates"
+                           name="certificates[]"
+                           accept=".pdf,.jpg,.jpeg,.png,.webp"
+                           multiple>
+
+                    <span class="file-name" id="certificatesName">
+                        No files selected
+                    </span>
+                    <small class="field-error" id="certificatesError"></small>
+                </div>
+
+                <div class="document-card full-width">
+                    <div class="document-icon">+</div>
+
+                    <div class="document-info">
+                        <label for="otherDocuments">
+                            Other Supporting Documents
+                            <span class="optional">(Optional)</span>
+                        </label>
+                        <p>References and additional relevant documents.</p>
+                    </div>
+
+                    <label class="file-picker" for="otherDocuments">
+                        Choose Files
+                    </label>
+
+                    <input type="file" id="otherDocuments"
+                           name="other_documents[]"
+                           accept=".pdf,.jpg,.jpeg,.png,.webp"
+                           multiple>
+
+                    <span class="file-name" id="otherDocumentsName">
+                        No files selected
+                    </span>
+                    <small class="field-error" id="otherDocumentsError"></small>
+                </div>
+
+            </div>
+
+
+            <!-- 06 EMPLOYMENT INFORMATION -->
+
+            <div class="section-divider"></div>
+
+            <div class="card-heading">
+                <div class="heading-icon">06</div>
+
+                <div>
+                    <h2>Employment Information</h2>
+                    <p>Tell us about your experience, skills and availability.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="experience">
+                        Cleaning Experience <span>*</span>
+                    </label>
+
+                    <select id="experience" name="experience" required>
+                        <option value="">Select experience</option>
+                        <option value="none">No formal experience</option>
+                        <option value="under_1">Less than 1 year</option>
+                        <option value="1_3">1–3 years</option>
+                        <option value="over_3">More than 3 years</option>
+                    </select>
+
+                    <small class="field-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="availability">
+                        Availability <span>*</span>
+                    </label>
+
+                    <select id="availability" name="availability" required>
+                        <option value="">Select availability</option>
+                        <option value="full_time">Full-time</option>
+                        <option value="part_time">Part-time</option>
+                        <option value="weekends">Weekends</option>
+                        <option value="flexible">Flexible</option>
+                    </select>
+
+                    <small class="field-error"></small>
+                </div>
+
+            </div>
+
+
+            <!-- CLEANING SKILLS -->
+
+            <div class="skills-section">
+
+                <div class="skills-heading">
+                    <h3>What cleaning services are you skilled in?</h3>
+                    <p>
+                        Select all the cleaning services you have experience
+                        in or are confident performing.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <label class="skill-option">
+                        <input type="checkbox" name="skills[]"
+                               value="Indoor Cleaning">
+                        <span class="skill-check"></span>
+                        <span>Indoor Cleaning</span>
+                    </label>
+
+                    <label class="skill-option">
+                        <input type="checkbox" name="skills[]"
+                               value="Deep House Cleaning">
+                        <span class="skill-check"></span>
+                        <span>Deep House Cleaning</span>
+                    </label>
+
+                    <label class="skill-option">
+                        <input type="checkbox" name="skills[]"
+                               value="Apartment Cleaning">
+                        <span class="skill-check"></span>
+                        <span>Apartment Cleaning</span>
+                    </label>
+
+                    <label class="skill-option">
+                        <input type="checkbox" name="skills[]"
+                               value="Office Cleaning">
+                        <span class="skill-check"></span>
+                        <span>Office Cleaning</span>
+                    </label>
+
+                    <label class="skill-option">
+                        <input type="checkbox" name="skills[]"
+                               value="Move-In Cleaning">
+                        <span class="skill-check"></span>
+                        <span>Move-In Cleaning</span>
+                    </label>
+
+                    <label class="skill-option">
+                        <input type="checkbox" name="skills[]"
+                               value="Move-Out Cleaning">
+                        <span class="skill-check"></span>
+                        <span>Move-Out Cleaning</span>
+                    </label>
+
+                    <label class="skill-option">
+                        <input type="checkbox" name="skills[]"
+                               value="Outdoor Cleaning">
+                        <span class="skill-check"></span>
+                        <span>Outdoor Cleaning</span>
+                    </label>
+
+                    <label class="skill-option">
+                        <input type="checkbox" name="skills[]"
+                               value="Laundry Services">
+                        <span class="skill-check"></span>
+                        <span>Laundry Services</span>
+                    </label>
+
+                    <label class="skill-option">
+                        <input type="checkbox" name="skills[]"
+                               value="Car Wash">
+                        <span class="skill-check"></span>
+                        <span>Car Wash</span>
+                    </label>
+
+                    <label class="skill-option">
+                        <input type="checkbox" name="skills[]"
+                               value="Airbnb Cleaning">
+                        <span class="skill-check"></span>
+                        <span>Airbnb Cleaning</span>
+                    </label>
+
+                </div>
+
+
+
+
+                    <div class="other-skill-input"
+                         id="otherSkillInput"
+                         hidden>
+
+                        <label for="otherSkills">
+                            Please describe your other skills or experience.
+                        </label>
+
+                        <textarea id="otherSkills"
+                                  name="other_skills"
+                                  rows="3"
+                                  placeholder="Describe any additional cleaning experience, skills or training..."></textarea>
+
+                    </div>
+
+                </div>
+
+                <small class="help-text">
+                    You can select multiple skills. Select Other to provide
+                    additional information.
+                </small>
+
+            </div>
+
+
+            <!-- 07 DECLARATION -->
+
+            <div class="section-divider"></div>
+
+            <div class="card-heading">
+                <div class="heading-icon">07</div>
+
+                <div>
+                    <h2>Applicant Declaration</h2>
+                    <p>Please confirm the accuracy of your application.</p>
+                </div>
+            </div>
+
+            <div class="declaration">
+
+                <label class="checkbox-label">
+                    <input type="checkbox"
+                           id="declaration"
+                           name="declaration"
+                           value="1" required>
+
+                    <span>
+                        I confirm that the information provided is accurate
+                        and understand that submitting this application does
+                        not guarantee employment. <span>*</span>
+                    </span>
+                </label>
+
+                <small class="field-error" id="declarationError"></small>
+
+            </div>
+
+
+            <!-- APPLICATION SUCCESS MESSAGE -->
+
+            <div class="application-success"
+                 id="applicationSuccess"
+                 role="status"
+                 aria-live="polite"
+                 hidden>
+
+                <div class="success-icon">✓</div>
+
+                <div>
+                    <strong>Application Submitted Successfully!</strong>
+
+                    <p>
+                        Thank you for applying to Pilee Tech Group.
+                        Your application has been received.
+                        Our recruitment team will review your details.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- APPLICATION ERROR -->
+
+            <div class="form-message"
+                 id="formMessage"
+                 role="alert"
+                 aria-live="assertive"></div>
+
+
+            <!-- FORM ACTIONS -->
+
+            <div class="form-actions">
+
+                <button type="reset" class="reset-button">
+                    Clear Form
+                </button>
+
+                <button type="submit"
+        class="primary-button"
+        id="submitButton">
+
+            <span id="submitText">Submit Application</span>
+        <span aria-hidden="true">→</span>
+
+        </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+</main>
+
+    
+<!-- ================= PILEE TECH GROUP FOOTER ================= -->
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+        <!-- COMPANY INFORMATION -->
+        <div class="footer-brand">
+
+            <h3>Pilee Tech Group</h3>
+
+            <p>Technology. Cleaning. Logistics.</p>
+            <p>Excellence Delivered.</p>
+
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-column">
+
+            <h4>Quick Links</h4>
+            <span class="footer-line"></span>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="AboutPage.html">About Us</a></li>
+                <li><a href="services.php">Services</a></li>
+                <li><a href="projects.php">Projects</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
+               
+                <li><a href="cleaning-partner-recruitment.html">Careers Page</a></li>
+            </ul>
+
+        </div>
+
+        <!-- BUSINESS DIVISIONS -->
+        <div class="footer-column">
+
+            <h4>Business Divisions</h4>
+            <span class="footer-line"></span>
+
+            <ul>
+                <li><a href="tech-projects.php">Technology Solutions</a></li>
+                <li><a href="cleaning-projects.php">Professional Cleaning</a></li>
+                <li><a href="logistics-projects.php">Logistics &amp; Transport</a></li>
+            </ul>
+
+        </div>
+
+        <!-- SOCIAL MEDIA -->
+        <div class="footer-column">
+
+            <h4>Follow Us</h4>
+            <span class="footer-line"></span>
+
+            <ul>
+                <li>
+                    <a href="https://www.facebook.com/share/1LMzQFZyqJ/"
+                       target="_blank" rel="noopener noreferrer">
+                        Facebook
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.linkedin.com/in/pilee-tech-group-5b0611444?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android"
+                       target="_blank" rel="noopener noreferrer">
+                        LinkedIn
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.instagram.com/pilee_tech_group?psln=MW04ZHkyZ2gwYWU1eA%3D%3D&amp;utm_source=qr"
+                       target="_blank" rel="noopener noreferrer">
+                        Instagram
+                    </a>
+                </li>
+
+                <li><a href="https://x.com/PILEETECHGROUP" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="footer-bottom">
+
+        <p>
+            &copy; 2026 Pilee Tech Group. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="header.js"></script>
+</body>
+</html>

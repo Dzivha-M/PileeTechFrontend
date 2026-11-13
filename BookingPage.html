@@ -1,0 +1,1274 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Submit a professional cleaning request to Pilee Tech Group.">
+
+    <title>Cleaning Request | Pilee Tech Group</title>
+
+    <style>
+        :root {
+            --navy: #061a2d;
+            --navy-light: #092844;
+            --blue: #08a9e8;
+            --blue-dark: #0879bd;
+            --ink: #102b49;
+            --muted: #5d7084;
+            --page-bg: #f3f7fa;
+            --white: #ffffff;
+            --line: #dce6ee;
+            --shadow: 0 18px 45px rgba(6, 26, 45, 0.10);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--white);
+            color: var(--ink);
+            line-height: 1.75;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button, a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* HEADER */
+
+        .site-header {
+            width: 100%;
+            min-height: 82px;
+            padding: 8px 4%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            background: #fff;
+            border-bottom: 1px solid var(--line);
+            box-shadow: 0 3px 18px rgba(6, 26, 45, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            min-width: 245px;
+            flex-shrink: 0;
+        }
+
+        .brand-mark {
+            position: relative;
+            width: 49px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            color: var(--navy);
+            font-size: 45px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .brand-mark span {
+            position: relative;
+            z-index: 2;
+            font-style: italic;
+            transform: scaleX(1.1);
+        }
+
+        .brand-mark i {
+            position: absolute;
+            width: 48px;
+            height: 19px;
+            border: 5px solid var(--blue);
+            border-right-color: transparent;
+            border-radius: 50%;
+            left: -5px;
+            top: 17px;
+            transform: rotate(-14deg);
+        }
+
+        .brand-copy {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.05;
+            letter-spacing: 2px;
+        }
+
+        .brand-copy strong {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 2.8px;
+        }
+
+        .brand-copy b {
+            font-size: 11px;
+            letter-spacing: 4px;
+            margin-top: 4px;
+        }
+
+        .brand-copy small {
+            font-size: 9px;
+            letter-spacing: 0.3px;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: clamp(12px, 1.5vw, 20px);
+            flex: 1;
+            margin-left: auto;
+            margin-right: 10px;
+            white-space: nowrap;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .navigation > a:not(.nav-cta) {
+            position: relative;
+            padding: 9px 0;
+            color: var(--ink);
+            transition: var(--transition);
+        }
+
+        .navigation > a:not(.nav-cta):hover,
+        .navigation > a.active {
+            color: var(--blue-dark);
+        }
+
+        .navigation > a:not(.nav-cta)::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 2px;
+            width: 0;
+            height: 2px;
+            background: var(--blue);
+            transition: width 0.25s ease;
+        }
+
+        .navigation > a:not(.nav-cta):hover::after,
+        .navigation > a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 11px 15px;
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            background: var(--blue-dark);
+            transform: translateY(-2px);
+        }
+
+        .nav-cta span {
+            color: #35c2fa;
+        }
+
+        /* PROFILE DROPDOWN */
+
+        .profile-menu-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            z-index: 2000;
+        }
+
+        .profile-btn {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--navy);
+            color: #fff;
+            border: 2px solid var(--navy);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .profile-btn:hover,
+        .profile-btn[aria-expanded="true"] {
+            background: var(--blue);
+            border-color: var(--blue);
+        }
+
+        .profile-icon {
+            position: relative;
+            display: block;
+            width: 20px;
+            height: 22px;
+        }
+
+        .profile-icon::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 6.5px;
+            width: 7px;
+            height: 7px;
+            border: 2px solid currentColor;
+            border-radius: 50%;
+        }
+
+        .profile-icon::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 2.5px;
+            width: 15px;
+            height: 8px;
+            border: 2px solid currentColor;
+            border-bottom: 0;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .profile-dropdown {
+            position: absolute;
+            top: calc(100% + 12px);
+            right: 0;
+            width: 245px;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(6, 26, 45, 0.16);
+            z-index: 9999;
+        }
+
+        .profile-dropdown[hidden] {
+            display: none !important;
+        }
+
+        .profile-dropdown-header {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            padding: 13px 12px 15px;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 7px;
+        }
+
+        .profile-dropdown-header strong {
+            color: var(--navy);
+            font-size: 15px;
+        }
+
+        .profile-dropdown-header p {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .profile-dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            padding: 11px 12px;
+            color: var(--ink);
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .profile-dropdown a:hover {
+            background: #edf8fd;
+            color: var(--blue-dark);
+            transform: translateX(3px);
+        }
+
+        .profile-dropdown a span {
+            width: 20px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .profile-dropdown-divider {
+            height: 1px;
+            background: var(--line);
+            margin: 7px 0;
+        }
+
+        .profile-dropdown a.logout-link {
+            color: #dc3545;
+        }
+
+        .profile-dropdown a.logout-link:hover {
+            background: #fff1f1;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 0;
+            cursor: pointer;
+        }
+
+        /* PAGE HERO */
+
+        .page-hero {
+            position: relative;
+            isolation: isolate;
+            padding: 75px 5%;
+            overflow: hidden;
+            text-align: center;
+            background:
+                radial-gradient(circle at 85% 30%, rgba(8,139,197,0.2), transparent 35%),
+                linear-gradient(120deg, var(--navy), var(--navy-light));
+        }
+
+        .page-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 45px 45px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 14px;
+            color: #35c2fa;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .page-hero h1 {
+            color: #fff;
+            font-size: clamp(34px, 5vw, 52px);
+            line-height: 1.2;
+            letter-spacing: -1.2px;
+            margin-bottom: 15px;
+        }
+
+        .page-hero h1 span {
+            color: var(--blue);
+        }
+
+        .page-hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #c2cfdd;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        /* FORM SECTION */
+
+        .form-section {
+            width: min(1050px, 90%);
+            margin: 75px auto 100px;
+            padding: 45px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 9px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-heading {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .form-heading h2 {
+            margin-bottom: 8px;
+            color: var(--navy);
+            font-size: 27px;
+            line-height: 1.3;
+        }
+
+        .form-heading p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        #cleaningRequestForm {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            column-gap: 25px;
+            row-gap: 23px;
+            align-items: start;
+        }
+
+        #cleaningRequestForm h2 {
+            grid-column: 1 / -1;
+            margin: 22px 0 0;
+            padding: 0 0 11px 14px;
+            border-left: 4px solid var(--blue);
+            border-bottom: 1px solid var(--line);
+            color: var(--navy);
+            font-size: 19px;
+            line-height: 1.4;
+        }
+
+        #cleaningRequestForm h2:first-child {
+            margin-top: 0;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .input-group label {
+            color: var(--navy);
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .input-group input:not([type="checkbox"]),
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            min-width: 0;
+            min-height: 49px;
+            padding: 12px 14px;
+            border: 1px solid #cbd7e2;
+            border-radius: 5px;
+            background: #fff;
+            color: var(--ink);
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .input-group textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(8,169,232,0.14);
+        }
+
+        .input-group input[type="file"] {
+            padding: 10px;
+            background: var(--page-bg);
+            cursor: pointer;
+        }
+
+        .hint {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .form-error {
+            display: block;
+            min-height: 0;
+            color: #c62828;
+            font-size: 12px;
+        }
+
+        .form-row {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* ADDRESS VERIFICATION */
+
+        .address-toggle {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 7px;
+            background: var(--page-bg);
+        }
+
+        .address-toggle-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .address-toggle-text label {
+            color: var(--navy);
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .address-toggle-text p {
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            flex-shrink: 0;
+            width: 48px;
+            height: 26px;
+        }
+
+        .toggle-switch input {
+            position: absolute;
+            opacity: 0;
+            width: 1px;
+            height: 1px;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            inset: 0;
+            background: #b9c5d0;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .toggle-slider::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 3px;
+            left: 3px;
+            background: #fff;
+            border-radius: 50%;
+            transition: 0.3s ease;
+        }
+
+        .toggle-switch input:checked + .toggle-slider {
+            background: var(--blue-dark);
+        }
+
+        .toggle-switch input:checked + .toggle-slider::before {
+            transform: translateX(22px);
+        }
+
+        .toggle-switch input:focus-visible + .toggle-slider {
+            outline: 3px solid var(--blue);
+            outline-offset: 3px;
+        }
+
+        .address-message {
+            grid-column: 1 / -1;
+            padding: 17px;
+            border: 1px solid #b7dfc8;
+            border-radius: 7px;
+            background: #f0faf4;
+            color: #245b3e;
+        }
+
+        .address-message p {
+            margin-top: 6px;
+            font-size: 13px;
+        }
+
+        #manualAddressFields {
+            display: contents;
+        }
+
+        /* SUBMIT AND FEEDBACK */
+
+        .register-button {
+            grid-column: 1 / -1;
+            justify-self: end;
+            min-height: 49px;
+            padding: 14px 25px;
+            border: 1px solid var(--navy);
+            border-radius: 5px;
+            background: var(--navy);
+            color: #fff;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .register-button:hover {
+            background: var(--blue-dark);
+            border-color: var(--blue-dark);
+            box-shadow: 0 5px 16px rgba(8,121,189,0.2);
+            transform: translateY(-2px);
+        }
+
+        .success-message {
+            grid-column: 1 / -1;
+            padding: 16px;
+            border: 1px solid #b7dfc8;
+            border-radius: 7px;
+            background: #f0faf4;
+            color: #245b3e;
+            font-size: 14px;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        /* FOOTER */
+
+        .site-footer {
+            padding: 65px 0 0;
+            background: #040e19;
+            color: #c0cbd6;
+            border-top: 1px solid rgba(8,169,232,0.35);
+        }
+
+        .footer-container {
+            width: min(1180px, 90%);
+            margin: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.8fr 1.15fr 0.75fr;
+            gap: 38px;
+            padding-bottom: 45px;
+        }
+
+        .footer-brand h3 {
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 17px;
+        }
+
+        .footer-logo-text {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 25px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .footer-logo-text span {
+            color: var(--blue);
+        }
+
+        .footer-tagline {
+            max-width: 240px;
+            color: #9caebe;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .footer-column h3 {
+            position: relative;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 35px;
+            height: 2px;
+            background: var(--blue);
+        }
+
+        .footer-column ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .footer-column a {
+            display: inline-block;
+            color: #aebdca;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: #35c2fa;
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
+            padding: 22px 0;
+            border-top: 1px solid rgba(255,255,255,0.09);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: #8293a3;
+            font-size: 11px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1000px) {
+            .site-header {
+                padding: 8px 2%;
+                gap: 10px;
+            }
+
+            .brand {
+                min-width: auto;
+            }
+
+            .navigation {
+                gap: 10px;
+                font-size: 11px;
+            }
+
+            .nav-cta {
+                padding: 9px 10px;
+                font-size: 10px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 650px) {
+            .site-header {
+                min-height: 75px;
+                height: auto;
+                padding: 10px 5%;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .brand {
+                min-width: 0;
+                margin-right: auto;
+            }
+
+            .brand-mark {
+                font-size: 36px;
+                width: 40px;
+                height: 42px;
+            }
+
+            .brand-copy strong {
+                font-size: 19px;
+            }
+
+            .brand-copy b {
+                font-size: 9px;
+            }
+
+            .brand-copy small {
+                font-size: 8px;
+            }
+
+            .profile-menu-container {
+                order: 2;
+            }
+
+            .menu-toggle {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 5px;
+                order: 3;
+            }
+
+            .menu-toggle span {
+                width: 24px;
+                height: 2px;
+                background: var(--navy);
+            }
+
+            .navigation {
+                display: none;
+                order: 4;
+                flex: 0 0 100%;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+                margin: 0;
+                padding: 15px 0;
+            }
+
+            .navigation.open {
+                display: flex;
+            }
+
+            .navigation > a {
+                padding: 10px;
+            }
+
+            .navigation .nav-cta {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .profile-dropdown {
+                width: 230px;
+            }
+
+            .page-hero {
+                padding: 60px 6%;
+            }
+
+            .page-hero h1 {
+                font-size: 36px;
+            }
+
+            .form-section {
+                width: calc(100% - 28px);
+                margin: 35px auto 65px;
+                padding: 25px 18px;
+            }
+
+            #cleaningRequestForm {
+                grid-template-columns: minmax(0, 1fr);
+                row-gap: 18px;
+            }
+
+            #cleaningRequestForm > *,
+            #cleaningRequestForm h2,
+            .address-toggle,
+            .address-message,
+            .form-row,
+            .register-button,
+            .success-message {
+                grid-column: 1 / -1;
+            }
+
+            .form-row {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 18px;
+            }
+
+            #cleaningRequestForm h2 {
+                font-size: 18px;
+            }
+
+            .register-button {
+                width: 100%;
+                justify-self: stretch;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 35px 22px;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-brand {
+                grid-column: auto;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header" id="top">
+    <a class="brand" href="index.html" aria-label="Pilee Tech Group home">
+        <span class="brand-mark" aria-hidden="true"><span>P</span><i></i></span>
+        <span class="brand-copy">
+            <strong>PILEE</strong>
+            <b>TECH GROUP</b>
+            <small>Technology · Cleaning · Logistics</small>
+        </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" type="button"
+            aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+
+    <nav class="navigation" id="mainNavigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="AboutPage.html">About Us</a>
+        <a href="services.php">Services</a>
+        <a href="projects.php">Projects</a>
+        <a href="contact.php">Contact Us</a>
+    </nav>
+
+    <div class="profile-menu-container">
+        <button class="profile-btn" id="profileBtn" type="button"
+                aria-label="Open customer profile menu"
+                aria-expanded="false" aria-controls="profileDropdown">
+            <span class="profile-icon" aria-hidden="true"></span>
+        </button>
+
+        <div class="profile-dropdown" id="profileDropdown" hidden>
+            <div class="profile-dropdown-header">
+                <strong>My Account</strong>
+                <p>Welcome back!</p>
+            </div>
+
+            <a href="customer-profile.html"><span>👤</span> My Profile</a>
+            <a href="report-issue.html"><span>🎧</span> My Support</a>
+            <a href="booking-history.php"><span>📋</span> Booking History</a>
+            <a href="ratings.html"><span>⭐</span> Ratings</a>
+            <div class="profile-dropdown-divider"></div>
+            <a href="login.html" class="logout-link"><span>↪</span> Logout</a>
+        </div>
+    </div>
+</header>
+
+<main>
+
+    <section class="page-hero">
+        <span class="eyebrow">PROFESSIONAL CLEANING SERVICES</span>
+        <h1>Cleaning <span>Request</span></h1>
+        <p>
+            Tell us about your property and cleaning requirements.
+            Our team will use these details to understand your needs
+            and prepare your service request.
+        </p>
+    </section>
+
+    <section class="form-section">
+
+        <div class="form-heading">
+            <span class="eyebrow">SERVICE BOOKING</span>
+            <h2>Cleaning Request Form</h2>
+            <p>Please complete the required information below. Fields marked with * are required.</p>
+        </div>
+
+        <form id="cleaningRequestForm" action="#" method="post"
+              enctype="multipart/form-data">
+
+            <h2>01. Service Details</h2>
+
+            <div class="input-group full-width">
+                <label for="serviceType">Service Type *</label>
+                <select id="serviceType" name="serviceType" required>
+                    <option value="">Select a cleaning service</option>
+                    <option value="Cleaning Projects">Cleaning Projects</option>
+                    <option value="Office Cleaning Contracts">Office Cleaning Contracts</option>
+                    <option value="Shopping Centre Cleaning">Shopping Centre Cleaning</option>
+                    <option value="Healthcare Facility Cleaning">Healthcare Facility Cleaning</option>
+                    <option value="Educational Institutions">Educational Institutions</option>
+                    <option value="Residential Estates">Residential Estates</option>
+                </select>
+                <small id="serviceTypeError" class="form-error"></small>
+            </div>
+
+            <h2>02. Property Address</h2>
+
+            <div class="address-toggle">
+                <div class="address-toggle-text">
+                    <label for="useRegisteredAddress">Use my registered address</label>
+                    <p>Select this option if the cleaning property is at the address saved to your account.</p>
+                </div>
+
+                <label class="toggle-switch">
+                    <input type="checkbox" id="useRegisteredAddress"
+                           name="useRegisteredAddress">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div id="registeredAddressMessage" class="address-message" hidden>
+                <strong>Registered address selected</strong>
+                <p id="registeredAddressText">
+                    Your registered address will be used after it has been retrieved from your account.
+                </p>
+            </div>
+
+            <div id="manualAddressFields">
+
+                <div class="input-group full-width">
+                    <label for="propertyAddress">Property Address *</label>
+                    <textarea id="propertyAddress" name="propertyAddress"
+                              rows="3" placeholder="Enter the street address and property number"
+                              required></textarea>
+                    <small id="propertyAddressError" class="form-error"></small>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="propertyCity">City *</label>
+                        <input type="text" id="propertyCity" name="propertyCity"
+                               placeholder="Enter city" required>
+                        <small id="propertyCityError" class="form-error"></small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="propertyProvince">Province *</label>
+                        <select id="propertyProvince" name="propertyProvince" required>
+                            <option value="">Select province</option>
+                            <option value="Eastern Cape">Eastern Cape</option>
+                            <option value="Free State">Free State</option>
+                            <option value="Gauteng">Gauteng</option>
+                            <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                            <option value="Limpopo">Limpopo</option>
+                            <option value="Mpumalanga">Mpumalanga</option>
+                            <option value="Northern Cape">Northern Cape</option>
+                            <option value="North West">North West</option>
+                            <option value="Western Cape">Western Cape</option>
+                        </select>
+                        <small id="propertyProvinceError" class="form-error"></small>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="propertyPostalCode">Postal Code *</label>
+                    <input type="text" id="propertyPostalCode"
+                           name="propertyPostalCode" inputmode="numeric"
+                           maxlength="4" placeholder="e.g. 1685" required>
+                    <small id="propertyPostalCodeError" class="form-error"></small>
+                </div>
+
+            </div>
+
+            <h2>03. Cleaning Schedule</h2>
+
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="cleaningDate">Cleaning Date *</label>
+                    <input type="date" id="cleaningDate" name="cleaningDate" required>
+                    <small id="cleaningDateError" class="form-error"></small>
+                </div>
+
+                <div class="input-group">
+                    <label for="preferredTime">Preferred Time *</label>
+                    <select id="preferredTime" name="preferredTime" required>
+                        <option value="">Select a time</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                    </select>
+                    <small id="preferredTimeError" class="form-error"></small>
+                </div>
+            </div>
+
+            <h2>04. Property Details</h2>
+
+            <div class="input-group">
+                <label for="propertyType">Property Type *</label>
+                <select id="propertyType" name="propertyType" required>
+                    <option value="">Select property type</option>
+                    <option value="House">House</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Office">Office</option>
+                </select>
+                <small id="propertyTypeError" class="form-error"></small>
+            </div>
+
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="bedrooms">Number of Bedrooms *</label>
+                    <select id="bedrooms" name="bedrooms" required>
+                        <option value="">Select bedrooms</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="10+">More than 10</option>
+                        <option value="NA">Not applicable</option>
+                    </select>
+                    <small id="bedroomsError" class="form-error"></small>
+                </div>
+
+                <div class="input-group">
+                    <label for="bathrooms">Number of Bathrooms *</label>
+                    <select id="bathrooms" name="bathrooms" required>
+                        <option value="">Select bathrooms</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="10+">More than 10</option>
+                        <option value="NA">Not applicable</option>
+                    </select>
+                    <small id="bathroomsError" class="form-error"></small>
+                </div>
+            </div>
+
+            <div class="input-group full-width">
+                <label for="propertySize">Estimated Property Size (m²) *</label>
+                <input type="number" id="propertySize" name="propertySize"
+                       min="1" step="any"
+                       placeholder="Enter approximate size in square metres" required>
+                <small class="hint">Enter the approximate floor area in square metres.</small>
+                <small id="propertySizeError" class="form-error"></small>
+            </div>
+
+            <h2>05. Additional Information</h2>
+
+            <div class="input-group full-width">
+                <label for="specialInstructions">Special Instructions</label>
+                <textarea id="specialInstructions" name="specialInstructions"
+                          rows="4" maxlength="1000"
+                          placeholder="Tell us about specific cleaning needs, access instructions, or areas requiring attention."></textarea>
+                <small class="hint">Optional. Maximum 1,000 characters.</small>
+            </div>
+
+            <div class="input-group full-width">
+                <label for="propertyPhotos">Upload Photos (Optional)</label>
+                <input type="file" id="propertyPhotos"
+                       name="propertyPhotos[]" accept="image/jpeg,image/png,image/webp"
+                       multiple>
+                <small class="hint">
+                    Upload JPG, PNG, or WebP images. Maximum 5 photos, up to 5 MB each.
+                </small>
+                <small id="photosError" class="form-error"></small>
+            </div>
+
+            <button type="submit" class="register-button">
+                Submit Cleaning Request <span>→</span>
+            </button>
+
+            <div id="cleaningSuccessMessage" class="success-message"
+                 role="status" aria-live="polite" hidden>
+                Your cleaning request details have passed validation.
+            </div>
+
+        </form>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo-text">
+                    PILEE <span>TECH</span>
+                </a>
+                <h3>Pilee Tech Group</h3>
+                <p class="footer-tagline">
+                    Technology. Cleaning. Logistics. Excellence Delivered.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="AboutPage.html">About Us</a></li>
+                    <li><a href="services.php">Services</a></li>
+                    <li><a href="projects.php">Projects</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
+                    <li><a href="careerPage.html">Careers Page</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Business Divisions</h3>
+                <ul>
+                    <li><a href="tech-projects.php">Technology Solutions</a></li>
+                    <li><a href="cleaning-projects.php">Professional Cleaning</a></li>
+                    <li><a href="logistics-projects.php">Logistics &amp; Transport</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    <li><a href="https://x.com/PILEETECHGROUP" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Pilee Tech Group. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="cleaningRequest.js"></script>
+
+</body>
+</html>

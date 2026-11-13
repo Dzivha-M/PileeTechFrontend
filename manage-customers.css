@@ -1,0 +1,874 @@
+/* ==========================================
+   PILEE TECH — MANAGE CUSTOMERS CSS
+   Based on the Reports Design Theme
+   ========================================== */
+
+:root {
+    --navy: #061A2D;
+    --navy-light: #092844;
+    --blue: #0879BD;
+    --blue-bright: #08A9E8;
+
+    --text-primary: #102B49;
+    --text-muted: #5D7084;
+    --page-bg: #F3F7FA;
+    --surface: #FFFFFF;
+    --border: #DCE6EE;
+
+    --shadow: 0 4px 14px rgba(6, 26, 45, .06);
+    --shadow-hover: 0 8px 22px rgba(6, 26, 45, .09);
+
+    --green: #187343;
+    --green-bg: #E5F6EC;
+    --orange: #A95400;
+    --orange-bg: #FFF1DF;
+    --red: #B42318;
+    --red-bg: #FDECEC;
+
+    --radius: 10px;
+    --transition: .2s ease;
+}
+
+/* GLOBAL */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "DM Sans", Arial, sans-serif;
+    color: var(--text-primary);
+    background: var(--page-bg);
+    line-height: 1.65;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Manrope", Arial, sans-serif;
+    color: var(--navy);
+    line-height: 1.3;
+}
+
+p {
+    color: var(--text-muted);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    transition: color var(--transition);
+}
+
+/* ==========================================
+   NAVBAR
+   Matches the Reports page
+   ========================================== */
+
+.site-header {
+    background: var(--navy);
+    border-bottom: 1px solid var(--navy-light);
+    box-shadow: var(--shadow);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    padding: 12px 5%;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-img {
+    display: block;
+    max-width: 48px;
+    height: auto;
+}
+
+.site-heading {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.site-heading .pile {
+    color: var(--surface);
+}
+
+.site-heading .tech {
+    color: var(--blue-bright);
+}
+
+.admin-dashboard-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 11px 18px;
+    background: var(--navy-light);
+    color: var(--surface);
+    border: 1px solid var(--blue-bright);
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background var(--transition),
+                transform var(--transition);
+}
+
+.admin-dashboard-link:hover {
+    background: var(--blue-bright);
+    color: var(--surface);
+    transform: translateY(-2px);
+}
+
+.admin-dashboard-link span:first-child {
+    font-size: 17px;
+}
+
+/* ==========================================
+   MAIN CONTENT
+   ========================================== */
+
+.mc-container {
+    width: min(1200px, 88%);
+    margin: 0 auto;
+    padding: 38px 0 48px;
+}
+
+.mc-heading {
+    margin-bottom: 28px;
+}
+
+.mc-eyebrow {
+    margin: 0 0 8px;
+    color: var(--blue-bright);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.mc-heading h1 {
+    margin: 0 0 10px;
+    color: var(--blue);
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 800;
+}
+
+.mc-heading h1 span {
+    color: var(--blue-bright);
+}
+
+.mc-heading p {
+    max-width: 720px;
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+
+.mc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 16px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background var(--transition),
+                color var(--transition),
+                border-color var(--transition),
+                transform var(--transition);
+}
+
+.mc-btn:hover {
+    transform: translateY(-1px);
+}
+
+.mc-primary {
+    background: var(--blue-bright);
+    color: var(--navy);
+}
+
+.mc-primary:hover {
+    background: var(--blue);
+    color: var(--surface);
+}
+
+.mc-secondary {
+    background: var(--surface);
+    color: var(--blue);
+    border-color: var(--border);
+}
+
+.mc-secondary:hover {
+    background: #EAF7FD;
+    border-color: var(--blue-bright);
+}
+
+.mc-danger {
+    background: var(--red-bg);
+    color: var(--red);
+    border-color: #F5C6C6;
+}
+
+.mc-danger:hover {
+    background: var(--red);
+    color: var(--surface);
+}
+
+/* ==========================================
+   CUSTOMER SUMMARY CARDS
+   ========================================== */
+
+.mc-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.mc-stat-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 0;
+    padding: 22px;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition),
+                box-shadow var(--transition);
+}
+
+.mc-stat-card::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        var(--blue),
+        var(--blue-bright)
+    );
+    content: "";
+}
+
+.mc-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.mc-stat-card h2,
+.mc-stat-card h3 {
+    margin: 0;
+    color: var(--blue);
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.mc-stat-card p {
+    margin: 0 0 4px;
+    font-size: 13px;
+}
+
+.mc-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 8px;
+    background: #E5F8FF;
+    color: var(--blue);
+    font-size: 22px;
+}
+
+/* ==========================================
+   CUSTOMER DIRECTORY PANEL
+   ========================================== */
+
+.mc-panel {
+    padding: 26px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.mc-panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.mc-panel-heading h2 {
+    margin: 0 0 7px;
+    color: var(--blue);
+    font-size: 21px;
+}
+
+.mc-panel-heading p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* ==========================================
+   SEARCH AND FILTERS
+   ========================================== */
+
+.mc-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.mc-toolbar input,
+.mc-toolbar select {
+    min-width: 0;
+    padding: 12px 14px;
+    background: var(--surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    transition: border-color var(--transition),
+                box-shadow var(--transition);
+}
+
+.mc-toolbar input {
+    flex: 1;
+}
+
+.mc-toolbar select {
+    min-width: 180px;
+}
+
+.mc-toolbar input:focus,
+.mc-toolbar select:focus {
+    border-color: var(--blue-bright);
+    box-shadow: 0 0 0 3px rgba(8, 169, 232, .12);
+}
+
+/* ==========================================
+   CUSTOMER TABLE
+   ========================================== */
+
+.mc-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.mc-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    text-align: left;
+}
+
+.mc-table thead {
+    background: var(--navy);
+}
+
+.mc-table th {
+    padding: 15px 16px;
+    color: var(--surface);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.mc-table td {
+    padding: 15px 16px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.mc-table tbody tr {
+    transition: background var(--transition);
+}
+
+.mc-table tbody tr:hover {
+    background: #F3FAFE;
+}
+
+.mc-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.mc-table td strong {
+    display: block;
+    color: var(--navy);
+    font-size: 13px;
+}
+
+.mc-table td small {
+    display: block;
+    margin-top: 3px;
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+/* TABLE ACTIONS */
+
+.mc-table .mc-btn {
+    padding: 7px 10px;
+    font-size: 12px;
+}
+
+.mc-table td:last-child {
+    white-space: nowrap;
+}
+
+/* ==========================================
+   STATUS LABELS
+   ========================================== */
+
+.mc-status,
+.status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.mc-status.active,
+.status.active {
+    background: var(--green-bg);
+    color: var(--green);
+}
+
+.mc-status.inactive,
+.status.inactive {
+    background: var(--red-bg);
+    color: var(--red);
+}
+
+.mc-status.pending,
+.status.pending {
+    background: var(--orange-bg);
+    color: var(--orange);
+}
+
+/* ==========================================
+   EMPTY STATE AND NOTES
+   ========================================== */
+
+.mc-empty {
+    padding: 32px 20px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.mc-empty h3 {
+    margin: 0 0 8px;
+    color: var(--blue);
+}
+
+.mc-form-note {
+    margin-top: 18px;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* ==========================================
+   ADD / EDIT CUSTOMER MODAL
+   ========================================== */
+
+.mc-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(6, 26, 45, .65);
+    overflow-y: auto;
+}
+
+.mc-modal[hidden] {
+    display: none !important;
+}
+
+.mc-modal-content {
+    width: min(620px, 100%);
+    max-height: calc(100vh - 40px);
+    padding: 28px;
+    overflow-y: auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 18px 55px rgba(6, 26, 45, .2);
+}
+
+.mc-modal-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.mc-modal-heading h2 {
+    margin: 0 0 6px;
+    color: var(--blue);
+    font-size: 23px;
+}
+
+.mc-modal-heading p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.mc-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    background: #EAF7FD;
+    color: var(--navy);
+    border: 0;
+    border-radius: 6px;
+    font-size: 22px;
+}
+
+.mc-close:hover {
+    background: var(--blue-bright);
+    color: var(--surface);
+}
+
+/* FORM GRID */
+
+.mc-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.mc-form-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.mc-form-grid input,
+.mc-form-grid select,
+.mc-form-grid textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 13px;
+    color: var(--text-primary);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    font-weight: 400;
+    transition: border-color var(--transition),
+                box-shadow var(--transition);
+}
+
+.mc-form-grid input:focus,
+.mc-form-grid select:focus,
+.mc-form-grid textarea:focus {
+    border-color: var(--blue-bright);
+    box-shadow: 0 0 0 3px rgba(8, 169, 232, .12);
+}
+
+.mc-form-grid textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.mc-form-grid .full-width {
+    grid-column: 1 / -1;
+}
+
+.mc-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+/* HIDDEN ELEMENTS */
+
+[hidden] {
+    display: none !important;
+}
+
+/* ACCESSIBILITY */
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--blue-bright);
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 1000px) {
+    .mc-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mc-container {
+        width: 92%;
+    }
+}
+
+@media (max-width: 700px) {
+    .mc-container {
+        width: 92%;
+        padding: 28px 0 36px;
+    }
+
+    .mc-panel {
+        padding: 18px;
+    }
+
+    .mc-panel-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .mc-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .mc-toolbar input,
+    .mc-toolbar select {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .mc-modal-content {
+        padding: 20px;
+    }
+
+    .mc-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mc-form-grid .full-width {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container {
+        padding: 12px 4%;
+        gap: 10px;
+    }
+
+    .logo-img {
+        max-width: 35px;
+    }
+
+    .site-heading {
+        font-size: 20px;
+    }
+
+    .admin-dashboard-link {
+        gap: 5px;
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .admin-dashboard-link span:first-child {
+        font-size: 15px;
+    }
+
+    .mc-stats {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .mc-stat-card {
+        padding: 18px;
+    }
+
+    .mc-heading h1 {
+        font-size: 26px;
+    }
+
+    .mc-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .mc-form-actions .mc-btn {
+        width: 100%;
+    }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* ==========================================
+   TEXT COLOUR ADJUSTMENTS
+   Make light-blue content text black
+   ========================================== */
+
+/* Administration eyebrow and modal eyebrow */
+.mc-eyebrow {
+    color: #000000;
+}
+
+/* Main page heading */
+.mc-heading h1 {
+    color: #0879BD;
+}
+
+/* Customer statistics */
+.mc-stat-card span,
+.mc-stat-card h2 {
+    color: #000000;
+}
+
+/* Section headings */
+.mc-panel-heading h2,
+.mc-modal-heading h2 {
+    color: #000000;
+}
+
+/* Statistic icons */
+.mc-stat-icon {
+    color: #000000;
+}
+
+/* Modal close button */
+.mc-close {
+    color: #000000;
+}
+
+/* Search and filter text */
+.mc-toolbar input,
+.mc-toolbar select {
+    color: #000000;
+}
+
+/* Keep Pilee white and Tech light blue in the navbar */
+.site-heading .pile {
+    color: #FFFFFF;
+}
+
+.site-heading .tech {
+    color: #08A9E8;
+}
+
+/* Keep Admin Dashboard text white */
+.admin-dashboard-link {
+    color: #FFFFFF;
+}
+
+.admin-dashboard-link:hover {
+    color: #FFFFFF;
+}
+
+/* Keep primary button text black for contrast */
+.mc-primary {
+    color: #000000;
+}
+
+/* Keep secondary button text blue */
+.mc-secondary {
+    color: #0879BD;
+}
+
+
+/* ==========================================
+   PILEE TECH LOGO — MATCHING THE REFERENCE
+   ========================================== */
+
+.site-header {
+    width: 100%;
+    min-height: 73px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    background-color: #061A2D;
+    border-bottom: 3px solid #DCE6EE;
+    box-sizing: border-box;
+}
+
+.site-logo {
+    display: inline-flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.logo-pilee {
+    color: #FFFFFF;
+}
+
+.logo-tech {
+    color: #08A9E8;
+}

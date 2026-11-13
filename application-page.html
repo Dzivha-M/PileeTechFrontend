@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Applications | Pilee Tech Admin</title>
+
+    <link rel="stylesheet" href="application-page.css">
+    <script src="application-page.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+<header class="topbar">
+    
+
+<a href="admin-dashboard.html" class="site-logo">
+    <span class="logo-pilee">Pilee</span><span class="logo-tech">Tech</span>
+</a>
+  
+        <!-- Admin Dashboard Button -->
+        <a href="admin-dashboard.html" class="admin-dashboard-link">
+            <span aria-hidden="true">⚙</span>
+            <span>Admin Dashboard</span>
+        </a>
+</header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- PAGE HEADING -->
+        <section class="page-heading">
+            <div>
+                
+
+                <h2>Cleaner Applications</h2>
+
+                <p>
+                    Review applications, verify applicant information,
+                    and manage recruitment decisions.
+                </p>
+            </div>
+
+            <div class="heading-icon">📋</div>
+        </section>
+
+        <!-- STATISTICS -->
+        <section class="stats-grid">
+
+            <article class="stat-card">
+                <div class="stat-icon total-icon">📄</div>
+
+                <div>
+                    <p>Total Applications</p>
+                    <h3 id="totalApplications">0</h3>
+                    <span>All submitted applications</span>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon pending-icon">⏳</div>
+
+                <div>
+                    <p>Pending Review</p>
+                    <h3 id="pendingApplications">0</h3>
+                    <span>Awaiting a decision</span>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon approved-icon">✓</div>
+
+                <div>
+                    <p>Approved</p>
+                    <h3 id="approvedApplications">0</h3>
+                    <span>Accepted applications</span>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon declined-icon">✕</div>
+
+                <div>
+                    <p>Declined</p>
+                    <h3 id="declinedApplications">0</h3>
+                    <span>Unsuccessful applications</span>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- APPLICATION MANAGEMENT -->
+        <section class="applications-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <h3>Application Records</h3>
+                    <p>Search and review cleaner applications.</p>
+                </div>
+
+                <span class="record-count" id="recordCount">
+                    0 applications
+                </span>
+            </div>
+
+            <!-- SEARCH AND FILTERS -->
+            <div class="filter-bar">
+
+                <div class="search-box">
+                    <span>⌕</span>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search name, email or application ID..."
+                        aria-label="Search applications">
+                </div>
+
+                <select id="statusFilter" aria-label="Filter by status">
+                    <option value="all">All statuses</option>
+                    <option value="pending">Pending</option>
+                    <option value="approved">Approved</option>
+                    <option value="declined">Declined</option>
+                </select>
+
+                <select id="specializationFilter"
+                        aria-label="Filter by specialization">
+                    <option value="all">All specializations</option>
+                    <option value="Residential Cleaning">
+                        Residential Cleaning
+                    </option>
+                    <option value="Commercial Cleaning">
+                        Commercial Cleaning
+                    </option>
+                    <option value="Deep Cleaning">Deep Cleaning</option>
+                    <option value="Carpet Cleaning">Carpet Cleaning</option>
+                </select>
+
+            </div>
+
+            <!-- APPLICATIONS TABLE -->
+            <div class="table-wrapper">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Applicant</th>
+                            <th>Application ID</th>
+                            <th>Specialization</th>
+                            <th>Experience</th>
+                            <th>Date Applied</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="applicationsTableBody">
+                        <!-- Rows are rendered by JavaScript. -->
+                    </tbody>
+                </table>
+
+                <div class="empty-state" id="emptyState" hidden>
+                    <div class="empty-icon">📂</div>
+
+                    <h3>No applications found</h3>
+
+                    <p>
+                        Try changing your search or filter options.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="table-footer">
+                <p id="tableFooterText">Showing 0 applications</p>
+
+                <button type="button"
+                        class="reset-button"
+                        id="resetFilters">
+                    Reset Filters
+                </button>
+            </div>
+
+        </section>
+
+       
+
+    </main>
+
+    <!-- APPLICATION DETAILS MODAL -->
+    <div class="modal-overlay" id="applicationModal" hidden>
+
+        <section class="application-modal"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="modalTitle">
+
+            <div class="modal-header">
+                <div>
+                    <span class="eyebrow">APPLICATION REVIEW</span>
+                    <h2 id="modalTitle">Applicant Details</h2>
+                </div>
+
+                <button type="button"
+                        class="modal-close"
+                        id="closeModal"
+                        aria-label="Close application details">
+                    &times;
+                </button>
+            </div>
+
+            <div id="modalContent" class="modal-content">
+                <!-- Applicant details are rendered by JavaScript. -->
+            </div>
+
+            <div class="modal-actions" id="modalActions">
+                <button type="button"
+                        class="button-secondary"
+                        id="modalCloseButton">
+                    Close
+                </button>
+
+                <button type="button"
+                        class="button-danger"
+                        id="modalDeclineButton">
+                    Decline
+                </button>
+
+                <button type="button"
+                        class="button-primary"
+                        id="modalApproveButton">
+                    Approve Application
+                </button>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- CONFIRMATION DIALOG -->
+    <div class="modal-overlay" id="confirmModal" hidden>
+
+        <section class="confirm-dialog"
+                 role="alertdialog"
+                 aria-modal="true"
+                 aria-labelledby="confirmTitle">
+
+            <div class="confirm-icon" id="confirmIcon">?</div>
+
+            <h2 id="confirmTitle">Confirm Decision</h2>
+
+            <p id="confirmMessage">
+                Are you sure you want to continue?
+            </p>
+
+            <div class="confirm-actions">
+                <button type="button"
+                        class="button-secondary"
+                        id="cancelDecision">
+                    Cancel
+                </button>
+
+                <button type="button"
+                        class="button-primary"
+                        id="confirmDecision">
+                    Confirm
+                </button>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- NOTIFICATION -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>

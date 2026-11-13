@@ -1,0 +1,227 @@
+
+/* =====================================
+   DIGITAL SCHOOL — GLOBAL DESIGN THEME
+   ===================================== */
+
+:root {
+  --navy: #061A2D;
+  --navy-light: #092844;
+  --blue: #08A9E8;
+  --blue-dark: #0879BD;
+
+  --text-primary: #102B49;
+  --text-muted: #5D7084;
+
+  --page-bg: #F3F7FA;
+  --surface: #FFFFFF;
+  --border: #DCE6EE;
+
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --shadow-sm: 0 4px 14px rgba(6, 26, 45, .06);
+  --shadow-md: 0 12px 30px rgba(6, 26, 45, .09);
+
+  --content-width: 1200px;
+  --page-padding: 6%;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  color: var(--text-primary);
+  background: var(--surface);
+  line-height: 1.65;
+}
+
+h1, h2, h3, h4 {
+  color: var(--navy);
+  line-height: 1.25;
+  font-family: "Manrope", sans-serif;
+}
+
+p {
+  color: var(--text-muted);
+}
+
+a {
+  color: var(--blue-dark);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Shared page layout */
+.page-container {
+  width: min(var(--content-width), 88%);
+  margin-inline: auto;
+}
+
+.page-section {
+  padding-block: 64px;
+}
+
+.page-heading {
+  margin-bottom: 28px;
+}
+
+.page-heading h1 {
+  margin-bottom: 10px;
+}
+
+.page-heading p {
+  max-width: 700px;
+}
+
+/* Reusable cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card h2,
+.card h3 {
+  margin-top: 0;
+}
+
+/* Shared buttons */
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+
+.button-primary {
+  background: var(--blue);
+  color: var(--navy);
+}
+
+.button-primary:hover {
+  background: #43C8F5;
+  transform: translateY(-1px);
+}
+
+.button-secondary {
+  background: var(--navy);
+  color: var(--surface);
+}
+
+.button-outline {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--border);
+}
+
+/* Shared form fields */
+input, select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-primary);
+  font: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+}
+
+.data-table th {
+  background: var(--navy);
+  color: var(--surface);
+  text-align: left;
+}
+
+.data-table th,
+.data-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Student and course images */
+.student-image,
+.course-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+/* Status labels */
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #E5F8FF;
+  color: var(--blue-dark);
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  :root {
+    --page-padding: 5%;
+  }
+
+  .page-section {
+    padding-block: 40px;
+  }
+
+  .page-container {
+    width: 90%;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .data-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

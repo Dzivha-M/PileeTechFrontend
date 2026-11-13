@@ -1,0 +1,1157 @@
+
+/* =========================================
+   PILEE TECH — ASSIGN CLEANERS
+   Shared navy and blue design theme
+   ========================================= */
+
+:root {
+    --navy: #061A2D;
+    --navy-light: #092844;
+    --blue: #08A9E8;
+    --blue-dark: #0879BD;
+
+    --text-primary: #102B49;
+    --text-muted: #5D7084;
+
+    --page-bg: #F3F7FA;
+    --surface: #FFFFFF;
+    --border: #DCE6EE;
+
+    --green: #16834B;
+    --green-light: #E7F8EE;
+    --orange: #B85F13;
+    --orange-light: #FFF1E5;
+    --purple: #6650B8;
+    --purple-light: #EEEAFE;
+
+    --radius-sm: 5px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    --shadow-sm: 0 4px 14px rgba(6, 26, 45, .06);
+    --shadow-md: 0 12px 30px rgba(6, 26, 45, .10);
+
+    --content-width: 1400px;
+}
+
+/* =========================================
+   RESET AND BASE
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 25px;
+}
+
+body {
+    margin: 0;
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-primary);
+    background: var(--page-bg);
+}
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+    color: var(--navy);
+    font-family: "Manrope", Arial, sans-serif;
+    line-height: 1.3;
+}
+
+p {
+    color: var(--text-muted);
+}
+
+a {
+    color: var(--blue-dark);
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* =========================================
+   HEADER AND NAVIGATION
+   ========================================= */
+
+.ac-header {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    min-height: 78px;
+    padding: 15px 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    background: var(--navy);
+    box-shadow: 0 3px 15px rgba(6, 26, 45, .12);
+}
+
+.ac-logo {
+    flex-shrink: 0;
+    color: #FFFFFF;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.ac-logo span {
+    color: var(--blue);
+}
+
+.ac-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 19px;
+}
+
+.ac-nav a {
+    position: relative;
+    padding: 8px 0;
+
+    color: #DCE6EE;
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: color .2s ease;
+}
+
+.ac-nav a:hover,
+.ac-nav a.active {
+    color: var(--blue);
+}
+
+.ac-nav a.active::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 2px;
+    border-radius: 2px;
+    background: var(--blue);
+    content: "";
+}
+
+/* =========================================
+   MAIN CONTAINER AND PAGE HEADING
+   ========================================= */
+
+.ac-container {
+    width: min(var(--content-width), 100%);
+    margin-inline: auto;
+    padding: 40px 5% 70px;
+}
+
+.ac-heading {
+    margin-bottom: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.ac-eyebrow {
+    margin: 0 0 7px;
+
+    color: var(--blue-dark);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.ac-heading h1 {
+    margin: 0 0 8px;
+
+    color: var(--navy);
+    font-size: clamp(27px, 3vw, 35px);
+    font-weight: 800;
+    letter-spacing: -.7px;
+}
+
+.ac-heading > div > p:last-child {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.ac-live-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    background: var(--surface);
+    color: var(--text-primary);
+    font-size: 11px;
+    font-weight: 700;
+    box-shadow: var(--shadow-sm);
+}
+
+.ac-live-label > span {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 4px var(--green-light);
+}
+
+/* =========================================
+   STATISTICS
+   ========================================= */
+
+.ac-stats {
+    margin-bottom: 35px;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 19px;
+}
+
+.ac-stat {
+    position: relative;
+    min-width: 0;
+    padding: 22px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.ac-stat::before {
+    position: absolute;
+    top: 0;
+    right: 18px;
+    left: 18px;
+
+    height: 3px;
+    border-radius: 0 0 4px 4px;
+    background: var(--blue);
+    content: "";
+}
+
+.ac-stat:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.ac-stat-icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 16px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: var(--radius-md);
+    background: #E5F6FF;
+    color: var(--blue-dark);
+    font-size: 22px;
+}
+
+.ac-stat:nth-child(2) .ac-stat-icon {
+    background: var(--orange-light);
+    color: var(--orange);
+}
+
+.ac-stat:nth-child(3) .ac-stat-icon {
+    background: var(--purple-light);
+    color: var(--purple);
+}
+
+.ac-stat:nth-child(4) .ac-stat-icon {
+    background: var(--green-light);
+    color: var(--green);
+}
+
+.ac-stat p {
+    margin: 0 0 5px;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.ac-stat h2 {
+    margin: 0 0 5px;
+    color: var(--navy);
+    font-size: 29px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+    overflow-wrap: anywhere;
+}
+
+.ac-stat > span {
+    color: #718398;
+    font-size: 11px;
+}
+
+/* =========================================
+   MAIN REQUESTS PANEL
+   ========================================= */
+
+.ac-panel {
+    min-width: 0;
+    padding: 27px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+}
+
+.ac-panel-heading {
+    margin-bottom: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.ac-panel-heading h2 {
+    margin: 0 0 7px;
+    color: var(--navy);
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.ac-panel-heading p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.ac-btn {
+    min-height: 42px;
+    padding: 10px 17px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.ac-btn:active {
+    transform: translateY(1px);
+}
+
+.ac-primary {
+    border-color: var(--blue);
+    background: var(--blue);
+    color: var(--navy);
+}
+
+.ac-primary:hover {
+    border-color: #43C8F5;
+    background: #43C8F5;
+}
+
+.ac-secondary {
+    border-color: var(--border);
+    background: #FFFFFF;
+    color: var(--text-primary);
+}
+
+.ac-secondary:hover {
+    border-color: var(--blue);
+    background: #F2FAFE;
+}
+
+/* =========================================
+   SEARCH AND FILTER TOOLBAR
+   ========================================= */
+
+.ac-toolbar {
+    margin-bottom: 22px;
+
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) 190px 190px;
+    gap: 13px;
+}
+
+.ac-toolbar input,
+.ac-toolbar select,
+.ac-form-grid input,
+.ac-form-grid select {
+    width: 100%;
+    min-width: 0;
+    min-height: 45px;
+    padding: 11px 13px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+
+    background: #FFFFFF;
+    color: var(--text-primary);
+    font-size: 12px;
+
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.ac-toolbar input::placeholder {
+    color: #8494A5;
+}
+
+.ac-toolbar input:focus,
+.ac-toolbar select:focus,
+.ac-form-grid input:focus,
+.ac-form-grid select:focus {
+    border-color: var(--blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(8, 169, 232, .12);
+}
+
+/* =========================================
+   REQUEST TABLE
+   ========================================= */
+
+.ac-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.ac-table {
+    width: 100%;
+    min-width: 920px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.ac-table thead {
+    background: #EAF3F9;
+}
+
+.ac-table th {
+    padding: 15px 14px;
+
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.ac-table td {
+    padding: 15px 14px;
+
+    border-bottom: 1px solid #EAF0F5;
+    color: #42586D;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.ac-table tbody tr {
+    transition: background .15s ease;
+}
+
+.ac-table tbody tr:hover {
+    background: #F5FAFD;
+}
+
+.ac-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.ac-table td:first-child {
+    color: var(--blue-dark);
+    font-weight: 800;
+}
+
+/* Buttons or action links added by JavaScript */
+
+.ac-table button,
+.ac-table .ac-btn {
+    min-height: 33px;
+    padding: 7px 11px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+/* Status badges if generated by JavaScript */
+
+.ac-table .status,
+.ac-table .ac-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px 10px;
+    border-radius: 999px;
+
+    font-size: 10px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.ac-table .pending {
+    background: #FFF1D6;
+    color: #946200;
+}
+
+.ac-table .assigned {
+    background: #E5F8FF;
+    color: #0879BD;
+}
+
+.ac-table .progress {
+    background: var(--purple-light);
+    color: var(--purple);
+}
+
+.ac-table .completed {
+    background: var(--green-light);
+    color: var(--green);
+}
+
+/* Empty state and footnote */
+
+.ac-empty {
+    margin: 20px 0;
+    padding: 25px;
+
+    border: 1px dashed #B8DFF0;
+    border-radius: var(--radius-md);
+    background: #F5FAFD;
+
+    color: var(--text-muted);
+    text-align: center;
+    font-size: 13px;
+}
+
+.ac-footnote {
+    margin: 17px 0 0;
+    color: #718398;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   ASSIGNMENT MODAL OVERLAY
+   ========================================= */
+
+.ac-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    padding: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow-y: auto;
+    background: rgba(6, 26, 45, .66);
+    backdrop-filter: blur(4px);
+}
+
+.ac-modal-card {
+    width: min(100%, 650px);
+    max-height: calc(100vh - 48px);
+    padding: 30px;
+
+    overflow-y: auto;
+
+    border: 1px solid rgba(220, 230, 238, .8);
+    border-radius: 15px;
+    background: var(--surface);
+    box-shadow: 0 25px 80px rgba(6, 26, 45, .25);
+
+    animation: ac-modal-appear .2s ease-out;
+}
+
+@keyframes ac-modal-appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ac-modal-heading {
+    margin-bottom: 23px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.ac-modal-heading h2 {
+    margin: 0 0 7px;
+    color: var(--navy);
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.ac-modal-heading p:last-child {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.ac-close {
+    width: 37px;
+    height: 37px;
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+
+    background: #FFFFFF;
+    color: var(--text-muted);
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+
+    transition: background .2s ease, color .2s ease;
+}
+
+.ac-close:hover {
+    border-color: var(--blue);
+    background: #F2FAFE;
+    color: var(--navy);
+}
+
+/* =========================================
+   SELECTED REQUEST SUMMARY
+   ========================================= */
+
+.ac-request-summary {
+    margin-bottom: 24px;
+    padding: 17px;
+
+    border: 1px solid #CBEAF7;
+    border-left: 4px solid var(--blue);
+    border-radius: var(--radius-md);
+
+    background: #F2FAFE;
+    color: var(--text-primary);
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.ac-request-summary:empty {
+    display: none;
+}
+
+/* =========================================
+   ASSIGNMENT FORM
+   ========================================= */
+
+.ac-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.ac-form-grid label {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.ac-form-grid label:first-child {
+    grid-column: 1 / -1;
+}
+
+.ac-form-grid input,
+.ac-form-grid select {
+    min-height: 46px;
+    font-weight: 400;
+}
+
+.ac-message {
+    margin: 16px 0 0;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.ac-modal-actions {
+    margin-top: 25px;
+    padding-top: 20px;
+
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    border-top: 1px solid var(--border);
+}
+
+/* =========================================
+   RESPONSIVE: TABLETS
+   ========================================= */
+
+@media (max-width: 1100px) {
+    .ac-header {
+        gap: 16px;
+    }
+
+    .ac-nav {
+        gap: 13px;
+    }
+
+    .ac-nav a {
+        font-size: 11px;
+    }
+
+    .ac-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ac-toolbar {
+        grid-template-columns: minmax(0, 1fr) 1fr;
+    }
+
+    .ac-toolbar input {
+        grid-column: 1 / -1;
+    }
+}
+
+/* =========================================
+   RESPONSIVE: MOBILE
+   ========================================= */
+
+@media (max-width: 760px) {
+    .ac-header {
+        padding: 17px 5%;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    .ac-nav {
+        width: 100%;
+        padding-bottom: 3px;
+
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 20px;
+    }
+
+    .ac-nav a {
+        flex-shrink: 0;
+        font-size: 12px;
+    }
+
+    .ac-container {
+        padding: 30px 5% 45px;
+    }
+
+    .ac-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .ac-panel {
+        padding: 20px;
+    }
+
+    .ac-panel-heading {
+        align-items: flex-start;
+    }
+
+    .ac-toolbar {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ac-toolbar input {
+        grid-column: auto;
+    }
+
+    .ac-modal {
+        padding: 16px;
+        align-items: flex-start;
+    }
+
+    .ac-modal-card {
+        max-height: calc(100vh - 32px);
+        margin-block: auto;
+        padding: 23px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE: SMALL PHONES
+   ========================================= */
+
+@media (max-width: 480px) {
+    .ac-logo {
+        font-size: 23px;
+    }
+
+    .ac-heading h1 {
+        font-size: 27px;
+    }
+
+    .ac-stats {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .ac-stat {
+        padding: 19px;
+    }
+
+    .ac-stat-icon {
+        margin-bottom: 12px;
+    }
+
+    .ac-panel {
+        padding: 15px;
+    }
+
+    .ac-panel-heading h2 {
+        font-size: 21px;
+    }
+
+    .ac-panel-heading .ac-btn {
+        width: 100%;
+    }
+
+    .ac-form-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 17px;
+    }
+
+    .ac-form-grid label:first-child {
+        grid-column: auto;
+    }
+
+    .ac-modal-card {
+        padding: 19px;
+        border-radius: var(--radius-lg);
+    }
+
+    .ac-modal-heading h2 {
+        font-size: 22px;
+    }
+
+    .ac-modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .ac-modal-actions .ac-btn {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   ACCESSIBILITY: REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+/* ==========================================
+   NAVBAR — PILEE TECH THEME
+   ========================================== */
+
+.ac-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    padding: 14px 5%;
+    background: #061A2D;
+    border-bottom: 1px solid #092844;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.ac-logo {
+    color: #FFFFFF;
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.ac-logo span {
+    color: #08A9E8;
+}
+
+/* Admin Dashboard button */
+.ac-dashboard-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 11px 18px;
+    background: #092844;
+    color: #FFFFFF;
+    border: 1px solid #08A9E8;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.ac-dashboard-btn:hover {
+    background: #08A9E8;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.ac-dashboard-btn:focus-visible {
+    outline: 3px solid #08A9E8;
+    outline-offset: 3px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .ac-header {
+        padding: 12px 4%;
+        gap: 10px;
+    }
+
+    .ac-logo {
+        font-size: 20px;
+    }
+
+    .ac-dashboard-btn {
+        gap: 5px;
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+}
+
+/* ==========================================
+   NAVBAR WITH PILEE TECH LOGO
+   ========================================== */
+
+.ac-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    padding: 12px 5%;
+    background: #061A2D;
+    border-bottom: 1px solid #092844;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Logo image and brand text */
+.ac-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.ac-logo-img {
+    display: block;
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.ac-logo {
+    color: #FFFFFF;
+    font-size: 25px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.ac-logo span {
+    color: #08A9E8;
+}
+
+/* Admin Dashboard button */
+.ac-dashboard-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 11px 18px;
+    background: #092844;
+    color: #FFFFFF;
+    border: 1px solid #08A9E8;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.ac-dashboard-btn:hover {
+    background: #08A9E8;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.ac-dashboard-btn:focus-visible,
+.ac-brand:focus-visible {
+    outline: 3px solid #08A9E8;
+    outline-offset: 4px;
+}
+
+/* Mobile layout */
+@media (max-width: 480px) {
+    .ac-header {
+        padding: 12px 4%;
+        gap: 10px;
+    }
+
+    .ac-brand {
+        gap: 7px;
+    }
+
+    .ac-logo-img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .ac-logo {
+        font-size: 20px;
+    }
+
+    .ac-dashboard-btn {
+        gap: 5px;
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+}
+
+
+/* ==========================================
+   PILEE TECH LOGO — MATCHING THE REFERENCE
+   ========================================== */
+
+.site-header {
+    width: 100%;
+    min-height: 73px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    background-color: #061A2D;
+    border-bottom: 3px solid #DCE6EE;
+    box-sizing: border-box;
+}
+
+.site-logo {
+    display: inline-flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.logo-pilee {
+    color: #FFFFFF;
+}
+
+.logo-tech {
+    color: #08A9E8;
+}
+.ac-table th:last-child,
+.ac-table td:last-child {
+    text-align: center;
+    min-width: 150px;
+}
+
+.ac-assign-btn {
+    background: #0879BD;
+    color: #ffffff;
+    border: none;
+    padding: 9px 15px;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.ac-assign-btn:hover {
+    background: #061A2D;
+    transform: translateY(-1px);
+}

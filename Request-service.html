@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cleaning Booking | Pilee Tech Group</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="booking.css">
+    <link rel="stylesheet" href="header.css">
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <!-- PILEE TECH LOGO -->
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="Pilee Tech Group Logo">
+    </a>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="navigation" id="mainNavigation">
+
+    <!-- HOME DROPDOWN -->
+    <div class="nav-dropdown">
+
+        <button class="dropdown-trigger active"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="home-dropdown">
+
+            Home
+            <span class="dropdown-arrow"></span>
+
+        </button>
+
+        <div class="dropdown-menu" id="home-dropdown">
+            <a href="index.html#top">Homepage</a>
+            <a href="index.html#about">Who We Are</a>
+            <a href="index.html#values">Our Core Values</a>
+            <a href="index.html#why-us">Why Choose Us</a>
+            <a href="index.html#divisions">Business Divisions</a>
+            <a href="index.html#contact">Contact Section</a>
+        </div>
+
+    </div>
+
+
+    <!-- ABOUT US DROPDOWN -->
+    <div class="nav-dropdown">
+
+        <button class="dropdown-trigger"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="about-dropdown">
+
+            About Us
+            <span class="dropdown-arrow"></span>
+
+        </button>
+
+        <div class="dropdown-menu" id="about-dropdown">
+            <a href="AboutPage.html#who-we-are">Who We Are</a>
+            <a href="AboutPage.html#our-story">Our Story</a>
+            <a href="AboutPage.html#business-divisions">Business Divisions</a>
+            <a href="AboutPage.html#core-values">Our Core Values</a>
+            <a href="AboutPage.html#our-approach">Our Approach</a>
+            <a href="AboutPage.html#contact-section">Contact Section</a>
+        </div>
+
+    </div>
+        <a href="services.php">Pilee Cleaning Services</a>
+        <a href="projects.php">Other Divisions</a>
+        <a href="contact-us.php">Contact</a>
+        <a href="cleaning-partner-recruitment.html">Careers Page</a>
+
+        <a href="Request-service.html" class="request-service">
+            Book a  Cleaning Service
+        </a>
+
+    </nav>
+
+    
+
+    <!-- LOGIN LINK: Visible when logged out -->
+<a href="login.html" class="login-link" id="loginLink">
+    Login
+</a>
+
+<!-- PROFILE MENU: Visible when logged in -->
+<div class="profile-menu-container" id="profileMenuContainer" hidden>
+
+    <button class="profile-btn"
+            id="profileBtn"
+            type="button"
+            aria-label="Open customer profile menu"
+            aria-expanded="false"
+            aria-controls="profileDropdown">
+
+        <span class="profile-icon" aria-hidden="true"></span>
+    </button>
+
+    <div class="profile-dropdown" id="profileDropdown" hidden>
+
+        <div class="profile-dropdown-header">
+            <strong>My Account</strong>
+            <p>Welcome back!</p>
+        </div>
+
+        <a href="customer profile.html">👤 My Profile</a>
+        <a href="report-issue.html">🎧 My Support</a>
+        <a href="customer-booking-history-page.html">📋 Booking History</a>
+
+        <div class="profile-dropdown-divider"></div>
+
+        <a href="#" class="logout-link" id="logoutBtn">
+            ↪ Logout
+        </a>
+
+    </div>
+</div>
+    <!-- MOBILE MENU -->
+    <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+
+
+
+
+
+
+
+<main class="page-shell">
+
+    <section class="page-intro">
+        <div>
+            <p class="eyebrow">PILEE PROFESSIONAL CLEANING</p>
+            <h1>Book your cleaning service</h1>
+            <p class="intro-copy">
+                Schedule your cleaning service with Pilee Tech Group.
+                Professional cleaning solutions, delivered with excellence.
+            </p>
+        </div>
+    </section>
+
+    <div class="booking-layout">
+
+        <form id="bookingForm" class="booking-form" novalidate>
+
+            <!-- 01 PERSONAL DETAILS -->
+            <section class="form-card">
+                <div class="section-heading">
+                    <span class="step-number">01</span>
+                    <div>
+                        <h2>Personal details</h2>
+                        <p>Your account information</p>
+                    </div>
+                </div>
+
+                <div class="form-grid three">
+                    <label class="field">
+                        <span>Name</span>
+                        <input type="text" id="customerName" readonly>
+                    </label>
+
+                    <label class="field">
+                        <span>Surname</span>
+                        <input type="text" id="customerSurname" readonly>
+                    </label>
+
+                    <label class="field">
+                        <span>Email address</span>
+                        <input type="email" id="customerEmail" readonly>
+                    </label>
+                </div>
+
+                
+            </section>
+
+            <!-- 02 CLEANING LOCATION -->
+            <section class="form-card">
+                <div class="section-heading">
+                    <span class="step-number">02</span>
+                    <div>
+                        <h2>Cleaning location</h2>
+                        <p>Where should our team meet you?</p>
+                    </div>
+                </div>
+
+                <div class="choice-row">
+                    <label class="radio-card">
+                        <input type="radio" name="locationChoice" value="saved" checked>
+                        <span class="radio-dot"></span>
+                        <span>
+                            <strong>Use saved address</strong>
+                            <small>14 Jacaranda Street, Auckland Park</small>
+                        </span>
+                    </label>
+
+                    <label class="radio-card">
+                        <input type="radio" name="locationChoice" value="different">
+                        <span class="radio-dot"></span>
+                        <span>
+                            <strong>Different address</strong>
+                            <small>Enter another location</small>
+                        </span>
+                    </label>
+                </div>
+
+                <div id="locationFields" class="location-fields hidden">
+                    <label class="field full">
+                        <span>Search location</span>
+                        <input type="text" id="addressSearch"
+                               autocomplete="off"
+                               placeholder="Search your location">
+                        <div id="suggestions" class="suggestions hidden"></div>
+                    </label>
+
+                    <div class="form-grid two">
+                        <label class="field">
+                            <span>Street and number</span>
+                            <input type="text" id="street">
+                        </label>
+
+                        <label class="field">
+                            <span>Building / complex</span>
+                            <input type="text" id="building">
+                        </label>
+
+                        <label class="field">
+                            <span>City</span>
+                            <input type="text" id="city">
+                        </label>
+
+                        <label class="field">
+                            <span>Postal code</span>
+                            <input type="text" id="postalCode">
+                        </label>
+
+                        <label class="field">
+                            <span>Province</span>
+                            <select id="province">
+                                <option value="">Select province</option>
+                                <option>Eastern Cape</option>
+                                <option>Free State</option>
+                                <option>Gauteng</option>
+                                <option>KwaZulu-Natal</option>
+                                <option>Limpopo</option>
+                                <option>Mpumalanga</option>
+                                <option>Northern Cape</option>
+                                <option>North West</option>
+                                <option>Western Cape</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <button type="button" class="btn btn-outline" id="saveAddress">
+                        Save address
+                    </button>
+                </div>
+
+                <div id="savedAddress" class="saved-address">
+                    <span class="pin-icon">⌖</span>
+                    <span>
+                        <strong>14 Jacaranda Street</strong>
+                        <small>Auckland Park, Johannesburg, Gauteng 2006</small>
+                    </span>
+                    <span class="saved-tag">Saved</span>
+                </div>
+            </section>
+
+            <!-- 03 CLEANING FREQUENCY -->
+            <section class="form-card">
+                <div class="section-heading">
+                    <span class="step-number">03</span>
+                    <div>
+                        <h2>Cleaning frequency</h2>
+                        <p>Choose how often you require cleaning.</p>
+                    </div>
+                </div>
+
+                <div class="frequency-options" id="frequencyOptions">
+                    <button type="button" class="frequency-option active" data-value="One-time">
+                        <strong>One-time</strong>
+                        <small>Once-off booking</small>
+                    </button>
+
+                    <button type="button" class="frequency-option" data-value="Daily">
+                        <strong>Daily</strong>
+                        <small>Every selected day</small>
+                    </button>
+
+                    <button type="button" class="frequency-option" data-value="Weekly">
+                        <strong>Weekly</strong>
+                        <small>Every week</small>
+                    </button>
+
+                    <button type="button" class="frequency-option" data-value="Bi-weekly">
+                        <strong>Bi-weekly</strong>
+                        <small>Every two weeks</small>
+                    </button>
+
+                    <button type="button" class="frequency-option" data-value="Monthly">
+                        <strong>Monthly</strong>
+                        <small>Once a month</small>
+                    </button>
+                </div>
+
+                <div class="form-grid two frequency-date">
+                    <label class="field">
+                        <span>Start date</span>
+                        <input type="date" id="startDate" required>
+                        <small>Select your first cleaning date.</small>
+                    </label>
+
+                    <label class="field">
+                        <span>Start time</span>
+                        <select id="startTime" required>
+                            <option value="">Select a date first</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div id="recurringOptions" class="recurring-options hidden">
+                    <div class="recurring-heading">
+                        <h3>Recurring schedule</h3>
+                        <p id="frequencyDescription">Select your preferred cleaning days.</p>
+                    </div>
+
+                    <div id="dailyCountWrap" class="field hidden">
+                        <span>Number of cleaning days per week</span>
+                        <div class="stepper">
+                            <button type="button" data-step="dailyCount" data-delta="-1">−</button>
+                            <output id="dailyCountValue">1</output>
+                            <button type="button" data-step="dailyCount" data-delta="1">+</button>
+                        </div>
+                        <small>Choose between 1 and 6 days.</small>
+                    </div>
+
+                    <div class="field days-field">
+                        <span>Preferred cleaning days</span>
+                        <small id="dayHint">Choose one day.</small>
+
+                        <div class="day-options" id="dayOptions">
+                            <button type="button" class="day-option" data-value="Monday">Mon</button>
+                            <button type="button" class="day-option" data-value="Tuesday">Tue</button>
+                            <button type="button" class="day-option" data-value="Wednesday">Wed</button>
+                            <button type="button" class="day-option" data-value="Thursday">Thu</button>
+                            <button type="button" class="day-option" data-value="Friday">Fri</button>
+                            <button type="button" class="day-option" data-value="Saturday">Sat</button>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <span>Schedule duration</span>
+                        <div class="stepper">
+                            <button type="button" data-step="weekCount" data-delta="-1">−</button>
+                            <output id="weekCountValue">4</output>
+                            <button type="button" data-step="weekCount" data-delta="1">+</button>
+                        </div>
+                        <small id="durationHint">Number of weeks for this recurring schedule.</small>
+                    </div>
+                </div>
+
+                <div id="frequencyNotice" class="frequency-notice">
+                    <strong>Once-off service</strong>
+                    <span>Your cleaning service will take place on the selected date only.</span>
+                </div>
+            </section>
+
+            <!-- 04 CHOOSE SERVICE -->
+            <section class="form-card">
+                <div class="section-heading">
+                    <span class="step-number">04</span>
+                    <div>
+                        <h2>Choose your service</h2>
+                        <p>Select your cleaning type and additional services.</p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <span>Service area</span>
+                    <div class="pill-group" id="areaOptions">
+                        <button type="button" class="pill" data-value="Indoor">Indoor</button>
+                        <button type="button" class="pill" data-value="Outdoor">Outdoor</button>
+                    </div>
+                </div>
+
+                <div class="form-grid two service-main">
+                    <label class="field">
+                        <span>Service type</span>
+                        <select id="serviceType" disabled>
+                            <option value="">Select a service area first</option>
+                        </select>
+                    </label>
+
+                    <div class="field">
+                        <span>Price guide</span>
+                        <div id="priceGuide" class="price-guide">
+                            Select a service to view pricing.
+                        </div>
+                    </div>
+                </div>
+
+                <div id="serviceQuantities" class="form-grid two quantity-grid"></div>
+
+                <div id="vehicleWrap" class="field hidden">
+                    <span>Vehicle type</span>
+                    <select id="vehicleType">
+                        <option value="Hatch/Sedan">Hatch / Sedan — R200</option>
+                        <option value="SUV">SUV — R120</option>
+                        <option value="Truck">Truck — R220</option>
+                        <option value="Bus">Bus — R250</option>
+                    </select>
+                </div>
+
+                <div class="extras-heading">
+                    <div>
+                        <h3>Additional services</h3>
+                        <p>Optional extras. Select up to six.</p>
+                    </div>
+                    <span id="extraCount" class="count-tag">0 / 6 selected</span>
+                </div>
+
+                <div id="additionalServices" class="extras-grid"></div>
+            </section>
+
+            <!-- 05 CLEANING DURATION -->
+            <section class="form-card">
+                <div class="section-heading">
+                    <span class="step-number">05</span>
+                    <div>
+                        <h2>Cleaning duration</h2>
+                        <p>Choose the estimated time required.</p>
+                    </div>
+                </div>
+
+                <div class="form-grid two">
+                    <div class="field">
+                        <span>Hours needed</span>
+                        <small id="hoursHint">Minimum 3 hours</small>
+                        <div class="stepper">
+                            <button type="button" data-step="hours" data-delta="-1">−</button>
+                            <output id="hoursValue">3</output>
+                            <button type="button" data-step="hours" data-delta="1">+</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 06 PREFERRED CLEANERS -->
+            <section class="form-card">
+                <div class="section-heading">
+                    <span class="step-number">06</span>
+                    <div>
+                        <h2>Preferred cleaners</h2>
+                        <p>Choose your preferred cleaning team.</p>
+                    </div>
+                </div>
+
+                <div class="field team-size">
+                    <span>Number of cleaners</span>
+                    <div class="stepper">
+                        <button type="button" data-step="cleanerCount" data-delta="-1">−</button>
+                        <output id="cleanerCountValue">0</output>
+                        <button type="button" data-step="cleanerCount" data-delta="1">+</button>
+                    </div>
+                    <small>Choose zero if you would like Pilee to assign your team.</small>
+                </div>
+
+                <div id="cleanerCards" class="cleaner-grid"></div>
+
+                <p class="notice">
+                    <strong>Notice:</strong>
+                    Preferred cleaners are subject to availability.
+                </p>
+            </section>
+
+            <!-- 07 FINAL DETAILS -->
+            <section class="form-card">
+                <div class="section-heading">
+                    <span class="step-number">07</span>
+                    <div>
+                        <h2>Final details</h2>
+                        <p>Help us prepare for your appointment.</p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <span>Are there pets at the property?</span>
+                    <div class="pill-group" id="petOptions">
+                        <button type="button" class="pill active" data-value="No">No</button>
+                        <button type="button" class="pill" data-value="Yes">Yes</button>
+                    </div>
+                </div>
+
+                <label class="field hidden" id="petDetailsWrap">
+                    <span>Pet details</span>
+                    <input type="text" id="petDetails">
+                </label>
+
+                <label class="field">
+                    <span>Additional instructions</span>
+                    <textarea id="instructions" rows="4"
+                        placeholder="Access instructions, parking details or special requests..."></textarea>
+                </label>
+
+                <label class="field">
+                    <span>Upload pictures <small>Optional</small></span>
+                    <input type="file" id="pictures" accept="image/*" multiple>
+                </label>
+
+                <div id="fileList" class="file-list"></div>
+            </section>
+
+            <div class="form-actions">
+                <p>Please review your booking details before proceeding.</p>
+                <button type="button" class="btn btn-primary btn-large" id="proceedPayment">
+                    Proceed to payment →
+                </button>
+            </div>
+
+        </form>
+
+        <!-- BOOKING SUMMARY -->
+        <aside class="summary-card">
+            <div class="summary-top">
+                <p class="eyebrow">YOUR BOOKING</p>
+                <h2>Booking summary</h2>
+            </div>
+
+            <div id="summaryDetails" class="summary-details"></div>
+
+            <div class="summary-divider"></div>
+
+            <h3 class="price-title">Price breakdown</h3>
+            <div id="priceBreakdown" class="price-breakdown"></div>
+
+            <div class="summary-total">
+                <span>Estimated total</span>
+                <strong id="summaryTotal">R79.00</strong>
+            </div>
+
+            <p class="summary-disclaimer">
+                Final charges may be confirmed after reviewing your booking.
+                Quoted services are excluded from this estimate.
+            </p>
+        </aside>
+
+    </div>
+</main>
+
+<!-- CLEANER PROFILE MODAL -->
+<div class="modal-backdrop hidden" id="profileModal">
+    <div class="modal">
+        <button class="modal-close" type="button" data-close="profileModal">×</button>
+        <div id="profileContent"></div>
+    </div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="modal-backdrop hidden" id="paymentModal">
+    <div class="modal payment-modal">
+        <button class="modal-close" type="button" data-close="paymentModal">×</button>
+
+        <p class="modal-kicker">SECURE CHECKOUT DEMO</p>
+        <h2>Complete your payment</h2>
+
+        <p class="modal-copy">
+            This is a demonstration checkout. No real payment will be processed.
+        </p>
+
+        <div class="payment-amount">
+            <span>Amount due</span>
+            <strong id="paymentAmount">R79.00</strong>
+        </div>
+
+        <label class="field">
+            <span>Payment method</span>
+            <select id="paymentMethod">
+                <option>Credit / Debit Card</option>
+                <option>Instant EFT</option>
+                <option>Capitec Pay</option>
+                <option>Scan to Pay</option>
+            </select>
+        </label>
+
+        <div class="modal-actions">
+            <button class="btn btn-outline" type="button" data-close="paymentModal">Cancel</button>
+            <button class="btn btn-primary" type="button" id="payNow">Pay now</button>
+        </div>
+    </div>
+</div>
+
+<!-- BOOKING CONFIRMATION MODAL -->
+<div class="modal-backdrop hidden" id="confirmationModal">
+    <div class="modal confirmation-modal">
+        <div class="success-mark">✓</div>
+
+        <p class="eyebrow">BOOKING CONFIRMED</p>
+        <h2 id="confirmationTitle">Payment approved</h2>
+
+        <p class="modal-copy">
+            Thank you for choosing Pilee Tech Group.
+            Your booking has been created successfully.
+        </p>
+
+        <div class="reference-box">
+            <span>Booking reference</span>
+            <strong id="bookingReference">PILEE-000000</strong>
+            <button type="button" class="btn btn-outline btn-small" id="copyReference">Copy</button>
+        </div>
+
+        <div class="confirmation-total">
+            <span>Total paid</span>
+            <strong id="confirmedTotal">R0.00</strong>
+        </div>
+
+        <div class="paid-booking-summary">
+            <h3>Booking summary</h3>
+            <div id="paidSummaryDetails"></div>
+
+            <div class="summary-divider"></div>
+
+            <h4>Price breakdown</h4>
+            <div id="paidPriceBreakdown"></div>
+
+            <div class="summary-total">
+                <span>Total paid</span>
+                <strong id="paidSummaryTotal">R0.00</strong>
+            </div>
+        </div>
+
+        <div class="modal-actions stacked">
+            <button type="button" class="btn btn-primary" id="viewBooking">View my booking</button>
+            <a href="index.html" class="btn btn-outline">Back to homepage</a>
+        </div>
+    </div>
+</div>
+
+<!-- ================= PILEE TECH GROUP FOOTER ================= -->
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+        <!-- COMPANY INFORMATION -->
+        <div class="footer-brand">
+
+            <h3>Pilee Tech Group</h3>
+
+            <p>Technology. Cleaning. Logistics.</p>
+            <p>Excellence Delivered.</p>
+
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-column">
+
+            <h4>Quick Links</h4>
+            <span class="footer-line"></span>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="AboutPage.html">About Us</a></li>
+                <li><a href="services.php">Services</a></li>
+                <li><a href="projects.php">Projects</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
+               
+                <li><a href="cleaning-partner-recruitment.html">Careers Page</a></li>
+            </ul>
+
+        </div>
+
+        <!-- BUSINESS DIVISIONS -->
+        <div class="footer-column">
+
+            <h4>Business Divisions</h4>
+            <span class="footer-line"></span>
+
+            <ul>
+                <li><a href="tech-projects.php">Technology Solutions</a></li>
+                <li><a href="cleaning-projects.php">Professional Cleaning</a></li>
+                <li><a href="logistics-projects.php">Logistics &amp; Transport</a></li>
+            </ul>
+
+        </div>
+
+        <!-- SOCIAL MEDIA -->
+        <div class="footer-column">
+
+            <h4>Follow Us</h4>
+            <span class="footer-line"></span>
+
+            <ul>
+                <li>
+                    <a href="https://www.facebook.com/share/1LMzQFZyqJ/"
+                       target="_blank" rel="noopener noreferrer">
+                        Facebook
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.linkedin.com/in/pilee-tech-group-5b0611444?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android"
+                       target="_blank" rel="noopener noreferrer">
+                        LinkedIn
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.instagram.com/pilee_tech_group?psln=MW04ZHkyZ2gwYWU1eA%3D%3D&amp;utm_source=qr"
+                       target="_blank" rel="noopener noreferrer">
+                        Instagram
+                    </a>
+                </li>
+
+                <li><a href="https://x.com/PILEETECHGROUP" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="footer-bottom">
+
+        <p>
+            &copy; 2026 Pilee Tech Group. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="booking.js"></script>
+<script src="header.js"></script>
+</body>
+</html>

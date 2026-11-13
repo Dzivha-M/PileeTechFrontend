@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Ratings | Pilee Tech Admin</title>
+    <link rel="stylesheet" href="view-ratings.css">
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <header class="site-header">
+        <nav class="navbar">
+
+            
+
+           
+<a href="admin-dashboard.html" class="site-logo">
+    <span class="logo-pilee">Pilee</span><span class="logo-tech">Tech</span>
+</a>
+
+        <!-- Admin Dashboard Button -->
+        <a href="admin-dashboard.html" class="admin-dashboard-link">
+            <span aria-hidden="true">⚙</span>
+            <span>Admin Dashboard</span>
+        </a>
+            
+
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <section class="page-heading">
+            <div>
+                <p class="eyebrow">ADMINISTRATION</p>
+                <h1>Ratings &amp; Reviews</h1>
+                <p class="page-description">
+                    Monitor customer feedback and review cleaner performance.
+                </p>
+            </div>
+
+            <button class="primary-button" id="exportButton">
+                Export Reviews
+            </button>
+        </section>
+
+        <!-- STATISTICS -->
+        <section class="stats-grid">
+            <article class="stat-card">
+                <div class="stat-icon blue-icon">★</div>
+                <div>
+                    <p>Overall Rating</p>
+                    <h2 id="overallRating">0 <span>/ 5</span></h2>
+                    <small>Average customer rating</small>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon purple-icon">▤</div>
+                <div>
+                    <p>Total Reviews</p>
+                    <h2 id="totalReviews">0</h2>
+                    <small>Customer submissions</small>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon green-icon">✓</div>
+                <div>
+                    <p>Positive Reviews</p>
+                    <h2 id="positiveReviews">0</h2>
+                    <small>Ratings of 4 or 5 stars</small>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon red-icon">!</div>
+                <div>
+                    <p>Low Ratings</p>
+                    <h2 id="lowReviews">0</h2>
+                    <small>Ratings of 1 or 2 stars</small>
+                </div>
+            </article>
+        </section>
+
+        <!-- RATING BREAKDOWN -->
+        <section class="panel breakdown-panel">
+            <div class="section-heading">
+                <div>
+                    <h2>Rating Breakdown</h2>
+                    <p>Understand how customers rate our services.</p>
+                </div>
+            </div>
+
+            <div id="ratingBreakdown" class="rating-breakdown"></div>
+        </section>
+
+        <!-- CUSTOMER REVIEWS -->
+        <section class="panel reviews-panel" id="reviews">
+            <div class="section-heading">
+                <div>
+                    <h2>Customer Reviews</h2>
+                    <p>Read and manage submitted customer feedback.</p>
+                </div>
+            </div>
+
+            <div class="filters">
+                <div class="search-box">
+                    <label for="searchReviews">Search reviews</label>
+                    <input type="search" id="searchReviews"
+                           placeholder="Search customer, cleaner or comment...">
+                </div>
+
+                <div class="filter-box">
+                    <label for="ratingFilter">Filter by rating</label>
+                    <select id="ratingFilter">
+                        <option value="all">All ratings</option>
+                        <option value="5">5 stars</option>
+                        <option value="4">4 stars</option>
+                        <option value="3">3 stars</option>
+                        <option value="2">2 stars</option>
+                        <option value="1">1 star</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Cleaner</th>
+                            <th>Rating</th>
+                            <th>Review</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reviewsTableBody"></tbody>
+                </table>
+            </div>
+
+            <p id="emptyMessage" class="empty-message" hidden>
+                No reviews match your search.
+            </p>
+        </section>
+
+        <!-- CLEANER PERFORMANCE -->
+        <section class="panel performance-panel">
+            <div class="section-heading">
+                <div>
+                    <h2>Cleaner Performance</h2>
+                    <p>Compare cleaners using customer feedback.</p>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cleaner</th>
+                            <th>Total Reviews</th>
+                            <th>Average Rating</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cleanerPerformanceBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- REVIEW DETAILS MODAL -->
+    <div class="modal" id="reviewModal" aria-hidden="true">
+        <div class="modal-content" role="dialog"
+             aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" id="closeModal"
+                    aria-label="Close review details">&times;</button>
+            <p class="eyebrow">CUSTOMER FEEDBACK</p>
+            <h2 id="modalTitle">Review Details</h2>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    
+
+   <!-- Excel export library -->
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+
+<!-- View Ratings functionality -->
+<script src="view-ratings.js"></script>
+</body>
+</html>

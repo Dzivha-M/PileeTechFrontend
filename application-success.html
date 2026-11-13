@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#061A2D">
+
+    <title>Application Submitted | Pilee Tech Group</title>
+
+    <link rel="stylesheet" href="cleaner-application.css">
+    <link rel="stylesheet" href="header.css">
+    <style>
+
+        .success-wrapper {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            background: #f3f7fa;
+        }
+
+        .success-card {
+            width: 100%;
+            max-width: 650px;
+            padding: 55px 40px;
+            background: #ffffff;
+            border: 1px solid #dce6ee;
+            box-shadow: 0 18px 45px rgba(6,26,45,.10);
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #e8f6ef;
+            color: #16844a;
+            font-size: 36px;
+        }
+
+        .success-card h1 {
+            color: #061a2d;
+            margin-bottom: 18px;
+            font-size: 32px;
+        }
+
+        .success-card h1 span {
+            color: #08a9e8;
+        }
+
+        .success-card p {
+            color: #5d7084;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .success-note {
+            margin: 25px 0;
+            padding: 18px;
+            background: #f3f7fa;
+            border-left: 4px solid #08a9e8;
+            text-align: left;
+            color: #102b49;
+            line-height: 1.7;
+        }
+
+        .success-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 15px 28px;
+            background: #061a2d;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .3s ease;
+        }
+
+        .success-button:hover {
+            background: #0879bd;
+        }
+
+        @media(max-width: 600px) {
+
+            .success-card {
+                padding: 40px 22px;
+            }
+
+            .success-card h1 {
+                font-size: 26px;
+            }
+
+        }
+
+        
+/* =========================================
+   PILEE TECH GROUP — SHARED FOOTER
+========================================= */
+
+.site-footer {
+    background: #040D18;
+    color: #CBD5E1;
+    padding: 70px 0 35px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: "DM Sans", Arial, sans-serif;
+    width: 100%;
+}
+
+.footer-container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.3fr 1fr;
+    gap: 40px;
+    text-align: left;
+}
+
+/* COMPANY INFORMATION */
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-brand h3 {
+    color: #FFFFFF;
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin: 0 0 16px;
+}
+
+.footer-brand p {
+    color: #94A3B8;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0 0 6px;
+}
+
+/* FOOTER COLUMNS */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h4 {
+    color: #FFFFFF;
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.footer-line {
+    width: 38px;
+    height: 3px;
+    background: #08A9E8;
+    margin-top: 10px;
+    margin-bottom: 22px;
+}
+
+/* FOOTER LINKS */
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-column ul li a {
+    color: #CBD5E1;
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: color 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #08A9E8;
+}
+
+/* COPYRIGHT */
+
+.footer-bottom {
+    width: min(1200px, 90%);
+    margin: 55px auto 0;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #64748B;
+    font-size: 0.85rem;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 950px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-footer {
+        padding: 50px 0 25px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+    }
+}
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <!-- PILEE TECH LOGO -->
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="Pilee Tech Group Logo">
+    </a>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="navigation" id="mainNavigation">
+
+    <!-- HOME DROPDOWN -->
+    <div class="nav-dropdown">
+
+        <button class="dropdown-trigger active"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="home-dropdown">
+
+            Home
+            <span class="dropdown-arrow"></span>
+
+        </button>
+
+        <div class="dropdown-menu" id="home-dropdown">
+            <a href="index.html#top">Homepage</a>
+            <a href="index.html#about">Who We Are</a>
+            <a href="index.html#values">Our Core Values</a>
+            <a href="index.html#why-us">Why Choose Us</a>
+            <a href="index.html#divisions">Business Divisions</a>
+            <a href="index.html#contact">Contact Section</a>
+        </div>
+
+    </div>
+
+
+    <!-- ABOUT US DROPDOWN -->
+    <div class="nav-dropdown">
+
+        <button class="dropdown-trigger"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="about-dropdown">
+
+            About Us
+            <span class="dropdown-arrow"></span>
+
+        </button>
+
+        <div class="dropdown-menu" id="about-dropdown">
+            <a href="AboutPage.html#who-we-are">Who We Are</a>
+            <a href="AboutPage.html#our-story">Our Story</a>
+            <a href="AboutPage.html#business-divisions">Business Divisions</a>
+            <a href="AboutPage.html#core-values">Our Core Values</a>
+            <a href="AboutPage.html#our-approach">Our Approach</a>
+            <a href="AboutPage.html#contact-section">Contact Section</a>
+        </div>
+
+    </div>
+        <a href="services.php">Pilee Cleaning Services</a>
+        <a href="projects.php">Other Divisions</a>
+        <a href="contact-us.php">Contact</a>
+        <a href="cleaning-partner-recruitment.html">Careers Page</a>
+
+        <a href="Request-service.html" class="request-service">
+            Book a  Cleaning Service
+        </a>
+
+    </nav>
+
+    
+<!-- LOGIN LINK: Visible when logged out -->
+<a href="login.html" class="login-link" id="loginLink">
+    Login
+</a>
+
+<!-- PROFILE MENU: Visible when logged in -->
+<div class="profile-menu-container" id="profileMenuContainer" hidden>
+
+    <button class="profile-btn"
+            id="profileBtn"
+            type="button"
+            aria-label="Open customer profile menu"
+            aria-expanded="false"
+            aria-controls="profileDropdown">
+
+        <span class="profile-icon" aria-hidden="true"></span>
+    </button>
+
+    <div class="profile-dropdown" id="profileDropdown" hidden>
+
+        <div class="profile-dropdown-header">
+            <strong>My Account</strong>
+            <p>Welcome back!</p>
+        </div>
+
+        <a href="customer profile.html">👤 My Profile</a>
+        <a href="report-issue.html">🎧 My Support</a>
+        <a href="customer-booking-history-page.html">📋 Booking History</a>
+
+        <div class="profile-dropdown-divider"></div>
+
+        <a href="#" class="logout-link" id="logoutBtn">
+            ↪ Logout
+        </a>
+
+    </div>
+</div>
+    
+
+    <!-- MOBILE MENU -->
+    <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+
+<main>
+
+    <section class="success-wrapper">
+
+        <div class="success-card">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <span class="eyebrow">
+                PILEE TECH GROUP
+            </span>
+
+            <h1>
+                Thank You for <span>Applying!</span>
+            </h1>
+
+            <p>
+                Thank you for submitting your application to
+                Pilee Tech Group.
+            </p>
+
+            <p>
+                Your application has been successfully received
+                and is currently under consideration.
+            </p>
+
+            <div class="success-note">
+
+                <strong>What happens next?</strong>
+
+                <p>
+                    Please keep checking your email inbox for
+                    further communication and updates from us
+                    regarding your application.
+                </p>
+
+            </div>
+
+            <p>
+                We appreciate your interest in joining our
+                professional team.
+            </p>
+
+            <p>
+                <strong>Good luck with your application!</strong>
+            </p>
+
+            <a href="index.html" class="success-button">
+                Return to Homepage →
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+ <!-- =====================================
+         FOOTER
+    ====================================== -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <h3>Pilee Tech Group</h3>
+
+                <p>
+                    Technology. Cleaning. Logistics.<br>
+                    Excellence Delivered.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Quick Links</h4>
+                <span class="footer-line"></span>
+
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="AboutPage.html">About Us</a></li>
+                    <li><a href="services.php">Services</a></li>
+                    <li><a href="projects.php">Projects</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
+                    <li><a href="cleaning-partner-recruitment.html">Careers Page</a></li>
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Business Divisions</h4>
+                <span class="footer-line"></span>
+
+                <ul>
+                    <li><a href="tech-projects.php">Technology Solutions</a></li>
+                    <li><a href="cleaning-projects.php">Professional Cleaning</a></li>
+                    <li><a href="logistics-projects.php">Logistics &amp; Transport</a></li>
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Follow Us</h4>
+                <span class="footer-line"></span>
+
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/share/1LMzQFZyqJ/"
+                           target="_blank"
+                           rel="noopener noreferrer">Facebook</a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.linkedin.com/in/pilee-tech-group-5b0611444?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                           target="_blank"
+                           rel="noopener noreferrer">LinkedIn</a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.instagram.com/pilee_tech_group?psln=MW04ZHkyZ2gwYWU1eA%3D%3D&utm_source=qr"
+                           target="_blank"
+                           rel="noopener noreferrer">Instagram</a>
+                    </li>
+
+                    <li>
+                        <a href="https://x.com/PILEETECHGROUP" target="_blank" rel="noopener noreferrer">
+                            X (Twitter)
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>&copy; 2026 Pilee Tech Group. All Rights Reserved.</p>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="header.js" defer></script>
+
+</body>
+</html>

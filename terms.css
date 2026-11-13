@@ -1,0 +1,1505 @@
+
+/* =====================================================
+   PILEE TECH GROUP
+   TERMS AND CONDITIONS PAGE
+   Shared Header: Report an Issue
+   ===================================================== */
+
+
+/* =====================================================
+   1. GLOBAL SETTINGS
+   ===================================================== */
+
+:root {
+    --navy: #061A2D;
+    --navy2: #092844;
+    --blue: #08A9E8;
+    --blue2: #0879BD;
+
+    --ink: #102B49;
+    --muted: #5D7084;
+
+    --pale: #F3F7FA;
+    --white: #FFFFFF;
+    --line: #DCE6EE;
+
+    --shadow: 0 18px 45px rgba(6, 26, 45, 0.10);
+    --content-width: 1200px;
+    --page-padding: 6%;
+
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   2. SHARED WEBSITE HEADER
+   Matching Report an Issue
+   ===================================================== */
+
+.site-header {
+    width: 100%;
+    min-height: 82px;
+    padding: 8px 4%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 3px 18px rgba(6, 26, 45, 0.06);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: clamp(12px, 1.5vw, 20px);
+
+    flex: 1;
+    margin-left: auto;
+    margin-right: 10px;
+
+    white-space: nowrap;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.navigation > a:not(.nav-cta):not(.request-service) {
+    position: relative;
+    padding: 9px 0;
+
+    color: var(--ink);
+    text-decoration: none;
+
+    transition: var(--transition);
+}
+
+.navigation > a:not(.nav-cta):not(.request-service):hover {
+    color: var(--blue2);
+}
+
+.navigation > a:not(.nav-cta):not(.request-service)::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: 2px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--blue);
+    transition: width 0.25s ease;
+}
+
+.navigation > a:not(.nav-cta):not(.request-service):hover::after {
+    width: 100%;
+}
+
+/* =========================================
+   REQUEST A SERVICE BUTTON
+========================================= */
+
+.request-service,
+.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+    padding: 0 24px;
+
+    background: var(--navy);
+    color: var(--white) !important;
+
+    border: 2px solid var(--navy);
+    border-radius: 50px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: var(--transition);
+}
+
+.request-service:hover,
+.nav-cta:hover {
+    background: var(--blue2);
+    border-color: var(--blue2);
+
+    color: var(--white) !important;
+
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(8, 121, 189, 0.2);
+}
+
+
+/* PROFILE MENU */
+
+.profile-menu-container {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+    z-index: 2000;
+}
+
+.profile-btn {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--navy);
+    color: var(--white);
+
+    border: 2px solid var(--navy);
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+.profile-btn:hover,
+.profile-btn[aria-expanded="true"] {
+    background: var(--blue);
+    border-color: var(--blue);
+}
+
+.profile-icon {
+    position: relative;
+
+    display: block;
+
+    width: 20px;
+    height: 22px;
+}
+
+.profile-icon::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 6.5px;
+
+    width: 7px;
+    height: 7px;
+
+    border: 2px solid currentColor;
+    border-radius: 50%;
+}
+
+.profile-icon::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 2.5px;
+
+    width: 15px;
+    height: 8px;
+
+    border: 2px solid currentColor;
+    border-bottom: 0;
+
+    border-radius: 12px 12px 0 0;
+}
+
+
+/* PROFILE DROPDOWN */
+
+.profile-dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+
+    width: 245px;
+    padding: 10px;
+
+    background: var(--white);
+
+    border: 1px solid var(--line);
+    border-radius: 10px;
+
+    box-shadow: 0 15px 40px rgba(6, 26, 45, 0.16);
+
+    z-index: 9999;
+}
+
+.profile-dropdown[hidden] {
+    display: none !important;
+}
+
+.profile-dropdown-header {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    padding: 13px 12px 15px;
+
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 7px;
+}
+
+.profile-dropdown-header strong {
+    color: var(--navy);
+    font-size: 15px;
+}
+
+.profile-dropdown-header p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.profile-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    padding: 11px 12px;
+
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+    border-radius: 6px;
+
+    transition: var(--transition);
+}
+
+.profile-dropdown a:hover {
+    background: #EDF8FD;
+    color: var(--blue2);
+    transform: translateX(3px);
+}
+
+.profile-dropdown a span {
+    width: 20px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.profile-dropdown-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 7px 0;
+}
+
+.profile-dropdown a.logout-link {
+    color: #DC3545;
+}
+
+.profile-dropdown a.logout-link:hover {
+    background: #FFF1F1;
+}
+
+
+/* MOBILE MENU BUTTON */
+
+.menu-toggle {
+    display: none;
+
+    background: none;
+    border: 0;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   3. HERO SECTION
+   ===================================================== */
+
+.terms-hero {
+    background:
+        linear-gradient(
+            110deg,
+            rgba(6, 26, 45, 0.97),
+            rgba(9, 40, 68, 0.92)
+        );
+
+    color: var(--white);
+
+    padding: 85px var(--page-padding) 80px;
+}
+
+.hero-content {
+    max-width: var(--content-width);
+    margin: auto;
+}
+
+.hero-label {
+    display: inline-block;
+
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.terms-hero h1 {
+    font-family: "Manrope", sans-serif;
+
+    font-size: clamp(35px, 5vw, 55px);
+    font-weight: 800;
+
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.terms-hero p {
+    max-width: 680px;
+
+    color: #D5E1EC;
+    font-size: 15px;
+
+    margin-bottom: 25px;
+}
+
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    color: #B8CAD9;
+    font-size: 12px;
+}
+
+.hero-meta strong {
+    color: var(--white);
+}
+
+
+/* =====================================================
+   4. MAIN CONTENT LAYOUT
+   ===================================================== */
+
+.terms-container {
+    max-width: var(--content-width);
+    margin: auto;
+
+    padding: 65px var(--page-padding) 90px;
+
+    display: grid;
+    grid-template-columns: 255px minmax(0, 1fr);
+
+    gap: 55px;
+    align-items: start;
+}
+
+.terms-content {
+    min-width: 0;
+}
+
+
+/* =====================================================
+   5. TABLE OF CONTENTS
+   ===================================================== */
+
+.terms-sidebar {
+    position: sticky;
+    top: 110px;
+}
+
+.contents-nav {
+    background: var(--pale);
+
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--blue);
+
+    padding: 25px 20px;
+}
+
+.contents-nav h3 {
+    font-family: "Manrope", sans-serif;
+
+    color: var(--navy);
+    font-size: 16px;
+    font-weight: 800;
+
+    margin-bottom: 17px;
+}
+
+.contents-nav a {
+    display: block;
+
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+
+    padding: 8px 0;
+
+    border-bottom: 1px solid #E3EAF0;
+
+    transition: var(--transition);
+}
+
+.contents-nav a:last-child {
+    border-bottom: none;
+}
+
+.contents-nav a:hover {
+    color: var(--blue2);
+    padding-left: 5px;
+}
+
+
+/* =====================================================
+   6. INTRODUCTION
+   ===================================================== */
+
+.terms-intro {
+    background: var(--pale);
+
+    padding: 32px;
+    margin-bottom: 35px;
+
+    border-left: 4px solid var(--blue);
+}
+
+.section-label {
+    display: block;
+
+    color: var(--blue2);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 10px;
+}
+
+.terms-intro h2 {
+    font-family: "Manrope", sans-serif;
+
+    color: var(--navy);
+    font-size: 25px;
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+.terms-intro p {
+    color: var(--muted);
+    font-size: 14px;
+
+    margin-bottom: 12px;
+}
+
+.terms-intro p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =====================================================
+   7. TERMS SECTIONS
+   ===================================================== */
+
+.terms-section {
+    position: relative;
+
+    padding: 30px 0;
+    border-bottom: 1px solid var(--line);
+
+    scroll-margin-top: 110px;
+}
+
+.section-number {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    background: var(--navy);
+    color: var(--white);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+.terms-section h2 {
+    font-family: "Manrope", sans-serif;
+
+    color: var(--navy);
+    font-size: 21px;
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+.terms-section p {
+    color: var(--muted);
+    font-size: 13px;
+
+    margin-bottom: 13px;
+}
+
+.terms-section ul {
+    padding-left: 22px;
+    margin: 15px 0 20px;
+}
+
+.terms-section li {
+    color: var(--muted);
+    font-size: 13px;
+
+    padding-left: 5px;
+    margin-bottom: 9px;
+}
+
+.terms-section li::marker {
+    color: var(--blue);
+}
+
+
+/* =====================================================
+   8. SERVICE LIST
+   ===================================================== */
+
+.service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    margin: 25px 0;
+}
+
+.service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 17px;
+
+    padding: 20px;
+
+    background: var(--pale);
+    border: 1px solid var(--line);
+}
+
+.service-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--navy);
+    color: var(--white);
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.service-item h3 {
+    color: var(--navy);
+    font-family: "Manrope", sans-serif;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    margin-bottom: 5px;
+}
+
+.service-item p {
+    margin: 0;
+}
+
+
+/* =====================================================
+   9. QUICK REFERENCE BOX
+   ===================================================== */
+
+.quick-reference {
+    background: #EAF5FB;
+
+    border-left: 4px solid var(--blue);
+
+    padding: 22px 25px;
+    margin: 25px 0;
+}
+
+.quick-reference h3 {
+    color: var(--navy);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+.quick-reference p {
+    margin: 0;
+}
+
+
+/* =====================================================
+   10. CONTACT DETAILS
+   ===================================================== */
+
+.contact-terms {
+    border-bottom: none;
+}
+
+.contact-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.contact-details div {
+    background: var(--pale);
+
+    border: 1px solid var(--line);
+    padding: 17px;
+}
+
+.contact-details span {
+    display: block;
+
+    color: var(--muted);
+    font-size: 11px;
+
+    margin-bottom: 5px;
+}
+
+.contact-details strong {
+    display: block;
+
+    color: var(--navy);
+    font-size: 13px;
+
+    overflow-wrap: anywhere;
+}
+
+.contact-button {
+    display: inline-block;
+
+    background: var(--blue);
+    color: var(--white);
+
+    padding: 12px 24px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.contact-button:hover {
+    background: var(--navy);
+}
+
+
+/* =====================================================
+   11. FINAL NOTICE
+   ===================================================== */
+
+.final-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+
+    background: var(--navy);
+
+    padding: 28px;
+    margin-top: 30px;
+
+    color: var(--white);
+}
+
+.notice-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--blue);
+    color: var(--white);
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.final-notice h3 {
+    font-family: "Manrope", sans-serif;
+
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.final-notice p {
+    color: #D2DFE9;
+    font-size: 12px;
+    margin: 0;
+}
+
+
+/* =====================================================
+   12. BACK TO TOP
+   ===================================================== */
+
+.back-top {
+    text-align: right;
+    margin-top: 25px;
+}
+
+.back-top a {
+    color: var(--blue2);
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.back-top a:hover {
+    color: var(--navy);
+}
+
+
+/* =====================================================
+   13. FOOTER
+   ===================================================== */
+
+.site-footer {
+    background: var(--navy);
+    color: var(--white);
+
+    padding: 55px var(--page-padding) 0;
+}
+
+.footer-container {
+    max-width: var(--content-width);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+    gap: 45px;
+    padding-bottom: 45px;
+}
+
+.footer-logo .brand-copy strong {
+    color: var(--white);
+}
+
+.footer-logo .brand-copy span {
+    color: #B8CAD9;
+}
+
+.footer-logo .brand-mark {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.footer-brand p {
+    max-width: 280px;
+
+    color: #B8CAD9;
+    font-size: 12px;
+
+    margin-top: 20px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.footer-column h3 {
+    font-family: "Manrope", sans-serif;
+
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 800;
+
+    margin-bottom: 8px;
+}
+
+.footer-column a {
+    color: #B8CAD9;
+    font-size: 12px;
+
+    transition: var(--transition);
+}
+
+.footer-column a:hover {
+    color: var(--blue);
+}
+
+.footer-bottom {
+    max-width: var(--content-width);
+    margin: auto;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+    padding: 20px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.footer-bottom p {
+    color: #AFC1D0;
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   14. TABLET RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 1000px) {
+
+    .terms-container {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 30px;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .site-header {
+        padding: 8px 2%;
+        gap: 10px;
+    }
+
+    .brand {
+        min-width: auto;
+    }
+
+    .navigation {
+        gap: 10px;
+        font-size: 11px;
+    }
+
+    .nav-cta {
+        padding: 9px 10px;
+        font-size: 10px;
+    }
+}
+
+
+/* =====================================================
+   15. MOBILE RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 760px) {
+
+    /* HERO */
+
+    .terms-hero {
+        padding: 65px 6%;
+    }
+
+    .terms-hero h1 {
+        font-size: 36px;
+    }
+
+    .terms-hero p {
+        font-size: 13px;
+    }
+
+    .hero-meta {
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    /* MAIN */
+
+    .terms-container {
+        display: flex;
+        flex-direction: column;
+
+        padding: 40px 6% 60px;
+        gap: 30px;
+    }
+
+    .terms-sidebar {
+        position: static;
+        width: 100%;
+    }
+
+    .contents-nav {
+        padding: 20px;
+    }
+
+    .contents-nav a {
+        font-size: 12px;
+    }
+
+    /* INTRO */
+
+    .terms-intro {
+        padding: 23px;
+    }
+
+    .terms-intro h2 {
+        font-size: 22px;
+    }
+
+    /* SECTIONS */
+
+    .terms-section {
+        padding: 25px 0;
+    }
+
+    .terms-section h2 {
+        font-size: 19px;
+    }
+
+    /* CONTACT */
+
+    .contact-details {
+        grid-template-columns: 1fr;
+    }
+
+    /* FOOTER */
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 20px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+/* =====================================================
+   16. SHARED HEADER MOBILE DESIGN
+   Matching Report an Issue
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+    .site-header {
+        min-height: 75px;
+        height: auto;
+
+        padding: 10px 5%;
+
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .brand {
+        min-width: 0;
+        margin-right: auto;
+    }
+
+    .brand-mark {
+        font-size: 36px;
+        width: 40px;
+        height: 42px;
+    }
+
+    .brand-copy strong {
+        font-size: 19px;
+    }
+
+    .brand-copy b {
+        font-size: 9px;
+    }
+
+    .brand-copy small {
+        font-size: 8px;
+    }
+
+    .profile-menu-container {
+        order: 2;
+    }
+
+    .menu-toggle {
+        display: flex;
+
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+
+        order: 3;
+    }
+
+    .menu-toggle span {
+        width: 24px;
+        height: 2px;
+
+        background: var(--navy);
+    }
+
+    .navigation {
+        display: none;
+
+        order: 4;
+
+        flex: 0 0 100%;
+        width: 100%;
+
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+
+        margin: 0;
+        padding: 15px 0;
+    }
+
+    .navigation.open {
+        display: flex;
+    }
+
+    .navigation > a {
+        padding: 10px;
+    }
+
+    .navigation .nav-cta {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .profile-dropdown {
+        width: 230px;
+        right: 0;
+    }
+}
+
+
+/* =====================================================
+   17. SMALL MOBILE DESIGN
+   ===================================================== */
+
+@media (max-width: 480px) {
+
+    .terms-hero h1 {
+        font-size: 31px;
+    }
+
+    .service-item {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .final-notice {
+        padding: 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =====================================================
+   18. PRINT SETTINGS
+   ===================================================== */
+
+@media print {
+
+    .site-header,
+    .terms-sidebar,
+    .site-footer,
+    .back-top,
+    .contact-button {
+        display: none;
+    }
+
+    .terms-container {
+        display: block;
+        padding: 20px;
+    }
+
+    .terms-hero {
+        background: none;
+        color: black;
+        padding: 20px;
+    }
+
+    .terms-hero p,
+    .hero-meta {
+        color: #444;
+    }
+
+    .terms-section {
+        break-inside: avoid;
+    }
+}
+
+/* =========================================
+   PILEE TECH GROUP — SHARED FOOTER
+========================================= */
+
+.site-footer {
+    background: #040D18;
+    color: #CBD5E1;
+    padding: 70px 0 35px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: "DM Sans", Arial, sans-serif;
+    width: 100%;
+}
+
+.footer-container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.3fr 1fr;
+    gap: 40px;
+    text-align: left;
+}
+
+/* Company information */
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-brand h3 {
+    color: #ffffff;
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin: 0 0 16px;
+}
+
+.footer-brand p {
+    color: #94A3B8;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0 0 6px;
+}
+
+/* Footer columns */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h4 {
+    color: #ffffff;
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.footer-line {
+    width: 38px;
+    height: 3px;
+    background: #08A9E8;
+    margin-top: 10px;
+    margin-bottom: 22px;
+}
+
+/* Footer links */
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-column ul li a {
+    color: #CBD5E1;
+    text-decoration: none;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    transition: color 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #08A9E8;
+}
+
+/* Copyright */
+
+.footer-bottom {
+    width: min(1200px, 90%);
+    margin: 55px auto 0;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #64748B;
+    font-size: 0.85rem;
+}
+
+/* Responsive design */
+
+@media (max-width: 950px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-footer {
+        padding: 50px 0 25px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 230px;
+    height: 110px;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* =========================================
+   NAVIGATION DROPDOWN
+========================================= */
+
+.nav-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown trigger */
+
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background: transparent;
+    border: none;
+
+    color: #061A2D;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    padding: 12px 10px;
+
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.dropdown-trigger:hover,
+.dropdown-trigger.active {
+    color: #08A9E8;
+}
+
+/* Dropdown arrow */
+
+.dropdown-arrow {
+    width: 8px;
+    height: 8px;
+
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+
+    transform: rotate(45deg);
+    margin-top: -4px;
+
+    transition: transform 0.3s ease;
+}
+
+/* Dropdown menu */
+
+.dropdown-menu {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    min-width: 220px;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    padding: 10px 0;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+
+    border: 1px solid #E2E8F0;
+
+    display: none;
+
+    z-index: 1000;
+}
+
+/* Dropdown links */
+
+.dropdown-menu a {
+    display: block;
+
+    padding: 12px 18px;
+
+    color: #102B49;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+.dropdown-menu a:hover {
+    background: #F0F8FC;
+    color: #08A9E8;
+    padding-left: 24px;
+}
+
+/* Show dropdown on hover and keyboard focus */
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(225deg);
+    margin-top: 4px;
+}
+
+/* Keep dropdown above other elements */
+
+.site-header {
+    position: relative;
+    z-index: 1000;
+}
+
+/* Hide account elements when required */
+[hidden] {
+    display: none !important;
+}
+
+/* Login link */
+.login-link {
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.login-link:hover {
+    color: var(--blue2);
+}
+
+/* =========================================
+   HOME DROPDOWN — NAVY BLUE HOVER
+========================================= */
+
+/* Home dropdown button */
+.nav-dropdown .dropdown-trigger {
+    color: #061A2D !important;
+    background: transparent;
+}
+
+/* Prevent light-blue hover and active colour */
+.nav-dropdown .dropdown-trigger:hover,
+.nav-dropdown .dropdown-trigger:focus,
+.nav-dropdown .dropdown-trigger:active,
+.nav-dropdown .dropdown-trigger.active {
+    color: #061A2D !important;
+    background: transparent !important;
+}
+
+/* Dropdown arrow */
+.nav-dropdown .dropdown-trigger:hover .dropdown-arrow,
+.nav-dropdown .dropdown-trigger.active .dropdown-arrow {
+    border-color: #061A2D !important;
+}
+
+/* Dropdown menu links */
+.nav-dropdown .dropdown-menu a:hover {
+    color: #061A2D !important;
+    background: #F3F7FA !important;
+}

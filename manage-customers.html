@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilee Tech | Manage Customers</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="manage-customers.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="site-header">
+    <div class="logo-container">
+        
+        
+<a href="admin-dashboard.html" class="site-logo">
+    <span class="logo-pilee">Pilee</span><span class="logo-tech">Tech</span>
+</a>
+
+        <!-- ADMIN DASHBOARD BUTTON -->
+        <a href="admin-dashboard.html" class="admin-dashboard-link">
+            <span aria-hidden="true">⚙</span>
+            <span>Admin Dashboard</span>
+        </a>
+    </div>
+</header>
+
+<main class="mc-container">
+
+    <section class="mc-heading">
+        <div>
+            <p class="mc-eyebrow">ADMINISTRATION / CUSTOMERS</p>
+            <h1>Manage Customers</h1>
+            <p>View customer profiles and manage account status.</p>
+        </div>
+
+      
+    <section class="mc-stats">
+        <article class="mc-stat-card">
+            <span>Total Customers</span>
+            <h2 id="totalCustomers">0</h2>
+            <p>Registered accounts</p>
+        </article>
+
+        <article class="mc-stat-card">
+            <span>Active Accounts</span>
+            <h2 id="activeCustomers">0</h2>
+            <p>Accounts currently active</p>
+        </article>
+
+        <article class="mc-stat-card">
+            <span>Inactive Accounts</span>
+            <h2 id="inactiveCustomers">0</h2>
+            <p>Deactivated accounts</p>
+        </article>
+    </section>
+
+    <section class="mc-panel">
+        <div class="mc-panel-heading">
+            <div>
+                <h2>Customer Directory</h2>
+                <p>Search, review and update customer accounts.</p>
+            </div>
+        </div>
+
+        <div class="mc-toolbar">
+            <input
+                type="search"
+                id="customerSearch"
+                placeholder="Search name, email, phone or customer ID..."
+                aria-label="Search customers"
+            >
+
+            <select id="statusFilter" aria-label="Filter by account status">
+                <option value="all">All Accounts</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+            </select>
+        </div>
+
+        <div class="mc-table-wrapper">
+            <table class="mc-table">
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Customer ID</th>
+                        <th>Contact Details</th>
+                        <th>Location</th>
+                        <th>Account Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="customerTableBody"></tbody>
+            </table>
+        </div>
+
+        <p class="mc-empty" id="emptyMessage" hidden>
+            No customers match your search.
+        </p>
+    </section>
+
+</main>
+
+<!-- Add / Edit Customer Modal -->
+<div class="mc-modal" id="customerModal" hidden>
+    <div class="mc-modal-content">
+        <div class="mc-modal-heading">
+            <div>
+                <p class="mc-eyebrow">CUSTOMER DETAILS</p>
+                <h2 id="modalTitle">Add Customer</h2>
+            </div>
+            <button type="button" class="mc-close" id="closeModalBtn"
+                aria-label="Close dialog">&times;</button>
+        </div>
+
+        <form id="customerForm">
+            <input type="hidden" id="customerId">
+
+            <div class="mc-form-grid">
+                <label>
+                    Full Name
+                    <input type="text" id="fullName" required maxlength="100"
+                        placeholder="Enter full name">
+                </label>
+
+                <label>
+                    Email Address
+                    <input type="email" id="email" required maxlength="150"
+                        placeholder="customer@example.com">
+                </label>
+
+                <label>
+                    Phone Number
+                    <input type="tel" id="phone" required maxlength="30"
+                        placeholder="Enter phone number">
+                </label>
+
+                <label>
+                    Address / Location
+                    <input type="text" id="address" required maxlength="200"
+                        placeholder="e.g. Pretoria, Gauteng">
+                </label>
+
+                <label>
+                    Account Status
+                    <select id="accountStatus">
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </label>
+            </div>
+
+            <p class="mc-form-note">
+                Demo only: changes are saved in this browser. Connect a backend
+                before using real customer accounts.
+            </p>
+
+            <div class="mc-form-actions">
+                <button type="button" class="mc-btn mc-secondary" id="cancelBtn">
+                    Cancel
+                </button>
+                <button type="submit" class="mc-btn mc-primary">
+                    Save Customer
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="manage-customers.js"></script>
+</body>
+</html>

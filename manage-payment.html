@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pilee Tech payment management dashboard">
+    <title>Manage Payments | Pilee Tech</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Excel export library -->
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+
+<!-- Your existing JavaScript -->
+<script src="./manage-payment.js" defer></script>
+
+    <link rel="stylesheet" href="./manage-payment.css">
+    <script src="./manage-payment.js" defer></script>
+</head>
+<body>
+
+      <!-- NAVBAR -->
+<header class="site-header">
+    <div class="logo-container">
+        
+
+<a href="admin-dashboard.html" class="site-logo">
+    <span class="logo-pilee">Pilee</span><span class="logo-tech">Tech</span>
+</a>
+
+        <!-- Admin Dashboard Button -->
+        <a href="admin-dashboard.html" class="admin-dashboard-link">
+            <span aria-hidden="true">⚙</span>
+            <span>Admin Dashboard</span>
+        </a>
+    </div>
+</header>
+    <!-- PAGE BANNER -->
+    <section class="page-banner">
+        <div class="banner-icon" aria-hidden="true">💳</div>
+        <div>
+            <p class="welcome-text">ADMINISTRATION / PAYMENTS</p>
+            <h1>Manage Payments</h1>
+            <p>Monitor transactions, payment statuses and customer payments.</p>
+        </div>
+    </section>
+
+    <main class="payment-container">
+
+        <!-- INTRO -->
+        <section class="page-intro">
+            <span class="eyebrow">PAYMENT OVERVIEW</span>
+            <h2>Payment Dashboard</h2>
+            <p>Review and manage payment transactions from one place.</p>
+        </section>
+
+        <!-- SUMMARY CARDS -->
+        <section class="payment-stats" aria-label="Payment statistics">
+            <article class="stat-card">
+                <div class="stat-icon" aria-hidden="true">💰</div>
+                <div>
+                    <p>Total Revenue</p>
+                    <h3 id="totalRevenue">R 0.00</h3>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon" aria-hidden="true">✓</div>
+                <div>
+                    <p>Completed Payments</p>
+                    <h3 id="completedCount">0</h3>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon" aria-hidden="true">◷</div>
+                <div>
+                    <p>Pending Payments</p>
+                    <h3 id="pendingCount">0</h3>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon" aria-hidden="true">↗</div>
+                <div>
+                    <p>Total Transactions</p>
+                    <h3 id="transactionCount">0</h3>
+                </div>
+            </article>
+        </section>
+
+        <!-- TRANSACTIONS -->
+        <section class="payment-panel">
+            <div class="panel-heading">
+                <div>
+                    <h2>Payment Transactions</h2>
+                    <p>Search, filter and inspect customer payments.</p>
+                </div>
+
+                <button type="button" class="primary-button" id="exportButton">
+                    ↓ Export Excel
+                </button>
+            </div>
+
+            <!-- SEARCH AND FILTER -->
+            <div class="payment-controls">
+                <label class="search-box">
+                    <span aria-hidden="true">⌕</span>
+                    <input
+                        type="search"
+                        id="paymentSearch"
+                        placeholder="Search customer, ID or service..."
+                        aria-label="Search payment transactions">
+                </label>
+
+                <select id="statusFilter" aria-label="Filter by payment status">
+                    <option value="all">All statuses</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Failed">Failed</option>
+                    <option value="Refunded">Refunded</option>
+                </select>
+
+                <select id="methodFilter" aria-label="Filter by payment method">
+                    <option value="all">All methods</option>
+                    <option value="Card">Card</option>
+                    <option value="EFT">Electronic transfer</option>
+                    <option value="PayPal">PayPal</option>
+                </select>
+            </div>
+
+            <!-- TABLE -->
+            <div class="table-wrapper">
+                <table class="payment-table">
+                    <thead>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>Customer</th>
+                            <th>Service</th>
+                            <th>Date</th>
+                            <th>Method</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paymentTableBody"></tbody>
+                </table>
+            </div>
+
+            <p class="table-footer" id="tableFooter" aria-live="polite">
+                Loading transactions...
+            </p>
+        </section>
+
+        <!-- TRANSACTION DETAILS -->
+        <section class="payment-panel details-panel" id="detailsPanel" hidden>
+            <div class="panel-heading">
+                <div>
+                    <span class="eyebrow">TRANSACTION INFORMATION</span>
+                    <h2>Payment Details</h2>
+                    <p>Details for the selected transaction.</p>
+                </div>
+
+                <button type="button" class="secondary-button" id="closeDetailsButton">
+                    Close
+                </button>
+            </div>
+
+            <div class="details-grid" id="paymentDetails"></div>
+
+            <div class="form-actions">
+                <button type="button" class="secondary-button" id="printButton">
+                    Print Details
+                </button>
+            </div>
+        </section>
+
+       
+
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 Pilee Tech. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

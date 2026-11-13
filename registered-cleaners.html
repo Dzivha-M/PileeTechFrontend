@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registered Cleaners | Pilee Tech</title>
+
+    <link rel="stylesheet" href="registered-cleaners.css">
+    <script src="registered-cleaners.js" defer></script>
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+   
+<!-- NAVIGATION BAR — SAME FORMAT AS MANAGE SERVICES -->
+<header class="topbar">
+    
+<a href="admin-dashboard.html" class="site-logo">
+    <span class="logo-pilee">Pilee</span><span class="logo-tech">Tech</span>
+</a>
+
+    <!-- Admin Dashboard Button -->
+    <a href="admin-dashboard.html" class="admin-dashboard-link">
+        <span aria-hidden="true">⚙</span>
+        <span>Admin Dashboard</span>
+    </a>
+</header>
+
+
+    <!-- MAIN PAGE -->
+    <main class="main-content">
+
+       
+
+
+        <!-- PAGE INTRODUCTION -->
+        <section class="page-heading">
+
+            <div>
+                <span class="eyebrow">CLEANER DIRECTORY</span>
+                <h1>Registered Cleaners</h1>
+                <p>
+                    View all registered cleaners and check who is available
+                    for cleaning assignments.
+                </p>
+            </div>
+
+            <div class="heading-icon">♧</div>
+
+        </section>
+
+
+        <!-- CLEANER STATISTICS -->
+        <section class="stats-grid">
+
+            <article class="stat-card">
+                <div class="stat-icon total-icon">♧</div>
+                <div>
+                    <p>All Registered</p>
+                    <h2 id="totalCleaners">0</h2>
+                    <span>Cleaner accounts</span>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon available-icon">✓</div>
+                <div>
+                    <p>Available</p>
+                    <h2 id="availableCleaners">0</h2>
+                    <span>Ready for assignment</span>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon unavailable-icon">−</div>
+                <div>
+                    <p>Unavailable</p>
+                    <h2 id="unavailableCleaners">0</h2>
+                    <span>Not accepting assignments</span>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon job-icon">◷</div>
+                <div>
+                    <p>On a Job</p>
+                    <h2 id="busyCleaners">0</h2>
+                    <span>Currently assigned</span>
+                </div>
+            </article>
+
+        </section>
+
+
+        <!-- ALL REGISTERED CLEANERS -->
+        <section class="content-card">
+
+            <div class="section-heading">
+                <div>
+                    <h2>All Cleaners</h2>
+                    <p>
+                        Browse registered cleaners and their current status.
+                    </p>
+                </div>
+
+                <span class="record-count" id="recordCount">
+                    0 cleaners
+                </span>
+            </div>
+
+
+            <!-- SEARCH -->
+            <div class="filter-bar">
+
+                <div class="search-box">
+                    <span aria-hidden="true">⌕</span>
+
+                    <input type="search"
+                           id="searchInput"
+                           placeholder="Search by name, email or phone..."
+                           aria-label="Search cleaners">
+                </div>
+
+                <select id="statusFilter" aria-label="Filter cleaners">
+                    <option value="all">All Cleaners</option>
+                    <option value="Available">Available Only</option>
+                    <option value="Unavailable">Unavailable Only</option>
+                    <option value="On a Job">Currently on a Job</option>
+                </select>
+
+                <select id="sortFilter" aria-label="Sort cleaners">
+                    <option value="newest">Newest Registered</option>
+                    <option value="oldest">Oldest Registered</option>
+                    <option value="name">Name A–Z</option>
+                </select>
+
+                <button type="button"
+                        class="reset-button"
+                        id="resetFilters">
+                    Reset
+                </button>
+
+            </div>
+
+
+            <!-- CLEANERS TABLE -->
+            <div class="table-wrapper">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cleaner</th>
+                            <th>Contact Details</th>
+                            <th>Date Registered</th>
+                            <th>Availability Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="cleanersTableBody">
+                        <tr>
+                            <td colspan="5" class="empty-state">
+                                Loading registered cleaners...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="table-footer">
+                <p id="tableSummary">Showing 0 cleaners</p>
+                <span>Showing registered cleaner records.</span>
+            </div>
+
+        </section>
+
+
+        <!-- AVAILABILITY INFORMATION -->
+        <section class="availability-guide">
+
+            <h2>Understanding Cleaner Status</h2>
+
+            <div class="guide-grid">
+
+                <div class="guide-item">
+                    <span class="status-badge status-available">
+                        Available
+                    </span>
+                    <p>
+                        Registered cleaners who are ready to be assigned
+                        to a cleaning request.
+                    </p>
+                </div>
+
+                <div class="guide-item">
+                    <span class="status-badge status-unavailable">
+                        Unavailable
+                    </span>
+                    <p>
+                        Registered cleaners who are not currently available
+                        for new assignments.
+                    </p>
+                </div>
+
+                <div class="guide-item">
+                    <span class="status-badge status-on-a-job">
+                        On a Job
+                    </span>
+                    <p>
+                        Registered cleaners who are currently assigned
+                        to a cleaning job.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+       
+    </main>
+
+</div>
+
+</body>
+</html>

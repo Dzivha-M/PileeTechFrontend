@@ -1,0 +1,2050 @@
+
+/* =========================================================
+   PILEE TECH GROUP
+   CLEANER APPLICATION PAGE
+   HOMEPAGE DESIGN SYSTEM
+========================================================= */
+
+
+/* =========================================================
+   1. ROOT VARIABLES
+========================================================= */
+
+:root {
+    --navy: #061a2d;
+    --navy2: #092844;
+
+    --blue: #08a9e8;
+    --blue2: #0879bd;
+
+    --ink: #102b49;
+    --muted: #607286;
+
+    --pale: #f3f7fa;
+    --white: #ffffff;
+
+    --line: #dce6ee;
+
+    --error: #c62828;
+    --success: #18794e;
+
+    --shadow: 0 12px 35px rgba(6,26,45,.09);
+    --shadow-hover: 0 18px 40px rgba(6,26,45,.12);
+}
+
+
+/* =========================================================
+   2. GLOBAL RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--white);
+    color: var(--ink);
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    overflow-x: hidden;
+
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Manrope", sans-serif;
+    color: var(--navy);
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================================
+   3. HEADER
+========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+    min-height: 88px;
+
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+
+    box-shadow: 0 3px 15px rgba(6,26,45,.04);
+}
+
+.nav-container {
+    width: 96%;
+    max-width: 1744px;
+    min-height: 88px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* LOGO */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.brand img {
+    display: block;
+    width: 175px;
+    height: 62px;
+
+    object-fit: contain;
+    object-position: left center;
+}
+
+
+/* NAVIGATION */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 30px;
+    margin-left: auto;
+}
+
+.navigation > a {
+    position: relative;
+
+    color: var(--ink);
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+    transition: color .2s ease;
+}
+
+.navigation > a:not(.nav-cta)::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--blue);
+
+    transition: width .25s ease;
+}
+
+.navigation > a:not(.nav-cta):hover {
+    color: var(--blue2);
+}
+
+.navigation > a:not(.nav-cta):hover::after {
+    width: 100%;
+}
+
+
+/* ACTIVE NAVIGATION */
+
+.navigation > a.active {
+    color: var(--blue2);
+}
+
+
+/* HEADER CTA */
+
+.navigation .nav-cta {
+    min-height: 48px;
+
+    padding: 0 22px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    background: var(--navy);
+    color: var(--white);
+
+    border: 1px solid var(--navy);
+    border-radius: 4px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+    transition: .25s ease;
+}
+
+.navigation .nav-cta:hover {
+    background: var(--blue2);
+    border-color: var(--blue2);
+    transform: translateY(-2px);
+}
+
+
+/* MOBILE MENU */
+
+.menu-toggle {
+    display: none;
+
+    width: 43px;
+    height: 43px;
+
+    padding: 9px;
+
+    background: transparent;
+    border: 1px solid var(--line);
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+
+    width: 22px;
+    height: 2px;
+
+    background: var(--navy);
+    transition: .2s ease;
+}
+
+
+/* =========================================================
+   4. PAGE INTRODUCTION
+========================================================= */
+
+.page-intro {
+    padding: 75px 20px 45px;
+
+    text-align: center;
+    background: var(--white);
+
+    animation: fadeUp .65s ease both;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 7px 13px;
+    margin-bottom: 13px;
+
+    background: #eaf7fd;
+    border-left: 3px solid var(--blue);
+
+    color: var(--blue2);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.page-intro h1 {
+    margin-bottom: 14px;
+
+    color: var(--navy);
+
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(34px, 4vw, 46px);
+
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+}
+
+.page-intro h1 span {
+    color: var(--blue2);
+}
+
+.page-intro > p {
+    max-width: 620px;
+    margin: auto;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.intro-line {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+
+    margin-top: 23px;
+}
+
+.intro-line span {
+    width: 24px;
+    height: 4px;
+
+    background: var(--line);
+    border-radius: 4px;
+}
+
+.intro-line span:first-child {
+    width: 38px;
+    background: var(--blue);
+}
+
+
+/* =========================================================
+   5. APPLICATION CARD
+========================================================= */
+
+.application-card {
+    width: min(950px, 90%);
+
+    margin: 0 auto 75px;
+    padding: 42px;
+
+    background: var(--white);
+
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--blue);
+    border-radius: 5px;
+
+    box-shadow: var(--shadow);
+
+    animation: cardEnter .65s ease both;
+}
+
+
+/* =========================================================
+   6. CARD HEADINGS
+========================================================= */
+
+.card-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-bottom: 27px;
+}
+
+.heading-icon {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+
+    display: grid;
+    place-items: center;
+
+    background: #eaf7fd;
+    color: var(--blue2);
+
+    border-radius: 5px;
+
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.card-heading h2 {
+    color: var(--navy);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.card-heading p {
+    margin-top: 4px;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.section-divider {
+    height: 1px;
+
+    margin: 32px 0;
+
+    background: var(--line);
+}
+
+
+/* =========================================================
+   7. FORM GRID
+========================================================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 0 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    min-width: 0;
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    color: var(--navy);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.form-group label span {
+    color: var(--blue2);
+}
+
+
+/* INPUTS */
+
+.form-group input:not([type="checkbox"]),
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    min-height: 47px;
+
+    padding: 12px 14px;
+
+    background: var(--white);
+    color: var(--ink);
+
+    border: 1px solid var(--line);
+    border-radius: 4px;
+
+    outline: none;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+
+    transition: border-color .2s ease,
+                box-shadow .2s ease;
+}
+
+.form-group textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #8a9bab;
+    font-size: 12px;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+
+/* INPUT FOCUS */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--blue);
+
+    box-shadow: 0 0 0 3px rgba(8,169,232,.10);
+}
+
+
+/* DISABLED INPUT */
+
+.form-group input:disabled {
+    cursor: not-allowed;
+
+    background: var(--pale);
+    color: #8191a1;
+}
+
+
+/* FULL WIDTH */
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+
+/* VALIDATION */
+
+.field-error {
+    color: var(--error);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.field-error:empty {
+    display: none;
+}
+
+.invalid {
+    border-color: var(--error) !important;
+    box-shadow: 0 0 0 2px rgba(198,40,40,.08) !important;
+}
+
+.help-text {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   8. PHOTO UPLOAD
+========================================================= */
+
+.photo-panel {
+    display: grid;
+
+    grid-template-columns: minmax(210px,.85fr) minmax(0,1.15fr);
+
+    gap: 28px;
+    align-items: center;
+
+    padding: 25px;
+
+    background: var(--pale);
+
+    border: 1px solid var(--line);
+    border-radius: 5px;
+}
+
+.photo-preview {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    min-height: 245px;
+    overflow: hidden;
+
+    background: #eaf2f7;
+
+    border: 1px dashed #b9cbd8;
+    border-radius: 4px;
+}
+
+.photo-placeholder {
+    padding: 20px;
+    text-align: center;
+}
+
+.camera-icon {
+    width: 58px;
+    height: 58px;
+
+    display: grid;
+    place-items: center;
+
+    margin: 0 auto 15px;
+
+    background: var(--white);
+    color: var(--blue2);
+
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(6,26,45,.06);
+}
+
+.camera-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.photo-placeholder strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--navy);
+    font-size: 12px;
+}
+
+.photo-placeholder p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.photo-preview > img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 245px;
+    max-height: 360px;
+
+    object-fit: contain;
+}
+
+.remove-photo {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+
+    width: 32px;
+    height: 32px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--navy);
+    color: var(--white);
+
+    border: 0;
+    border-radius: 50%;
+
+    font-size: 21px;
+}
+
+.photo-controls h3,
+.camera-heading h3 {
+    margin-bottom: 7px;
+
+    color: var(--navy);
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.photo-controls > p,
+.camera-heading p {
+    margin-bottom: 17px;
+
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   9. BUTTONS
+========================================================= */
+
+.secondary-button,
+.primary-button,
+.reset-button {
+    min-height: 45px;
+
+    padding: 11px 19px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    border: 1px solid var(--line);
+    border-radius: 4px;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: .25s ease;
+}
+
+
+/* SECONDARY */
+
+.secondary-button {
+    background: var(--white);
+    color: var(--navy);
+}
+
+.secondary-button:hover {
+    background: #edf8fd;
+    border-color: var(--blue);
+
+    transform: translateY(-1px);
+}
+
+.photo-controls .secondary-button {
+    margin: 0 7px 12px 0;
+}
+
+
+/* PRIMARY */
+
+.primary-button {
+    background: var(--navy);
+    color: var(--white);
+
+    border-color: var(--navy);
+}
+
+.primary-button:hover:not(:disabled) {
+    background: var(--blue2);
+    border-color: var(--blue2);
+
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.primary-button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+
+/* RESET */
+
+.reset-button {
+    background: var(--white);
+    color: var(--navy);
+}
+
+.reset-button:hover {
+    background: var(--pale);
+    border-color: var(--blue);
+}
+
+
+/* =========================================================
+   10. CAMERA PANEL
+========================================================= */
+
+.camera-panel {
+    margin-top: 22px;
+    padding: 22px;
+
+    background: var(--pale);
+
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--blue);
+
+    border-radius: 5px;
+
+    animation: fadeUp .3s ease both;
+}
+
+.camera-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.close-camera {
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--white);
+    color: var(--navy);
+
+    border: 1px solid var(--line);
+    border-radius: 4px;
+
+    font-size: 21px;
+}
+
+#cameraVideo {
+    display: block;
+
+    width: 100%;
+    max-height: 430px;
+
+    background: var(--navy);
+    border-radius: 4px;
+
+    object-fit: contain;
+}
+
+.camera-status {
+    margin: 12px 0;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   11. SUPPORTING DOCUMENTS
+========================================================= */
+
+.document-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+
+    padding: 17px;
+    margin-bottom: 23px;
+
+    background: #edf8fd;
+
+    border: 1px solid #cdeaf8;
+    border-left: 4px solid var(--blue);
+
+    border-radius: 4px;
+}
+
+.notice-icon {
+    width: 27px;
+    height: 27px;
+    min-width: 27px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--blue);
+    color: var(--navy);
+
+    border-radius: 50%;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.document-notice strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--navy);
+    font-size: 12px;
+}
+
+.document-notice p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.document-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+
+    gap: 17px;
+}
+
+.document-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-width: 0;
+    padding: 20px;
+
+    background: var(--white);
+
+    border: 1px solid var(--line);
+    border-radius: 5px;
+
+    box-shadow: 0 5px 18px rgba(6,26,45,.035);
+
+    transition: border-color .25s ease,
+                box-shadow .25s ease;
+}
+
+.document-card:hover,
+.document-card:focus-within {
+    border-color: var(--blue);
+    box-shadow: var(--shadow);
+}
+
+.document-icon {
+    min-width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0 8px;
+    margin-bottom: 14px;
+
+    background: #eaf7fd;
+    color: var(--blue2);
+
+    border-radius: 4px;
+
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.document-info {
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+.document-info label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.document-info label .required {
+    color: var(--blue2);
+}
+
+.document-info label .optional {
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.document-info p {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.file-picker {
+    min-height: 37px;
+
+    padding: 9px 14px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--pale);
+    color: var(--navy);
+
+    border: 1px solid var(--line);
+    border-radius: 4px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.file-picker:hover {
+    background: #eaf8fe;
+    border-color: var(--blue);
+}
+
+.document-card input[type="file"] {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.document-card input[type="file"]:focus-visible + .file-name {
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+}
+
+.file-name {
+    display: block;
+
+    width: 100%;
+    margin-top: 10px;
+
+    overflow-wrap: anywhere;
+
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.document-card .field-error {
+    margin-top: 6px;
+}
+
+.document-card.full-width {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   12. CLEANER SKILLS SELECTION
+========================================================= */
+
+.skills-section {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.skills-heading {
+    margin-bottom: 18px;
+}
+
+.skills-heading h3 {
+    margin-bottom: 7px;
+
+    color: var(--navy);
+    font-family: "Manrope", sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.skills-heading p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+
+    gap: 11px;
+}
+
+
+/* SKILL OPTION */
+
+.skill-option {
+    position: relative;
+
+    min-height: 49px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 11px 14px;
+
+    background: var(--white);
+    color: var(--ink);
+
+    border: 1px solid var(--line);
+    border-radius: 4px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+
+/* HIDE ORIGINAL CHECKBOX */
+
+.skill-option input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* CUSTOM SQUARE CHECKBOX */
+
+.skill-check {
+    width: 19px;
+    height: 19px;
+    min-width: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--white);
+
+    border: 1.5px solid #aab9c7;
+    border-radius: 3px;
+
+    transition: .2s ease;
+}
+
+
+/* SELECTED SKILL */
+
+.skill-option:has(input:checked) {
+    background: #edf8fd;
+
+    color: var(--navy);
+
+    border-color: var(--blue);
+}
+
+.skill-option input:checked + .skill-check {
+    background: var(--blue2);
+    border-color: var(--blue2);
+}
+
+.skill-option input:checked + .skill-check::after {
+    content: "✓";
+
+    color: var(--white);
+
+    font-size: 13px;
+    font-weight: 900;
+}
+
+
+/* HOVER */
+
+.skill-option:hover {
+    border-color: var(--blue);
+    background: #f5fbfe;
+}
+
+
+/* KEYBOARD ACCESSIBILITY */
+
+.skill-option:focus-within {
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+}
+
+
+/* OTHER SKILL */
+
+.other-skill-wrapper {
+    margin-top: 13px;
+}
+
+.other-skill-option {
+    max-width: 190px;
+}
+
+.other-skill-input {
+    margin-top: 17px;
+}
+
+.other-skill-input label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.other-skill-input textarea {
+    width: 100%;
+    min-height: 100px;
+
+    padding: 13px 14px;
+
+    background: var(--white);
+    color: var(--ink);
+
+    border: 1px solid var(--line);
+    border-radius: 4px;
+
+    outline: none;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+
+    resize: vertical;
+    transition: .2s ease;
+}
+
+.other-skill-input textarea::placeholder {
+    color: #8a9bab;
+    font-size: 12px;
+}
+
+.other-skill-input textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(8,169,232,.10);
+}
+
+
+/* =========================================================
+   13. DECLARATION
+========================================================= */
+
+.declaration {
+    padding: 20px;
+
+    background: var(--pale);
+
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--blue);
+
+    border-radius: 4px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    flex-shrink: 0;
+
+    width: 16px;
+    height: 16px;
+
+    margin-top: 4px;
+
+    accent-color: var(--blue2);
+}
+
+
+/* =========================================================
+   14. FORM ACTIONS
+========================================================= */
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 13px;
+    margin-top: 28px;
+}
+
+
+/* =========================================================
+   15. APPLICATION SUCCESS MESSAGE
+========================================================= */
+
+.application-success {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    width: 100%;
+    max-width: 520px;
+
+    margin: 25px auto;
+    padding: 18px;
+
+    background: #eff9f2;
+    color: #174d2a;
+
+    border: 1px solid #b8dfc3;
+    border-left: 4px solid #269c50;
+
+    border-radius: 4px;
+}
+
+.application-success[hidden] {
+    display: none !important;
+}
+
+.success-icon {
+    width: 29px;
+    height: 29px;
+    min-width: 29px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #269c50;
+    color: var(--white);
+
+    border-radius: 50%;
+
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.application-success strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #174d2a;
+    font-size: 13px;
+}
+
+.application-success p {
+    margin: 0;
+
+    color: #326344;
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   16. FORM ERROR MESSAGE
+========================================================= */
+
+.form-message {
+    display: none;
+
+    margin-top: 17px;
+    padding: 13px 15px;
+
+    border-radius: 4px;
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.form-message.error {
+    display: block;
+
+    background: #fff1f1;
+    color: #9b1c1c;
+
+    border: 1px solid #ffd1d1;
+}
+
+.form-message.success {
+    display: block;
+
+    background: #eff9f2;
+    color: #174d2a;
+
+    border: 1px solid #b8dfc3;
+}
+
+
+
+/* =========================================================
+   18. ANIMATIONS
+========================================================= */
+
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   19. TABLET RESPONSIVENESS
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .nav-container {
+        width: 94%;
+        gap: 20px;
+    }
+
+    .navigation {
+        gap: 20px;
+    }
+
+    .application-card {
+        width: 92%;
+        padding: 35px;
+    }
+}
+
+
+/* =========================================================
+   20. MOBILE NAVIGATION
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .site-header,
+    .nav-container {
+        min-height: 76px;
+    }
+
+    .nav-container {
+        width: 92%;
+        gap: 15px;
+    }
+
+    .brand img {
+        width: 150px;
+        height: 55px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .navigation {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 8px;
+        padding: 20px 6% 25px;
+
+        background: var(--white);
+
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+
+        box-shadow: var(--shadow);
+    }
+
+    .navigation.open,
+    .navigation.active {
+        display: flex;
+        animation: fadeUp .2s ease both;
+    }
+
+    .navigation > a {
+        width: 100%;
+        padding: 12px 0;
+    }
+
+    .navigation > a:not(.nav-cta)::after {
+        display: none;
+    }
+
+    .navigation .nav-cta {
+        width: fit-content;
+        margin-top: 7px;
+    }
+
+    .page-intro {
+        padding-top: 55px;
+    }
+
+    .application-card {
+        width: 92%;
+        padding: 30px 25px;
+    }
+
+    .photo-panel {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .photo-preview,
+    .photo-preview > img {
+        min-height: 220px;
+    }
+}
+
+
+/* =========================================================
+   21. SMALL MOBILE
+========================================================= */
+
+@media (max-width: 550px) {
+
+    .page-intro {
+        padding: 45px 16px 30px;
+    }
+
+    .page-intro h1 {
+        font-size: 34px;
+    }
+
+    .application-card {
+        width: 94%;
+        padding: 24px 17px;
+        margin-bottom: 40px;
+    }
+
+    .form-grid,
+    .document-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width,
+    .document-card.full-width {
+        grid-column: auto;
+    }
+
+    .card-heading {
+        align-items: flex-start;
+    }
+
+    .heading-icon {
+        width: 39px;
+        height: 39px;
+        min-width: 39px;
+    }
+
+    .photo-panel {
+        padding: 16px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .skill-option {
+        min-height: 46px;
+        font-size: 12px;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    .section-divider {
+        margin: 25px 0;
+    }
+
+    .application-success {
+        margin: 20px 0;
+    }
+
+    .site-footer {
+        padding: 30px 15px;
+    }
+}
+
+
+/* =========================================================
+   22. EXTRA SMALL DEVICES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .brand img {
+        width: 130px;
+        height: 48px;
+    }
+
+    .page-intro h1 {
+        font-size: 29px;
+    }
+
+    .application-card {
+        padding: 20px 14px;
+    }
+
+    .card-heading h2 {
+        font-size: 16px;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   23. ACCESSIBILITY
+========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+}
+
+.skill-option input:focus-visible + .skill-check {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   24. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+
+/* =========================================
+   PILEE TECH GROUP — SHARED FOOTER
+========================================= */
+
+.site-footer {
+    background: #040D18;
+    color: #CBD5E1;
+    padding: 70px 0 35px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: "DM Sans", Arial, sans-serif;
+    width: 100%;
+}
+
+.footer-container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.3fr 1fr;
+    gap: 40px;
+    text-align: left;
+}
+
+/* COMPANY INFORMATION */
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-brand h3 {
+    color: #FFFFFF;
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin: 0 0 16px;
+}
+
+.footer-brand p {
+    color: #94A3B8;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0 0 6px;
+}
+
+/* FOOTER COLUMNS */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h4 {
+    color: #FFFFFF;
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.footer-line {
+    width: 38px;
+    height: 3px;
+    background: #08A9E8;
+    margin-top: 10px;
+    margin-bottom: 22px;
+}
+
+/* FOOTER LINKS */
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-column ul li a {
+    color: #CBD5E1;
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: color 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #08A9E8;
+}
+
+/* COPYRIGHT */
+
+.footer-bottom {
+    width: min(1200px, 90%);
+    margin: 55px auto 0;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #64748B;
+    font-size: 0.85rem;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 950px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-footer {
+        padding: 50px 0 25px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+    }
+}
+
+
+/* =========================================
+   NAVIGATION DROPDOWN
+========================================= */
+
+.nav-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown trigger */
+
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background: transparent;
+    border: none;
+
+    color: #061A2D;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    padding: 12px 10px;
+
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.dropdown-trigger:hover,
+.dropdown-trigger.active {
+    color: #08A9E8;
+}
+
+/* Dropdown arrow */
+
+.dropdown-arrow {
+    width: 8px;
+    height: 8px;
+
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+
+    transform: rotate(45deg);
+    margin-top: -4px;
+
+    transition: transform 0.3s ease;
+}
+
+/* Dropdown menu */
+
+.dropdown-menu {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    min-width: 220px;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    padding: 10px 0;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+
+    border: 1px solid #E2E8F0;
+
+    display: none;
+
+    z-index: 1000;
+}
+
+/* Dropdown links */
+
+.dropdown-menu a {
+    display: block;
+
+    padding: 12px 18px;
+
+    color: #102B49;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+.dropdown-menu a:hover {
+    background: #F0F8FC;
+    color: #08A9E8;
+    padding-left: 24px;
+}
+
+/* Show dropdown on hover and keyboard focus */
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(225deg);
+    margin-top: 4px;
+}
+
+/* Keep dropdown above other elements */
+
+.site-header {
+    position: relative;
+    z-index: 1000;
+}
+
+
+/* =========================================
+   CONSISTENT HEADER NAVIGATION STYLING
+========================================= */
+
+/* All navigation headings */
+.navigation > a,
+.navigation .dropdown-trigger {
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #102B49;
+
+    display: flex;
+    align-items: center;
+
+    padding: 9px 0;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+/* Consistent hover colour */
+.navigation > a:hover,
+.navigation .dropdown-trigger:hover,
+.navigation .dropdown-trigger.active {
+    color: #0879BD;
+}
+
+/* Consistent underline for Home and other normal links */
+.navigation > a:not(.nav-cta):not(.request-service) {
+    position: relative;
+}
+
+.navigation > a:not(.nav-cta):not(.request-service)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+
+    width: 0;
+    height: 2px;
+
+    background: #08A9E8;
+    transition: width 0.25s ease;
+}
+
+.navigation > a:not(.nav-cta):not(.request-service):hover::after {
+    width: 100%;
+}
+
+/* Dropdown headings */
+.dropdown-trigger {
+    gap: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Keep dropdown arrow consistent */
+.dropdown-arrow {
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+}
+
+/* REMOVE BLUE UNDERLINE FROM BOOK SERVICE BUTTON */
+
+.navigation > a.request-service::after,
+.navigation > a.request-service:hover::after,
+.navigation > a.request-service:focus::after,
+.navigation > a.request-service:active::after,
+.navigation > a.nav-cta::after,
+.navigation > a.nav-cta:hover::after {
+    content: none !important;
+    display: none !important;
+    width: 0 !important;
+}
+
+.navigation > a.request-service,
+.navigation > a.request-service:hover,
+.navigation > a.request-service:focus,
+.navigation > a.request-service:active,
+.navigation > a.nav-cta,
+.navigation > a.nav-cta:hover {
+    text-decoration: none !important;
+}
+
+/* =========================================
+   HOME DROPDOWN — NAVY BLUE HOVER
+========================================= */
+
+/* Home dropdown button */
+.nav-dropdown .dropdown-trigger {
+    color: #061A2D !important;
+    background: transparent;
+}
+
+/* Prevent light-blue hover and active colour */
+.nav-dropdown .dropdown-trigger:hover,
+.nav-dropdown .dropdown-trigger:focus,
+.nav-dropdown .dropdown-trigger:active,
+.nav-dropdown .dropdown-trigger.active {
+    color: #061A2D !important;
+    background: transparent !important;
+}
+
+/* Dropdown arrow */
+.nav-dropdown .dropdown-trigger:hover .dropdown-arrow,
+.nav-dropdown .dropdown-trigger.active .dropdown-arrow {
+    border-color: #061A2D !important;
+}
+
+/* Dropdown menu links */
+.nav-dropdown .dropdown-menu a:hover {
+    color: #061A2D !important;
+    background: #F3F7FA !important;
+}
+
+/* =========================================
+   HOME DROPDOWN — NAVY BLUE HOVER
+========================================= */
+
+/* Home dropdown button */
+.nav-dropdown .dropdown-trigger {
+    color: #061A2D !important;
+    background: transparent;
+}
+
+/* Prevent light-blue hover and active colour */
+.nav-dropdown .dropdown-trigger:hover,
+.nav-dropdown .dropdown-trigger:focus,
+.nav-dropdown .dropdown-trigger:active,
+.nav-dropdown .dropdown-trigger.active {
+    color: #061A2D !important;
+    background: transparent !important;
+}
+
+/* Dropdown arrow */
+.nav-dropdown .dropdown-trigger:hover .dropdown-arrow,
+.nav-dropdown .dropdown-trigger.active .dropdown-arrow {
+    border-color: #061A2D !important;
+}
+
+/* Dropdown menu links */
+.nav-dropdown .dropdown-menu a:hover {
+    color: #061A2D !important;
+    background: #F3F7FA !important;
+}

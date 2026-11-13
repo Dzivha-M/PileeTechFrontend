@@ -1,0 +1,2226 @@
+/* =========================================
+   PILEE TECH - CUSTOMER DASHBOARD
+   ========================================= */
+
+/* GLOBAL SETTINGS */
+:root {
+    --navy: #061A2D;
+    --navy-light: #092844;
+    --blue: #08A9E8;
+    --blue-dark: #0879BD;
+
+    --page-bg: #F3F7FA;
+    --white: #FFFFFF;
+    --border: #DCE6EE;
+
+    --text-primary: #102B49;
+    --text-muted: #5D7084;
+
+    --success: #168653;
+    --success-bg: #E8F7EF;
+    --danger: #D64545;
+
+    --shadow: 0 8px 25px rgba(6, 26, 45, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", "Segoe UI", Arial, sans-serif;
+    background: var(--page-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+
+.site-header {
+    width: 100%;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1400px;
+    min-height: 78px;
+    margin: auto;
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.site-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--navy);
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.site-logo-img {
+    width: 43px;
+    height: 43px;
+    object-fit: contain;
+}
+
+.site-logo span {
+    color: var(--blue);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--blue);
+}
+
+.nav-links .quote-button {
+    background: var(--blue);
+    color: var(--white);
+    padding: 11px 19px;
+    border-radius: 7px;
+}
+
+.nav-links .quote-button:hover {
+    background: var(--blue-dark);
+    color: var(--white);
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: var(--navy);
+    color: var(--white);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* =========================================
+   PAGE BANNER
+   ========================================= */
+
+.page-banner {
+    min-height: 190px;
+    padding: 40px 7%;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    color: var(--white);
+    background:
+        linear-gradient(110deg, rgba(6, 26, 45, 0.98),
+        rgba(8, 121, 189, 0.93));
+}
+
+.banner-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.13);
+    display: grid;
+    place-items: center;
+    font-size: 34px;
+}
+
+.banner-label {
+    color: #A8E5FF;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.page-banner h1 {
+    font-size: clamp(27px, 4vw, 38px);
+    line-height: 1.2;
+    margin-bottom: 7px;
+}
+
+.page-banner p:last-child {
+    color: #E1F2FC;
+    font-size: 14px;
+}
+
+/* =========================================
+   DASHBOARD PAGE
+   ========================================= */
+
+.dashboard-container {
+    max-width: 1400px;
+    width: 90%;
+    margin: 45px auto 75px;
+}
+
+.dashboard-heading {
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    display: block;
+    color: var(--blue-dark);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    margin-bottom: 7px;
+}
+
+.dashboard-heading h2 {
+    font-size: 27px;
+    color: var(--navy);
+    margin-bottom: 5px;
+}
+
+.dashboard-heading p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 255px minmax(0, 1fr);
+    align-items: start;
+    gap: 25px;
+}
+
+/* =========================================
+   SIDEBAR
+   ========================================= */
+
+.dashboard-sidebar {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 13px;
+    padding: 25px 16px;
+    position: sticky;
+    top: 100px;
+    box-shadow: var(--shadow);
+}
+
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 7px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+    margin-bottom: 22px;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(8, 169, 232, 0.2);
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+}
+
+.sidebar-profile h3 {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.sidebar-profile p {
+    color: #AFC3D5;
+    font-size: 11px;
+}
+
+.sidebar-label {
+    color: #8DA9BF;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 0 9px;
+    margin-bottom: 12px;
+}
+
+.sidebar-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.sidebar-link {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #D6E3ED;
+    padding: 13px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.09);
+    color: var(--white);
+}
+
+.sidebar-link.active {
+    background: var(--blue);
+    color: var(--white);
+    box-shadow: 0 5px 14px rgba(8, 169, 232, 0.2);
+}
+
+.sidebar-icon {
+    width: 22px;
+    text-align: center;
+    font-size: 17px;
+}
+
+.sidebar-help {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 16px 13px;
+    border-radius: 8px;
+    margin-top: 35px;
+}
+
+.sidebar-help h3 {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.sidebar-help p {
+    color: #B9C9D7;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.sidebar-help a {
+    color: #62D0FF;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.sidebar-logout {
+    display: block;
+    color: #D6E3ED;
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+    padding: 19px 8px 0;
+    margin-top: 22px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.sidebar-logout span {
+    margin-right: 7px;
+}
+
+/* =========================================
+   MAIN CONTENT AND SECTIONS
+   ========================================= */
+
+.dashboard-main {
+    min-width: 0;
+}
+
+.dashboard-section {
+    animation: sectionFade 0.25s ease;
+}
+
+.dashboard-section[hidden] {
+    display: none !important;
+}
+
+@keyframes sectionFade {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    color: var(--navy);
+    font-size: 25px;
+    margin-bottom: 4px;
+}
+
+.section-heading p {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.section-icon {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    background: #E4F5FD;
+    border-radius: 12px;
+    font-size: 25px;
+}
+
+.content-card,
+.profile-summary-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.content-card {
+    padding: 27px;
+    margin-bottom: 22px;
+}
+
+.card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 23px;
+}
+
+.card-heading h3,
+.address-book-header h3 {
+    color: var(--navy);
+    font-size: 17px;
+    margin-bottom: 4px;
+}
+
+.card-heading p,
+.address-book-header p {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* =========================================
+   PROFILE SUMMARY
+   ========================================= */
+
+.profile-summary-card {
+    padding: 21px 24px;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    margin-bottom: 22px;
+}
+
+.profile-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #E4F5FD;
+    display: grid;
+    place-items: center;
+    font-size: 27px;
+}
+
+.profile-summary-details {
+    flex: 1;
+}
+
+.profile-summary-details h3 {
+    color: var(--navy);
+    font-size: 17px;
+}
+
+.profile-summary-details p {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.profile-summary-details strong {
+    color: var(--text-primary);
+}
+
+.account-status {
+    color: var(--success);
+    background: var(--success-bg);
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* =========================================
+   FORMS
+   ========================================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 19px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    background: #FBFCFE;
+    border-radius: 7px;
+    padding: 12px 13px;
+    outline: none;
+    color: var(--text-primary);
+    font-size: 13px;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input,
+.form-group select {
+    min-height: 45px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 135px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(8, 169, 232, 0.11);
+    background: var(--white);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9AA9B7;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 11px;
+    margin-top: 23px;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.primary-button {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.primary-button:hover {
+    background: var(--blue-dark);
+    transform: translateY(-1px);
+}
+
+.secondary-button {
+    background: #EDF2F6;
+    color: var(--text-primary);
+}
+
+.secondary-button:hover {
+    background: #DFE8EF;
+}
+
+.form-message {
+    margin-top: 14px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.form-message.success {
+    color: var(--success);
+}
+
+.form-message.error {
+    color: var(--danger);
+}
+
+/* =========================================
+   ADDRESS BOOK
+   ========================================= */
+
+.address-book-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 23px;
+}
+
+.address-default-option {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 18px;
+}
+
+.address-default-option input {
+    accent-color: var(--blue);
+    width: 16px;
+    height: 16px;
+}
+
+.address-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.address-item {
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 17px;
+    background: #FCFDFE;
+}
+
+.address-item h4 {
+    color: var(--navy);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.address-item p {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.default-badge {
+    display: inline-block;
+    background: var(--success-bg);
+    color: var(--success);
+    border-radius: 20px;
+    padding: 4px 9px;
+    font-size: 10px;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+/* =========================================
+   SERVICE HISTORY TABLE
+   ========================================= */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.history-table th {
+    background: #F3F7FA;
+    color: var(--text-muted);
+    text-align: left;
+    padding: 14px 13px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.history-table td {
+    border-bottom: 1px solid var(--border);
+    padding: 14px 13px;
+    font-size: 12px;
+}
+
+.table-empty {
+    padding: 35px 15px;
+}
+
+/* =========================================
+   EMPTY STATES
+   ========================================= */
+
+.empty-state {
+    text-align: center;
+    padding: 32px 15px;
+    color: var(--text-muted);
+}
+
+.empty-state-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.empty-state h3 {
+    color: var(--navy);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.empty-state p {
+    font-size: 12px;
+    max-width: 390px;
+    margin: 0 auto 15px;
+}
+
+/* =========================================
+   SUPPORT NOTE
+   ========================================= */
+
+.support-note {
+    display: flex;
+    gap: 13px;
+    align-items: flex-start;
+    background: #EAF6FC;
+    border: 1px solid #CDEAF8;
+    padding: 18px;
+    border-radius: 9px;
+}
+
+.support-note-icon {
+    font-size: 21px;
+}
+
+.support-note h3 {
+    color: var(--navy);
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.support-note p {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.support-note a {
+    color: var(--blue-dark);
+    font-weight: 700;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.site-footer {
+    background: var(--navy);
+    color: var(--white);
+    padding: 55px 7% 0;
+}
+
+.footer-content {
+    max-width: 1300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 35px;
+    padding-bottom: 40px;
+}
+
+.footer-logo {
+    display: inline-block;
+    color: var(--white);
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.footer-logo span {
+    color: var(--blue);
+}
+
+.footer-brand p {
+    color: #B9C9D7;
+    font-size: 12px;
+    max-width: 230px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.footer-column h3 {
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.footer-column a {
+    color: #B9C9D7;
+    font-size: 12px;
+    transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+    color: var(--blue);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+    text-align: center;
+    padding: 17px 0;
+}
+
+.footer-bottom p {
+    color: #AFC3D5;
+    font-size: 11px;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 1000px) {
+    .nav-links {
+        gap: 14px;
+    }
+
+    .dashboard-layout {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 17px;
+    }
+
+    .dashboard-container {
+        width: 94%;
+    }
+}
+
+@media (max-width: 760px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 0;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 11px 5px;
+    }
+
+    .nav-links .quote-button {
+        text-align: center;
+        margin-top: 7px;
+    }
+
+    .page-banner {
+        padding: 30px 5%;
+        min-height: 160px;
+    }
+
+    .dashboard-container {
+        margin-top: 30px;
+    }
+
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-sidebar {
+        position: static;
+        padding: 17px;
+    }
+
+    .sidebar-profile,
+    .sidebar-label,
+    .sidebar-help,
+    .sidebar-logout {
+        display: none;
+    }
+
+    .sidebar-navigation {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sidebar-link {
+        justify-content: flex-start;
+        padding: 12px 9px;
+        font-size: 12px;
+    }
+
+    .content-card {
+        padding: 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .dashboard-heading h2 {
+        font-size: 22px;
+    }
+
+    .section-heading h2 {
+        font-size: 21px;
+    }
+
+    .section-icon {
+        width: 43px;
+        height: 43px;
+        font-size: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: auto;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    .profile-summary-card {
+        flex-wrap: wrap;
+        padding: 17px;
+    }
+
+    .profile-summary-details {
+        min-width: 60%;
+    }
+
+    .account-status {
+        margin-left: 72px;
+    }
+
+    .address-book-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .address-list {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar-navigation {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sidebar-link {
+        font-size: 11px;
+        gap: 7px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px 15px;
+    }
+}
+
+/* =========================================
+   NAVBAR - ORIGINAL PILEE TECH NAVY THEME
+   ========================================= */
+
+.site-header {
+    width: 100%;
+    background: #061A2D;
+    border-bottom: 1px solid #092844;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1400px;
+    min-height: 78px;
+    margin: auto;
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.site-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #FFFFFF;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.site-logo-img {
+    width: 43px;
+    height: 43px;
+    object-fit: contain;
+}
+
+.site-logo {
+    color: #FFFFFF;
+}
+
+.site-logo span {
+    color: #08A9E8;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #08A9E8;
+}
+
+.nav-links .quote-button {
+    background: #08A9E8;
+    color: #FFFFFF;
+    padding: 11px 19px;
+    border-radius: 7px;
+}
+
+.nav-links .quote-button:hover {
+    background: #0879BD;
+    color: #FFFFFF;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: #08A9E8;
+    color: #FFFFFF;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   ORIGINAL PILEE TECH BACKGROUND AND COLOURS
+   ========================================= */
+
+:root {
+    --navy: #061A2D;
+    --navy-light: #092844;
+    --blue: #08A9E8;
+    --blue-dark: #0879BD;
+
+    --page-bg: #F3F7FA;
+    --white: #FFFFFF;
+    --border: #DCE6EE;
+
+    --text-primary: #102B49;
+    --text-muted: #5D7084;
+}
+
+body {
+    font-family: "DM Sans", "Segoe UI", Arial, sans-serif;
+    background: var(--page-bg);
+    color: var(--text-primary);
+}
+
+@media (max-width: 760px) {
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 0;
+        background: #061A2D;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        color: #FFFFFF;
+        padding: 11px 5px;
+    }
+
+    .nav-links a:hover {
+        color: #08A9E8;
+    }
+
+    .nav-links .quote-button {
+        text-align: center;
+        margin-top: 7px;
+    }
+}
+
+/* DASHBOARD SIDE-BY-SIDE LAYOUT */
+
+.dashboard-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 35px 25px 60px;
+}
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 25px;
+    align-items: start;
+}
+
+.dashboard-sidebar {
+    background: #061A2D;
+    padding: 25px 16px;
+    border-radius: 12px;
+    min-height: 500px;
+    position: sticky;
+    top: 20px;
+}
+
+.dashboard-main {
+    min-width: 0;
+    background: #ffffff;
+    padding: 30px;
+    border: 1px solid #DCE6EE;
+    border-radius: 12px;
+    min-height: 500px;
+}
+
+.dashboard-section[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 650px) {
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-sidebar {
+        position: static;
+        min-height: auto;
+    }
+
+    .dashboard-main {
+        padding: 18px;
+    }
+}
+
+/* =====================================
+   LONGER CUSTOMER SIDEBAR
+===================================== */
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 25px;
+    align-items: stretch;
+}
+
+.dashboard-sidebar {
+    background: #061A2D;
+    width: 100%;
+    min-height: 750px;
+    height: 100%;
+    padding: 30px 18px;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    position: sticky;
+    top: 20px;
+}
+
+/* Push Back to Website towards the bottom */
+.sidebar-logout {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+/* Keep the content aligned */
+.dashboard-main {
+    min-width: 0;
+    min-height: 750px;
+}
+
+/* Mobile layout */
+@media (max-width: 650px) {
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-sidebar {
+        min-height: auto;
+        height: auto;
+        position: static;
+    }
+
+    .sidebar-logout {
+        margin-top: 20px;
+    }
+}
+
+
+/* DASHBOARD SIDE-BY-SIDE LAYOUT */
+
+.dashboard-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 35px 25px 60px;
+}
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 25px;
+    align-items: start;
+}
+
+.dashboard-sidebar {
+    background: #061A2D;
+    padding: 25px 16px;
+    border-radius: 12px;
+    min-height: 500px;
+    position: sticky;
+    top: 20px;
+}
+
+.dashboard-main {
+    min-width: 0;
+    background: #ffffff;
+    padding: 30px;
+    border: 1px solid #DCE6EE;
+    border-radius: 12px;
+    min-height: 500px;
+}
+
+.dashboard-section[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 650px) {
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-sidebar {
+        position: static;
+        min-height: auto;
+    }
+
+    .dashboard-main {
+        padding: 18px;
+    }
+}
+
+/* =====================================
+   PILEE TECH — LARGE ADMIN LOGO
+   ===================================== */
+
+.navbar {
+    min-height: 125px;
+    padding: 12px 5%;
+}
+
+.navbar .site-logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+    background: transparent;
+}
+
+.navbar .site-logo-image {
+    display: block;
+    width: 390px;
+    height: 105px;
+    max-width: none;
+    object-fit: contain;
+    object-position: left center;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    transition: transform 0.25s ease;
+}
+
+.navbar .site-logo:hover .site-logo-image {
+    transform: scale(1.03);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .navbar .site-logo-image {
+        width: 310px;
+        height: 90px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+    .navbar {
+        min-height: 95px;
+    }
+
+    .navbar .site-logo-image {
+        width: 250px;
+        height: 75px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .site-logo-image {
+        width: 205px;
+        height: 65px;
+    }
+}
+
+
+/* ==========================================
+   PILEE TECH - NEW MY PROFILE DESIGN
+========================================== */
+
+#profile-section {
+    display: none;
+}
+
+#profile-section.active {
+    display: block;
+}
+
+#profile-section .content-card {
+    background: #FFFFFF;
+    border: 1px solid #DCE6EE;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 14px rgba(6, 26, 45, 0.04);
+}
+
+#profile-section .card-heading {
+    border-bottom: 1px solid #E8EEF3;
+    padding-bottom: 18px;
+    margin-bottom: 24px;
+}
+
+#profile-section .card-heading h3 {
+    color: #061A2D;
+    font-size: 19px;
+    margin: 0 0 5px;
+}
+
+#profile-section .card-heading p {
+    color: #5D7084;
+    font-size: 13px;
+    margin: 0;
+}
+
+#profile-section .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+#profile-section .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#profile-section .full-width {
+    grid-column: 1 / -1;
+}
+
+#profile-section .form-group label {
+    color: #102B49;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#profile-section .form-group input {
+    width: 100%;
+    height: 46px;
+    padding: 0 14px;
+    border: 1px solid #DCE6EE;
+    border-radius: 7px;
+    background: #FFFFFF;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+#profile-section .form-group input:focus {
+    border-color: #08A9E8;
+    box-shadow: 0 0 0 3px rgba(8,169,232,0.1);
+}
+
+/* PASSWORD */
+
+.password-section {
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.password-section p {
+    color: #5D7084;
+    font-size: 12px;
+    margin: 4px 0 0;
+}
+
+.password-link {
+    color: #0879BD;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* PROFILE PICTURE */
+
+.profile-picture-area {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.profile-picture-preview {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #EAF2F8;
+    border: 3px solid #DCE6EE;
+    flex-shrink: 0;
+}
+
+.profile-picture-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.picture-details h4 {
+    color: #061A2D;
+    margin: 0 0 5px;
+}
+
+.picture-details p {
+    color: #5D7084;
+    font-size: 13px;
+    margin: 0 0 12px;
+}
+
+.upload-button {
+    display: inline-block;
+    background: #061A2D;
+    color: white;
+    padding: 10px 17px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.upload-button:hover {
+    background: #0879BD;
+}
+
+.picture-details small {
+    display: block;
+    color: #8796A5;
+    font-size: 11px;
+    margin-top: 9px;
+}
+
+/* NEWSLETTER */
+
+.newsletter-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.newsletter-option strong {
+    font-size: 14px;
+    color: #102B49;
+}
+
+.newsletter-option p {
+    color: #5D7084;
+    font-size: 12px;
+    margin: 5px 0 0;
+}
+
+.newsletter-option input {
+    width: 19px;
+    height: 19px;
+    accent-color: #0879BD;
+    cursor: pointer;
+}
+
+/* COMPANY DETAILS */
+
+.company-details {
+    border: 1px solid #DCE6EE;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.company-details summary {
+    padding: 15px;
+    color: #0879BD;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+
+.company-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.company-details[open] summary {
+    border-bottom: 1px solid #DCE6EE;
+}
+
+.company-form {
+    padding: 20px;
+}
+
+/* SAVE BUTTON AREA */
+
+.profile-save-area {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+.profile-save-area .primary-button {
+    background: #061A2D;
+    color: #FFFFFF;
+    border: none;
+    padding: 13px 24px;
+    border-radius: 7px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.profile-save-area .primary-button:hover {
+    background: #0879BD;
+}
+
+.profile-save-area .secondary-button {
+    background: #FFFFFF;
+    color: #5D7084;
+    border: 1px solid #DCE6EE;
+    padding: 13px 24px;
+    border-radius: 7px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    #profile-section .content-card {
+        padding: 19px;
+    }
+
+    #profile-section .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #profile-section .full-width {
+        grid-column: auto;
+    }
+
+    .profile-picture-area {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .profile-save-area {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .profile-save-area button {
+        width: 100%;
+    }
+}
+
+
+/* =========================================
+   FIX CUSTOMER PROFILE LOGO COLOURS
+   MATCH ABOUT US PAGE
+========================================= */
+
+.brand {
+    color: #061A2D !important;
+}
+
+.brand-mark {
+    color: #061A2D !important;
+}
+
+.brand-mark span {
+    color: #061A2D !important;
+}
+
+.brand-mark i {
+    border-color: #08A9E8;
+    border-right-color: transparent;
+}
+
+.brand-copy strong,
+.brand-copy b {
+    color: #061A2D !important;
+}
+
+.brand-copy small {
+    color: #5D7084 !important;
+}
+
+
+/* =========================================
+   PILEE TECH GROUP — SHARED FOOTER
+========================================= */
+
+.site-footer {
+    background: #040D18;
+    color: #CBD5E1;
+    padding: 70px 0 35px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: "DM Sans", Arial, sans-serif;
+    width: 100%;
+}
+
+.footer-container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.3fr 1fr;
+    gap: 40px;
+    text-align: left;
+}
+
+/* Company information */
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-brand h3 {
+    color: #ffffff;
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin: 0 0 16px;
+}
+
+.footer-brand p {
+    color: #94A3B8;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0 0 6px;
+}
+
+/* Footer columns */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h4 {
+    color: #ffffff;
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.footer-line {
+    width: 38px;
+    height: 3px;
+    background: #08A9E8;
+    margin-top: 10px;
+    margin-bottom: 22px;
+}
+
+/* Footer links */
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-column ul li a {
+    color: #CBD5E1;
+    text-decoration: none;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    transition: color 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #08A9E8;
+}
+
+/* Copyright */
+
+.footer-bottom {
+    width: min(1200px, 90%);
+    margin: 55px auto 0;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #64748B;
+    font-size: 0.85rem;
+}
+
+/* Responsive design */
+
+@media (max-width: 950px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-footer {
+        padding: 50px 0 25px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+    }
+}
+
+/* =========================================
+   BOOK A SERVICE BUTTON
+========================================= */
+
+.book-service-action {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 25px;
+}
+
+.book-service-action .primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 24px;
+    background: #08A9E8;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.book-service-action .primary-button:hover {
+    background: #0879BD;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   DASHBOARD SIDEBAR - DESKTOP
+========================================= */
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 25px;
+    align-items: start;
+}
+
+.dashboard-sidebar {
+    width: 100%;
+    min-width: 0;
+    position: sticky;
+    top: 25px;
+    align-self: start;
+    z-index: 1001;
+}
+
+.dashboard-main {
+    min-width: 0;
+}
+
+/* Hide mobile controls on desktop */
+
+.sidebar-toggle,
+.sidebar-overlay {
+    display: none;
+}
+
+
+/* =========================================
+   TABLET AND MOBILE SIDEBAR
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .dashboard-layout {
+        display: block;
+        position: relative;
+    }
+
+    /* Menu toggle button */
+
+    .sidebar-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 18px;
+        margin-bottom: 20px;
+        background: #061A2D;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .sidebar-toggle:hover {
+        background: #092844;
+    }
+
+    /* Sliding sidebar */
+
+    .dashboard-sidebar {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: min(280px, 85vw);
+        height: 100vh;
+        height: 100dvh;
+        overflow-y: auto;
+        padding: 25px 18px;
+        background: #ffffff;
+        box-shadow: 8px 0 25px rgba(0, 0, 0, 0.15);
+        z-index: 2001;
+
+        transform: translateX(-110%);
+        visibility: hidden;
+        transition:
+            transform 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    .dashboard-sidebar.sidebar-open {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    /* Overlay behind sidebar */
+
+    .sidebar-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(6, 26, 45, 0.55);
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+    }
+
+    .sidebar-overlay.overlay-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Main content */
+
+    .dashboard-main {
+        width: 100%;
+    }
+
+    .book-service-action {
+        justify-content: center;
+    }
+
+    .book-service-action .primary-button {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media screen and (max-width: 480px) {
+
+    .sidebar-toggle {
+        width: 100%;
+    }
+
+    .dashboard-sidebar {
+        width: min(260px, 85vw);
+    }
+
+    .dashboard-main {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+
+
+/* =========================================
+   NAVIGATION DROPDOWN
+========================================= */
+
+.nav-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown trigger */
+
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background: transparent;
+    border: none;
+
+    color: #061A2D;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    padding: 12px 10px;
+
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.dropdown-trigger:hover,
+.dropdown-trigger.active {
+    color: #08A9E8;
+}
+
+/* Dropdown arrow */
+
+.dropdown-arrow {
+    width: 8px;
+    height: 8px;
+
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+
+    transform: rotate(45deg);
+    margin-top: -4px;
+
+    transition: transform 0.3s ease;
+}
+
+/* Dropdown menu */
+
+.dropdown-menu {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    min-width: 220px;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    padding: 10px 0;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+
+    border: 1px solid #E2E8F0;
+
+    display: none;
+
+    z-index: 1000;
+}
+
+/* Dropdown links */
+
+.dropdown-menu a {
+    display: block;
+
+    padding: 12px 18px;
+
+    color: #102B49;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+.dropdown-menu a:hover {
+    background: #F0F8FC;
+    color: #08A9E8;
+    padding-left: 24px;
+}
+
+/* Show dropdown on hover and keyboard focus */
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(225deg);
+    margin-top: 4px;
+}
+
+/* Keep dropdown above other elements */
+
+.site-header {
+    position: relative;
+    z-index: 1000;
+}
+
+
+/* =========================================
+   CONSISTENT HEADER NAVIGATION STYLING
+========================================= */
+
+/* All navigation headings */
+.navigation > a,
+.navigation .dropdown-trigger {
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #102B49;
+
+    display: flex;
+    align-items: center;
+
+    padding: 9px 0;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+/* Consistent hover colour */
+.navigation > a:hover,
+.navigation .dropdown-trigger:hover,
+.navigation .dropdown-trigger.active {
+    color: #0879BD;
+}
+
+/* Consistent underline for Home and other normal links */
+.navigation > a:not(.nav-cta):not(.request-service) {
+    position: relative;
+}
+
+.navigation > a:not(.nav-cta):not(.request-service)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+
+    width: 0;
+    height: 2px;
+
+    background: #08A9E8;
+    transition: width 0.25s ease;
+}
+
+.navigation > a:not(.nav-cta):not(.request-service):hover::after {
+    width: 100%;
+}
+
+/* Dropdown headings */
+.dropdown-trigger {
+    gap: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Keep dropdown arrow consistent */
+.dropdown-arrow {
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+}
+
+/* =========================================
+   HOME DROPDOWN — NAVY BLUE HOVER
+========================================= */
+
+/* Home dropdown button */
+.nav-dropdown .dropdown-trigger {
+    color: #061A2D !important;
+    background: transparent;
+}
+
+/* Prevent light-blue hover and active colour */
+.nav-dropdown .dropdown-trigger:hover,
+.nav-dropdown .dropdown-trigger:focus,
+.nav-dropdown .dropdown-trigger:active,
+.nav-dropdown .dropdown-trigger.active {
+    color: #061A2D !important;
+    background: transparent !important;
+}
+
+/* Dropdown arrow */
+.nav-dropdown .dropdown-trigger:hover .dropdown-arrow,
+.nav-dropdown .dropdown-trigger.active .dropdown-arrow {
+    border-color: #061A2D !important;
+}
+
+/* Dropdown menu links */
+.nav-dropdown .dropdown-menu a:hover {
+    color: #061A2D !important;
+    background: #F3F7FA !important;
+}
+
+
+
+

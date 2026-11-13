@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Services | Pilee Tech Admin</title>
+    <link rel="stylesheet" href="manage-services.css">
+</head>
+<body>
+
+    
+<!-- NAVIGATION BAR -->
+<header class="topbar">
+    
+    
+<a href="admin-dashboard.html" class="site-logo">
+    <span class="logo-pilee">Pilee</span><span class="logo-tech">Tech</span>
+</a>
+
+
+  
+        <!-- Admin Dashboard Button -->
+        <a href="admin-dashboard.html" class="admin-dashboard-link">
+            <span aria-hidden="true">⚙</span>
+            <span>Admin Dashboard</span>
+        </a>
+</header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="page-container">
+
+        <!-- PAGE HEADING -->
+        <section class="page-heading">
+            <div>
+                <p class="eyebrow">ADMINISTRATION</p>
+                <h1>Manage Services</h1>
+                <p class="page-description">
+                    Add, update and manage the cleaning services
+                    available to Pilee Tech customers.
+                </p>
+            </div>
+
+            <button
+                class="primary-button"
+                id="addServiceBtn"
+                type="button"
+            >
+                <span aria-hidden="true">＋</span>
+                Add New Service
+            </button>
+        </section>
+
+        <!-- SERVICE STATISTICS -->
+        <section class="overview-grid" aria-label="Service statistics">
+
+            <article class="overview-card purple-card">
+                <div class="stat-icon">▦</div>
+                <p>Total Services</p>
+                <strong id="totalServices">17</strong>
+                <small>Services in the catalogue</small>
+            </article>
+
+            <article class="overview-card blue-card">
+                <div class="stat-icon">✓</div>
+                <p>Active Services</p>
+                <strong id="activeServices">17</strong>
+                <small>Available in the catalogue</small>
+            </article>
+
+            <article class="overview-card orange-card">
+                <div class="stat-icon">Ⅱ</div>
+                <p>Inactive Services</p>
+                <strong id="inactiveServices">0</strong>
+                <small>Not available to customers</small>
+            </article>
+
+        </section>
+
+        <!-- SERVICE CATALOGUE -->
+        <section class="catalogue card">
+
+            <div class="catalogue-heading">
+                <div>
+                    <h2>Service Catalogue</h2>
+                    <p>Manage service details, prices and availability.</p>
+                </div>
+
+                <span class="count-pill" id="catalogueCount">
+                    17 services
+                </span>
+            </div>
+
+            <!-- MINI STATISTICS -->
+            <div class="mini-stats">
+                <div>
+                    <span>Total services</span>
+                    <strong id="miniTotal">17</strong>
+                </div>
+
+                <div>
+                    <span>Active services</span>
+                    <strong id="miniActive">17</strong>
+                </div>
+
+                <div>
+                    <span>Inactive services</span>
+                    <strong id="miniInactive">0</strong>
+                </div>
+            </div>
+
+            <!-- SEARCH AND FILTERS -->
+            <div class="filters">
+
+                <label class="search-box">
+                    <span aria-hidden="true">⌕</span>
+                    <input
+                        id="searchInput"
+                        type="search"
+                        placeholder="Search services, categories or IDs..."
+                        aria-label="Search services"
+                    >
+                </label>
+
+                <select id="categoryFilter" aria-label="Filter by category">
+                    <option value="all">All categories</option>
+                    <option value="Hourly">Hourly</option>
+                    <option value="Residential">Residential</option>
+                    <option value="Deep Cleaning">Deep Cleaning</option>
+                    <option value="Specialist">Specialist</option>
+                    <option value="Commercial">Commercial</option>
+                </select>
+
+                <select id="statusFilter" aria-label="Filter by status">
+                    <option value="all">All statuses</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+
+                <select id="priceFilter" aria-label="Filter by price">
+                    <option value="all">All prices</option>
+                    <option value="under200">Under R 200</option>
+                    <option value="200to500">R 200 – R 500</option>
+                    <option value="over500">Over R 500</option>
+                </select>
+
+            </div>
+
+            <!-- SERVICES TABLE -->
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Category</th>
+                            <th>Unit</th>
+                            <th>Price</th>
+                            <th>Bookings</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="servicesTableBody">
+                        <!-- Services are loaded using JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="empty-state" id="emptyState" hidden>
+                No services match your search or filters.
+            </div>
+
+            <div class="table-footer">
+                <span id="resultsLabel">Showing 17 services</span>
+
+                <button
+                    class="text-button"
+                    id="resetFiltersBtn"
+                    type="button"
+                >
+                    Reset filters
+                </button>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- ADD / EDIT SERVICE DIALOG -->
+    <dialog id="serviceDialog" class="service-dialog">
+
+        <form id="serviceForm" method="dialog">
+
+            <div class="dialog-heading">
+                <div>
+                    <p class="eyebrow">SERVICE CATALOGUE</p>
+                    <h2 id="dialogTitle">Add New Service</h2>
+                </div>
+
+                <button
+                    type="button"
+                    class="close-button"
+                    id="closeDialogBtn"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+            </div>
+
+            <input type="hidden" id="serviceId">
+
+            <div class="form-grid">
+
+
+
+<!-- Service Picture Upload -->
+<div class="form-group service-image-group">
+    <label for="serviceImage">Service Picture</label>
+
+    <div class="image-upload-container">
+        <div class="image-preview" id="imagePreview">
+            <div class="upload-placeholder" id="uploadPlaceholder">
+                <span class="upload-icon">📷</span>
+                <strong>Upload Service Picture</strong>
+                <p>PNG, JPG or WEBP (maximum 5 MB)</p>
+            </div>
+
+            <img
+                id="previewImage"
+                src=""
+                alt="Service image preview"
+                hidden
+            >
+        </div>
+
+        <input
+            type="file"
+            id="serviceImage"
+            name="service_image"
+            accept="image/png,image/jpeg,image/webp"
+        >
+
+        <label for="serviceImage" class="upload-button">
+            Choose Picture
+        </label>
+
+        <button
+            type="button"
+            id="removeServiceImage"
+            class="remove-image-button"
+            hidden
+        >
+            Remove Picture
+        </button>
+
+        <small id="imageUploadMessage" class="upload-message">
+            Choose a clear picture that represents this cleaning service.
+        </small>
+    </div>
+</div>
+
+                <label>
+                    Service name *
+                    <input
+                        id="serviceName"
+                        required
+                        maxlength="70"
+                        placeholder="e.g. Home cleaning"
+                    >
+                </label>
+
+                <label>
+                    Category *
+                    <select id="serviceCategory" required>
+                        <option value="Hourly">Hourly</option>
+                        <option value="Residential">Residential</option>
+                        <option value="Deep Cleaning">Deep Cleaning</option>
+                        <option value="Specialist">Specialist</option>
+                        <option value="Commercial">Commercial</option>
+                    </select>
+                </label>
+
+                <label>
+                    Unit *
+                    <select id="serviceUnit" required>
+                        <option>Per hour</option>
+                        <option>Per visit</option>
+                
+                        <option>Per square metre</option>
+                        <option>Per job</option>
+                    </select>
+                </label>
+
+                <label>
+                    Price (ZAR) *
+                    <input
+                        id="servicePrice"
+                        type="number"
+                        min="1"
+                        step="0.01"
+                        required
+                        placeholder="120.00"
+                    >
+                </label>
+
+                <label>
+                    Bookings
+                    <input
+                        id="serviceBookings"
+                        type="number"
+                        min="0"
+                        step="1"
+                        value="0"
+                    >
+                </label>
+
+                <label>
+                    Status
+                    <select id="serviceStatus">
+                        <option>Active</option>
+                        <option>Inactive</option>
+                    </select>
+                </label>
+
+                <label class="full-field">
+                    Description
+                    <textarea
+                        id="serviceDescription"
+                        rows="3"
+                        placeholder="Describe what this service includes..."
+                    ></textarea>
+                </label>
+
+
+                
+            </div>
+
+            <div class="dialog-actions">
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelDialogBtn"
+                >
+                    Cancel
+                </button>
+
+                <button type="submit" class="primary-button">
+                    Save Service
+                </button>
+            </div>
+
+        </form>
+    </dialog>
+
+    <!-- NOTIFICATION -->
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+    <!-- JAVASCRIPT -->
+    <script src="manage-services.js"></script>
+
+</body>
+</html>

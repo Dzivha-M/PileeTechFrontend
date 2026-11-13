@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assign Cleaners | Pilee Tech</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="assign-cleaners.css">
+</head>
+
+<body>
+
+<!-- =====================================
+     ADMIN NAVIGATION
+===================================== -->
+
+<header class="ac-header">
+
+    <a href="admin-dashboard.html" class="site-logo">
+        <span class="logo-pilee">Pilee</span><span class="logo-tech">Tech</span>
+    </a>
+
+    <a href="admin-dashboard.html" class="ac-dashboard-btn">
+        <span aria-hidden="true">⚙</span>
+        <span>Admin Dashboard</span>
+    </a>
+
+</header>
+
+
+<main class="ac-container">
+
+    <!-- =====================================
+         PAGE HEADING
+    ====================================== -->
+
+    <section class="ac-heading">
+
+        <div>
+            <p class="ac-eyebrow">
+                ADMINISTRATION / CLEANING OPERATIONS
+            </p>
+
+            <h1>Assign Cleaners</h1>
+
+            <p>
+                Allocate registered cleaners to customer bookings
+                and manage cleaning assignments.
+            </p>
+        </div>
+
+        <span class="ac-live-label">
+            <span></span>
+            Assignment Management
+        </span>
+
+    </section>
+
+
+    <!-- =====================================
+         STATISTICS
+    ====================================== -->
+
+    <section class="ac-stats">
+
+        <article class="ac-stat">
+            <div class="ac-stat-icon">📋</div>
+            <p>Total Bookings</p>
+            <h2 id="totalRequests">0</h2>
+            <span>Customer cleaning bookings</span>
+        </article>
+
+        <article class="ac-stat">
+            <div class="ac-stat-icon">⏳</div>
+            <p>Awaiting Assignment</p>
+            <h2 id="pendingRequests">0</h2>
+            <span>Bookings without cleaners</span>
+        </article>
+
+        <article class="ac-stat">
+            <div class="ac-stat-icon">👥</div>
+            <p>Allocated</p>
+            <h2 id="assignedRequests">0</h2>
+            <span>Bookings with allocated cleaners</span>
+        </article>
+
+        <article class="ac-stat">
+            <div class="ac-stat-icon">✓</div>
+            <p>Completed</p>
+            <h2 id="completedRequests">0</h2>
+            <span>Completed bookings</span>
+        </article>
+
+    </section>
+
+
+    <!-- =====================================
+         CLEANING BOOKINGS TABLE
+    ====================================== -->
+
+    <section class="ac-panel">
+
+        <div class="ac-panel-heading">
+
+            <div>
+                <h2>Cleaning Bookings</h2>
+
+                <p>
+                    View customer bookings and assign one or more cleaners.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH AND FILTERS -->
+
+        <div class="ac-toolbar">
+
+            <input
+                type="search"
+                id="requestSearch"
+                placeholder="Search booking reference, customer or service..."
+                aria-label="Search bookings">
+
+            <select id="statusFilter" aria-label="Filter bookings by status">
+
+                <option value="All">All Booking Statuses</option>
+                <option value="pending">Pending</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="allocated">Allocated</option>
+                <option value="in_progress">In Progress</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+                <option value="declined">Declined</option>
+
+            </select>
+
+            <select id="cleanerFilter" aria-label="Filter bookings by cleaner">
+
+                <option value="All">All Cleaners</option>
+                <option value="Unassigned">Unassigned</option>
+                <option value="Assigned">Has Assigned Cleaners</option>
+
+            </select>
+
+        </div>
+
+
+        <p id="resultsLabel" class="ac-footnote">
+            Loading bookings...
+        </p>
+
+
+        <!-- BOOKINGS TABLE -->
+
+        <div class="ac-table-wrap">
+
+            <table class="ac-table">
+
+               <thead>
+    <tr>
+        <th>Booking Reference</th>
+        <th>Customer</th>
+        <th>Cleaning Service</th>
+        <th>Cleaning Date</th>
+        <th>Cleaners Required</th>
+        <th>Assigned Cleaner(s)</th>
+        <th>Booking Status</th>
+        <th>Action</th>
+    </tr>
+</thead>
+
+<tbody id="requestTableBody">
+    <tr>
+        <td colspan="8">Loading bookings...</td>
+    </tr>
+</tbody>
+
+            </table>
+
+        </div>
+
+
+        <p class="ac-empty" id="emptyMessage" hidden>
+            No bookings match your search or selected filters.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================
+         AVAILABLE CLEANERS
+    ====================================== -->
+
+    <section class="ac-panel">
+
+        <div class="ac-panel-heading">
+
+            <div>
+                <h2>Available Cleaners</h2>
+
+                <p>
+                    Registered cleaners whose accounts are active
+                    and availability is set to available.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="ac-table-wrap">
+
+            <table class="ac-table">
+
+                <thead>
+                    <tr>
+                        <th>Cleaner Name</th>
+                        <th>Email</th>
+                        <th>Mobile Number</th>
+                        <th>Area Covered</th>
+                        <th>Availability</th>
+                    </tr>
+                </thead>
+
+                <tbody id="availableCleanersBody">
+
+                    <tr>
+                        <td colspan="5">
+                            Loading available cleaners...
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <p class="ac-empty" id="noAvailableCleaners" hidden>
+            No active, available cleaners were found.
+        </p>
+
+    </section>
+
+</main>
+
+
+
+<!-- =====================================
+     ASSIGNMENT DIALOGUE
+===================================== -->
+
+<div class="ac-modal" id="assignmentModal" hidden>
+
+    <section
+        class="ac-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle">
+
+
+        <!-- MODAL HEADER -->
+
+        <div class="ac-modal-heading">
+
+            <div>
+
+                <p class="ac-eyebrow">
+                    CLEANING OPERATIONS
+                </p>
+
+                <h2 id="modalTitle">
+                    Assign Cleaners
+                </h2>
+
+                <p id="modalSubtitle">
+                    Select available cleaners for this booking.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="ac-close"
+                id="closeModalBtn"
+                aria-label="Close dialog">
+
+                &times;
+
+            </button>
+
+        </div>
+
+
+
+        <!-- ASSIGNMENT FORM -->
+
+        <form id="assignmentForm">
+
+            <!-- Booking ID -->
+
+            <input
+                type="hidden"
+                id="requestId"
+                name="booking_id">
+
+
+            <!-- BOOKING SUMMARY -->
+
+            <div
+                class="ac-request-summary"
+                id="requestSummary">
+            </div>
+
+
+
+            <!-- CLEANER SELECTION -->
+
+            <div class="ac-form-grid">
+
+                <label for="cleanerSelect">
+
+                    Select Cleaner(s)
+
+                    <select
+                        id="cleanerSelect"
+                        name="cleaner_ids[]"
+                        multiple
+                        required
+                        size="5"
+                        aria-describedby="cleanerHelp">
+                    </select>
+
+
+                    <small id="cleanerHelp">
+                        Select the required number of available cleaners.
+                        Hold Ctrl (Windows) or Command (Mac) to select
+                        multiple cleaners.
+                    </small>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- ASSIGNMENT MESSAGE -->
+
+            <p
+                id="assignmentMessage"
+                class="ac-message"
+                role="status"
+                aria-live="polite">
+            </p>
+
+
+
+            <!-- MODAL ACTIONS -->
+
+            <div class="ac-modal-actions">
+
+                <button
+                    type="button"
+                    class="ac-btn ac-secondary"
+                    id="cancelBtn">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="ac-btn ac-primary">
+
+                    Save Assignment
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+</div>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
+<script src="assign-cleaners.js"></script>
+
+</body>
+</html>

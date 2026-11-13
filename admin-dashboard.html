@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Pilee Tech</title>
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="header.css">
+</head>
+<body>
+
+
+
+<!-- NAVBAR -->
+<!-- =========================================
+     PILEE TECH — SHARED BRAND HEADER
+     Matching the Report an Issue page
+========================================= -->
+
+<header class="site-header">
+
+    <nav class="navbar">
+
+    <!-- PILEE TECH LOGO -->
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="Pilee Tech Group Logo">
+    </a>
+
+        <!-- MOBILE MENU BUTTON -->
+        <button class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="navLinks">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+        <!-- ADMIN NAVIGATION -->
+        <div class="nav-links" id="navLinks">
+
+            <a href="admin-dashboard.html" class="active">
+                Dashboard
+            </a>
+
+            <a href="#management">
+                Management
+            </a>
+
+            <a href="#reports">
+                Reports
+            </a>
+
+            <a href="index.html">
+                Customer Website
+            </a>
+
+             <a href="cleaning-partner-recruitment.html">Careers Page</a>
+
+            <a href="login.html"
+               class="logout-link"
+               id="logoutButton">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- PAGE BANNER -->
+<section class="page-banner">
+    <div class="banner-icon">⚙️</div>
+    <div>
+        <p class="banner-label">ADMINISTRATION PANEL</p>
+        <h1>Welcome,  .......</h1>
+        <p>Manage customers, cleaning services, employees and payments.</p>
+    </div>
+</section>
+
+<main class="dashboard-container">
+
+    <!-- WELCOME -->
+    <section class="welcome-section">
+        <div>
+            <span class="eyebrow">ADMIN OVERVIEW</span>
+            <h2>Dashboard Overview</h2>
+            <p>Monitor your cleaning operations and manage the Pilee Tech platform.</p>
+        </div>
+
+        <div class="date-display">
+            <span>Today's Date</span>
+            <strong id="currentDate">Loading...</strong>
+        </div>
+    </section>
+
+    <!-- STATISTICS -->
+    <section class="stats-grid">
+        <article class="stat-card">
+            <div class="stat-icon purple-icon">👥</div>
+            <div>
+                <p>Total Customers</p>
+                <h3 id="customerStat">0</h3>
+                <span>Registered customers</span>
+            </div>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-icon blue-icon">🧹</div>
+            <div>
+                <p>Cleaning Requests</p>
+                <h3 id="requestStat">0</h3>
+                <span>Requests received</span>
+            </div>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-icon green-icon">👷</div>
+            <div>
+                <p>Available Employees</p>
+                <h3 id="employeeStat">0</h3>
+                <span>Available for allocation</span>
+            </div>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-icon orange-icon">💳</div>
+            <div>
+                <p>Pending Payments</p>
+                <h3 id="paymentStat">R0</h3>
+                <span>Example outstanding amount</span>
+            </div>
+        </article>
+    </section>
+
+    <!-- MANAGEMENT -->
+    <section class="management-section" id="management">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">CONTROL CENTRE</span>
+                <h2>Admin Functions</h2>
+                <p>Select a function to manage that part of the business.</p>
+            </div>
+        </div>
+
+        <div class="management-grid">
+
+            <a href="manage-customers.html" class="management-card">
+                <div class="card-icon purple-icon">👥</div>
+                <div class="card-text">
+                    <h3>Manage Customers Profile</h3>
+                    <p>View customer profiles, contact details and account information.</p>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+           
+
+            <a href="assign-cleaner.html" class="management-card">
+                <div class="card-icon green-icon">👷</div>
+                <div class="card-text">
+                    <h3>Allocate Cleaners</h3>
+                    <p>Assign employees to customer requests and scheduled jobs.</p>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+
+           
+
+            <a href="manage-services.html" class="management-card">
+                <div class="card-icon purple-icon">🛠️</div>
+                <div class="card-text">
+                    <h3>Manage Services & Pricing</h3>
+                    <p>Add services, update descriptions and maintain service prices.</p>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+            
+
+
+
+           
+
+            <a href="manage-payment.html" class="management-card">
+                <div class="card-icon green-icon">💳</div>
+                <div class="card-text">
+                    <h3>View Payments</h3>
+                    <p>Review transactions, payment statuses and outstanding balances.</p>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+
+           <a href="registered-cleaners.html" class="management-card">
+                <div class="card-icon blue-icon">🕒</div>
+                <div class="card-text">
+                    <h3>Registered Cleaners</h3>
+                    <p>View and manage the list of registered cleaning professionals.</p>
+                </div>
+                <span class="card-arrow">→</span>
+
+
+           </a>   
+
+            <a href="reports.html" class="management-card" id="reports">
+                <div class="card-icon orange-icon">📊</div>
+                <div class="card-text">
+                    <h3> Reports</h3>
+                    <p>Prepare reports on bookings, revenue, jobs and employees.</p>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+           <a href ="application-page.html" class="management-card">
+                <div class="card-icon purple-icon">📝</div>
+                <div class="card-text">
+                    <h3>Employee Applications</h3>
+                    <p>Review new employee applications and approve or reject them.</p>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+           
+
+            <a href="track-employee-location.html" class="management-card">
+                <div class="card-icon blue-icon">📍</div>
+                <div class="card-text">
+                    <h3>Track Employee Location</h3>
+                    <p>View authorized employee location updates during assigned jobs.</p>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+            <a href="view-ratings.html" class="management-card">
+                <div class="card-icon green-icon">⭐</div>
+                <div class="card-text">
+                    <h3>View Ratings</h3>
+                    <p>Review customer feedback, employee ratings and service quality.</p>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+            <a href="ticket-tracking.html" class="management-card">
+                <div class="card-icon orange-icon">🎫</div>
+                <div class="card-text">
+                    <h3>Support Tickets</h3>
+                    <p>Review customer complaints, enquiries and ticket statuses.</p>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+    <!-- RECENT REQUESTS -->
+    <section class="recent-section">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">LATEST ACTIVITY</span>
+                <h2>Recent Cleaning Requests</h2>
+                <p>A sample overview of recently received requests.</p>
+            </div>
+
+            <a href="cleaning-requests.html" class="view-all">
+                View All Requests →
+            </a>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Customer</th>
+                        <th>Service</th>
+                        <th>Preferred Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>REQ-10021</td>
+                        <td>Mqondisi Ndlovu</td>
+                        <td>Standard Home Cleaning</td>
+                        <td>20 Oct 2026</td>
+                        <td><span class="status pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>REQ-10022</td>
+                        <td>Thandi Mokoena</td>
+                        <td>Deep Cleaning</td>
+                        <td>21 Oct 2026</td>
+                        <td><span class="status assigned">Assigned</span></td>
+                    </tr>
+                    <tr>
+                        <td>REQ-10023</td>
+                        <td>John Dlamini</td>
+                        <td>Office Cleaning</td>
+                        <td>22 Oct 2026</td>
+                        <td><span class="status progress">In Progress</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+       
+    </section>
+
+</main>
+
+
+
+
+
+<script src="admin-dashboard.js"></script>
+</body>
+</html>

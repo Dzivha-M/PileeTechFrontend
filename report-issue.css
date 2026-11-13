@@ -1,0 +1,791 @@
+
+:root {
+    --navy: #061A2D;
+    --navy-light: #092844;
+    --blue: #08A9E8;
+    --blue-dark: #0879BD;
+    --purple: #7938ED;
+    --page-bg: #F3F7FA;
+    --text: #102B49;
+    --muted: #5D7084;
+    --border: #DCE6EE;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "DM Sans", Arial, sans-serif;
+    background: var(--page-bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.site-header {
+    background: var(--navy);
+    border-bottom: 3px solid var(--blue);
+    padding: 14px 5%;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.brand img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.brand-blue {
+    color: var(--blue);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #E1EAF3;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links .profile-link {
+    color: var(--blue);
+}
+
+.profile-link {
+    border: 1px solid #31516D;
+    padding: 9px 13px;
+    border-radius: 8px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    color: white;
+    font-size: 25px;
+}
+
+/* Page banner */
+
+.page-banner {
+    background: linear-gradient(115deg, var(--navy), #174B79);
+    color: white;
+    padding: 38px 8%;
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+.banner-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: rgba(8, 169, 232, 0.2);
+    display: grid;
+    place-items: center;
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.eyebrow {
+    color: #65D5FF;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.page-banner h1 {
+    font-size: clamp(28px, 4vw, 38px);
+    margin: 3px 0;
+}
+
+.page-banner p {
+    color: #D8E8F6;
+    font-size: 14px;
+}
+
+/* Form card */
+
+.container {
+    width: min(900px, 92%);
+    margin: 30px auto 45px;
+}
+
+.report-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: clamp(20px, 4vw, 35px);
+    box-shadow: 0 8px 28px rgba(6, 26, 45, 0.06);
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 4px 0 20px;
+}
+
+.section-heading:not(:first-child) {
+    margin-top: 30px;
+}
+
+.step {
+    min-width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: white;
+    background: var(--blue-dark);
+    font-weight: 800;
+}
+
+.section-heading h2 {
+    font-size: 19px;
+}
+
+.section-heading p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.optional {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+/* Issue selection */
+
+.issue-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.issue-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.issue-option:has(input:checked) {
+    border-color: var(--blue-dark);
+    background: #EFF9FF;
+    box-shadow: 0 0 0 1px var(--blue-dark);
+}
+
+.issue-option input {
+    accent-color: var(--blue-dark);
+    width: 17px;
+    height: 17px;
+}
+
+.issue-option span {
+    display: flex;
+    flex-direction: column;
+}
+
+.issue-option strong {
+    font-size: 13px;
+}
+
+.issue-option small {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* Description */
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 14px;
+    border: 1px solid #C9D9E8;
+    border-radius: 8px;
+    resize: vertical;
+    font: inherit;
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+}
+
+textarea:focus {
+    border-color: var(--blue-dark);
+    box-shadow: 0 0 0 3px rgba(8, 169, 232, 0.12);
+}
+
+textarea::placeholder {
+    color: #91A4B8;
+}
+
+.character-count {
+    text-align: right;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+/* Picture upload */
+
+.upload-box {
+    min-height: 145px;
+    border: 2px dashed #BBD9EF;
+    border-radius: 9px;
+    background: #F9FCFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.upload-box:hover {
+    border-color: var(--blue-dark);
+    background: #EFF9FF;
+}
+
+.upload-icon {
+    color: var(--blue-dark);
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.upload-box strong {
+    font-size: 14px;
+}
+
+.upload-box span:last-child {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.image-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.preview-item {
+    width: 95px;
+    height: 95px;
+    position: relative;
+}
+
+.preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.remove-image {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    width: 24px;
+    height: 24px;
+    border: 0;
+    border-radius: 50%;
+    color: white;
+    background: var(--navy);
+    cursor: pointer;
+}
+
+.message {
+    margin-top: 10px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.message.error {
+    color: #B42318;
+}
+
+.message.success {
+    color: #14754F;
+}
+
+/* Submit */
+
+.submit-button {
+    width: 100%;
+    margin-top: 23px;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--blue-dark), var(--blue));
+    color: white;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submit-button:hover {
+    background: var(--navy-light);
+}
+
+.submit-button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.privacy-note {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+
+/* =====================================
+   PILEE TECH GROUP LOGO
+   ===================================== */
+
+.ac-header {
+    background: #061A2D;
+    min-height: 120px;
+    padding: 15px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.site-logo img {
+    display: block;
+    width: 310px;
+    height: auto;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+/* Responsive logo */
+@media (max-width: 600px) {
+    .ac-header {
+        min-height: 90px;
+        padding: 12px 4%;
+    }
+
+    .site-logo img {
+        width: 220px;
+        max-height: 75px;
+    }
+}
+
+
+
+/* =========================================
+   PILEE TECH GROUP — SHARED FOOTER
+========================================= */
+
+.site-footer {
+    background: #040D18;
+    color: #CBD5E1;
+    padding: 70px 0 35px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: "DM Sans", Arial, sans-serif;
+    width: 100%;
+}
+
+.footer-container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.3fr 1fr;
+    gap: 40px;
+    text-align: left;
+}
+
+/* COMPANY INFORMATION */
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-brand h3 {
+    color: #FFFFFF;
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin: 0 0 16px;
+}
+
+.footer-brand p {
+    color: #94A3B8;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0 0 6px;
+}
+
+/* FOOTER COLUMNS */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h4 {
+    color: #FFFFFF;
+    font-family: "Manrope", Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.footer-line {
+    width: 38px;
+    height: 3px;
+    background: #08A9E8;
+    margin-top: 10px;
+    margin-bottom: 22px;
+}
+
+/* FOOTER LINKS */
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-column ul li a {
+    color: #CBD5E1;
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: color 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #08A9E8;
+}
+
+/* COPYRIGHT */
+
+.footer-bottom {
+    width: min(1200px, 90%);
+    margin: 55px auto 0;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #64748B;
+    font-size: 0.85rem;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 950px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-footer {
+        padding: 50px 0 25px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+    }
+}
+
+
+/* =========================================
+   NAVIGATION DROPDOWN
+========================================= */
+
+.nav-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown trigger */
+
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background: transparent;
+    border: none;
+
+    color: #061A2D;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    padding: 12px 10px;
+
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.dropdown-trigger:hover,
+.dropdown-trigger.active {
+    color: #08A9E8;
+}
+
+/* Dropdown arrow */
+
+.dropdown-arrow {
+    width: 8px;
+    height: 8px;
+
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+
+    transform: rotate(45deg);
+    margin-top: -4px;
+
+    transition: transform 0.3s ease;
+}
+
+/* Dropdown menu */
+
+.dropdown-menu {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    min-width: 220px;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    padding: 10px 0;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+
+    border: 1px solid #E2E8F0;
+
+    display: none;
+
+    z-index: 1000;
+}
+
+/* Dropdown links */
+
+.dropdown-menu a {
+    display: block;
+
+    padding: 12px 18px;
+
+    color: #102B49;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+.dropdown-menu a:hover {
+    background: #F0F8FC;
+    color: #08A9E8;
+    padding-left: 24px;
+}
+
+/* Show dropdown on hover and keyboard focus */
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(225deg);
+    margin-top: 4px;
+}
+
+/* Keep dropdown above other elements */
+
+.site-header {
+    position: relative;
+    z-index: 1000;
+}
+
+
+/* =========================================
+   CONSISTENT HEADER NAVIGATION STYLING
+========================================= */
+
+/* All navigation headings */
+.navigation > a,
+.navigation .dropdown-trigger {
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #102B49;
+
+    display: flex;
+    align-items: center;
+
+    padding: 9px 0;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+/* Consistent hover colour */
+.navigation > a:hover,
+.navigation .dropdown-trigger:hover,
+.navigation .dropdown-trigger.active {
+    color: #0879BD;
+}
+
+/* Consistent underline for Home and other normal links */
+.navigation > a:not(.nav-cta):not(.request-service) {
+    position: relative;
+}
+
+.navigation > a:not(.nav-cta):not(.request-service)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+
+    width: 0;
+    height: 2px;
+
+    background: #08A9E8;
+    transition: width 0.25s ease;
+}
+
+.navigation > a:not(.nav-cta):not(.request-service):hover::after {
+    width: 100%;
+}
+
+/* Dropdown headings */
+.dropdown-trigger {
+    gap: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Keep dropdown arrow consistent */
+.dropdown-arrow {
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+}
+
+/* Hide account elements when required */
+[hidden] {
+    display: none !important;
+}
+
+/* Login link */
+.login-link {
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.login-link:hover {
+    color: var(--blue2);
+}
+
+/* =========================================
+   HOME DROPDOWN — NAVY BLUE HOVER
+========================================= */
+
+/* Home dropdown button */
+.nav-dropdown .dropdown-trigger {
+    color: #061A2D !important;
+    background: transparent;
+}
+
+/* Prevent light-blue hover and active colour */
+.nav-dropdown .dropdown-trigger:hover,
+.nav-dropdown .dropdown-trigger:focus,
+.nav-dropdown .dropdown-trigger:active,
+.nav-dropdown .dropdown-trigger.active {
+    color: #061A2D !important;
+    background: transparent !important;
+}
+
+/* Dropdown arrow */
+.nav-dropdown .dropdown-trigger:hover .dropdown-arrow,
+.nav-dropdown .dropdown-trigger.active .dropdown-arrow {
+    border-color: #061A2D !important;
+}
+
+/* Dropdown menu links */
+.nav-dropdown .dropdown-menu a:hover {
+    color: #061A2D !important;
+    background: #F3F7FA !important;
+}

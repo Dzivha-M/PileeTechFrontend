@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Page settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Report an Issue | Pilee Tech Group</title>
+
+    
+    <style>
+/* ==========================================
+   BLACK, WHITE AND BLUE THEME
+   PILEE TECH GROUP
+   ========================================== */
+
+/* General page settings */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111827;
+    min-height: 100vh;
+}
+
+/* Main dashboard layout */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background: #ffffff;
+}
+
+/* ==========================================
+   SIDEBAR
+   ========================================== */
+.sidebar {
+    width: 260px;
+    min-width: 260px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 32px 20px;
+    background: #ffffff;
+    border-right: 1px solid #e5eaf1;
+    overflow-y: auto;
+}
+
+/* Profile */
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 12px 22px;
+    border-bottom: 1px solid #e5eaf1;
+}
+
+.profile-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #dceaff;
+    color: #1767c8;
+    font-size: 23px;
+}
+
+.profile-details h3 {
+    color: #111827;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.profile-details p {
+    color: #64748b;
+    font-size: 15px;
+}
+
+/* Navigation */
+.navigation {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 56px;
+    padding: 13px 14px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    color: #344054;
+    background: transparent;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1.35;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-icon {
+    width: 25px;
+    min-width: 25px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: #e6f0ff;
+    color: #1258a8;
+}
+
+.nav-link.active {
+    font-weight: bold;
+}
+
+/* Log out: extra space above, no divider line */
+.logout {
+    margin-top: 24px;
+    padding-top: 13px;
+    border-top: none;
+}
+
+/* ==========================================
+   WHITE MAIN CONTENT AREA
+   ========================================== */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 45px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+}
+
+/* Report form - no coloured background */
+.report-container {
+    width: 100%;
+    max-width: 680px;
+    padding: 30px;
+    margin: auto;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Heading */
+.report-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.heading-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    background: transparent;
+    color: #174ea6;
+    border: 2px solid #174ea6;
+    font-size: 25px;
+}
+
+.report-heading h1 {
+    font-size: 29px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #444444;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   FORM FIELDS
+   ========================================== */
+
+.form-group {
+    width: 100%;
+    margin-bottom: 23px;
+}
+
+.form-group > label:first-child {
+    display: block;
+    margin-bottom: 9px;
+    color: #000000;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Dropdown and description */
+#issueType,
+#description {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #b8bec8;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+#issueType {
+    min-height: 46px;
+}
+
+#description {
+    min-height: 130px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+#issueType:focus,
+#description:focus {
+    border-color: #174ea6;
+    box-shadow: 0 0 0 2px rgba(23, 78, 166, 0.12);
+}
+
+/* ==========================================
+   PICTURE UPLOAD BOX
+   ========================================== */
+
+.upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    min-height: 165px;
+    padding: 25px 15px;
+    border: 2px dashed #174ea6;
+    border-radius: 8px;
+    background: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.25s ease;
+}
+
+.upload-box:hover {
+    background: #f4f8ff;
+    border-color: #0d3475;
+}
+
+.upload-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #174ea6;
+    color: #174ea6;
+    font-size: 28px;
+}
+
+.upload-title {
+    color: #000000;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.upload-box small {
+    color: #555555;
+    font-size: 12px;
+}
+
+/* Image preview */
+.image-preview {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    padding: 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 7px;
+    background: #ffffff;
+}
+
+.image-preview[hidden] {
+    display: none;
+}
+
+.image-preview img {
+    width: 100px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.image-details {
+    flex: 1;
+    min-width: 0;
+}
+
+#fileName {
+    overflow-wrap: anywhere;
+    color: #000000;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+#removePicture {
+    border: none;
+    background: transparent;
+    color: #174ea6;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: underline;
+}
+
+.message {
+    margin-top: 10px;
+    color: #555555;
+    font-size: 13px;
+}
+
+.form-message {
+    color: #c62828;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+/* ==========================================
+   BLUE SUBMIT BUTTON
+   ========================================== */
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    padding: 13px 20px;
+    border: 1px solid #174ea6;
+    border-radius: 6px;
+    background: #174ea6;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.submit-btn:hover {
+    background: #0d3475;
+    border-color: #0d3475;
+}
+
+/* Keyboard accessibility */
+.submit-btn:focus-visible,
+#removePicture:focus-visible {
+    outline: 3px solid #174ea6;
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT
+   ========================================== */
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 220px;
+        min-width: 220px;
+        padding: 25px 12px;
+    }
+
+    .main-content {
+        padding: 30px 20px;
+    }
+
+    .report-container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard-container {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 1px solid #e5eaf1;
+    }
+
+    .profile {
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+
+    .navigation {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 0;
+    }
+
+    .nav-link {
+        flex: 1 1 135px;
+        min-height: 0;
+        margin-bottom: 0;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .logout {
+        margin-top: 0;
+        padding-top: 10px;
+    }
+
+    .main-content {
+        width: 100%;
+        min-height: auto;
+        padding: 25px 14px;
+    }
+
+    .report-container {
+        padding: 15px 5px;
+    }
+
+    .report-heading h1 {
+        font-size: 25px;
+    }
+
+    .upload-box {
+        min-height: 145px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- Main dashboard layout -->
+    <div class="dashboard-container">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+
+            <!-- Cleaner profile -->
+            <div class="profile">
+                <div class="profile-icon">👤</div>
+
+                <div class="profile-details">
+                    <h3>Name</h3>
+                    <p>Surname</p>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="navigation" aria-label="Dashboard navigation">
+
+                <!-- Dashboard -->
+                <a href="DashbordCleaner.html" class="nav-link">
+                    <span class="nav-icon" aria-hidden="true">▦</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <!-- Scheduled bookings -->
+                <a href="SCHEDULEDBOOKINGPAGE.html" class="nav-link">
+                    <span class="nav-icon" aria-hidden="true">▣</span>
+                    <span>Scheduled bookings</span>
+                </a>
+
+                <!-- Request supplies -->
+                <a href="Request-Supplies.html" class="nav-link">
+                    <span class="nav-icon" aria-hidden="true">⚒</span>
+                    <span>Request supplies</span>
+                </a>
+
+                <!-- Previous bookings -->
+                <a href="PREVIOUSbOOKING.html" class="nav-link">
+                    <span class="nav-icon" aria-hidden="true">◷</span>
+                    <span>Previous bookings</span>
+                </a>
+
+                <!-- Report an issue (current page) -->
+                <a href="ReportPage.html"
+                   class="nav-link active"
+                   aria-current="page">
+                    <span class="nav-icon" aria-hidden="true">⚑</span>
+                    <span>Report an issue</span>
+                </a>
+                <a href="CleanerSupport.html"
+               class="nav-link active"
+               aria-current="page">
+
+                <span class="nav-icon" aria-hidden="true">▤</span>
+                <span>Support Documents</span>
+
+            </a>
+
+                <!-- Log out -->
+                <a href="cleaner-login-page.html" class="nav-link logout">
+                    <span class="nav-icon" aria-hidden="true">⇥</span>
+                    <span>Log out</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="main-content">
+
+            <!-- Centred report card -->
+            <section class="report-container">
+
+                <div class="report-heading">
+                    <span class="heading-icon">⚑</span>
+                    <h1>Report an issue</h1>
+                    <p class="subtitle">
+                        Report a problem encountered during a booking.
+                    </p>
+                </div>
+
+                <!-- Report form -->
+                <form id="reportForm">
+
+                    <!-- Issue type -->
+                    <div class="form-group">
+                        <label for="issueType">Issue type</label>
+
+                        <select id="issueType" name="issueType" required>
+                            <option value="">Select an issue type</option>
+                            <option value="broken">Something broken</option>
+                            <option value="supplies">Missing supplies or equipment</option>
+                            <option value="access">Couldn't access the property</option>
+                            <option value="booking">Booking problem</option>
+                            <option value="safety">Safety concern</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Issue description -->
+                    <div class="form-group">
+                        <label for="description">Description</label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            placeholder="Describe what happened..."
+                            rows="5"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <!-- Optional picture upload -->
+                    <div class="form-group">
+                        <label for="picture">Picture (optional)</label>
+
+                        <label for="picture" class="upload-box">
+                            <span class="upload-icon">＋</span>
+                            <span class="upload-title">Upload a picture</span>
+                            <small>Click here to choose an image</small>
+                            <small>JPG, PNG or WEBP · Maximum 5 MB</small>
+                        </label>
+
+                        <input
+                            type="file"
+                            id="picture"
+                            name="picture"
+                            accept="image/jpeg,image/png,image/webp"
+                            hidden
+                        >
+
+                        <!-- Selected image preview -->
+                        <div id="imagePreview" class="image-preview" hidden>
+                            <img
+                                id="previewImage"
+                                src=""
+                                alt="Selected picture preview"
+                            >
+
+                            <div class="image-details">
+                                <p id="fileName"></p>
+
+                                <button type="button" id="removePicture">
+                                    Remove picture
+                                </button>
+                            </div>
+                        </div>
+
+                        <p id="uploadMessage" class="message"
+                           aria-live="polite">
+                            No picture selected
+                        </p>
+                    </div>
+
+                    <!-- Form validation messages -->
+                    <p id="formMessage" class="form-message"
+                       aria-live="polite"></p>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="submit-btn">
+                        Submit report
+                    </button>
+
+                </form>
+            </section>
+        </main>
+
+    </div>
+
+    <!-- Report form functionality -->
+    <script src="report.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Cleaning Bookings | Pilee Tech Group</title>
+
+    <!-- Page styling -->
+    <link rel="stylesheet" href="bookingHistory.css">
+    <link rel="stylesheet" href="header.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+    <!-- PILEE TECH LOGO -->
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="Pilee Tech Group Logo">
+    </a>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="navigation" id="mainNavigation">
+
+        <a href="index.html">Home</a>
+        <a href="AboutPage.html">About</a>
+        <a href="services.php">Pilee Cleaning Services</a>
+        <a href="projects.php">Other Divisions</a>
+        <a href="contact.php">Contact</a>
+         <a href="cleaning-partner-recruitment.html">Careers Page</a>
+
+        <a href="Request-service.html" class="request-service">
+            Book a Cleaning Service
+        </a>
+
+    </nav>
+
+    <!-- LOGIN LINK: Visible when logged out -->
+<a href="login.html" class="login-link" id="loginLink">
+    Login
+</a>
+
+<!-- PROFILE MENU: Visible when logged in -->
+<div class="profile-menu-container" id="profileMenuContainer" hidden>
+
+    <button class="profile-btn"
+            id="profileBtn"
+            type="button"
+            aria-label="Open customer profile menu"
+            aria-expanded="false"
+            aria-controls="profileDropdown">
+
+        <span class="profile-icon" aria-hidden="true"></span>
+    </button>
+
+    <div class="profile-dropdown" id="profileDropdown" hidden>
+
+        <div class="profile-dropdown-header">
+            <strong>My Account</strong>
+            <p>Welcome back!</p>
+        </div>
+
+        <a href="customer profile.html">👤 My Profile</a>
+        <a href="report-issue.html">🎧 My Support</a>
+        <a href="customer-booking-history-page.html">📋 Booking History</a>
+
+        <div class="profile-dropdown-divider"></div>
+
+        <a href="#" class="logout-link" id="logoutBtn">
+            ↪ Logout
+        </a>
+
+    </div>
+</div>
+
+
+    <!-- MOBILE MENU -->
+    <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+
+
+    <!-- =====================================
+         MAIN PAGE
+    ====================================== -->
+
+    <main class="page">
+
+        <!-- Page heading -->
+        <section class="page-heading">
+
+            <div>
+                <h1>My Cleaning Bookings</h1>
+
+                <p>
+                    Track, change or repeat any cleaning
+                    you've booked with us.
+                </p>
+            </div>
+
+            <a href=""
+               class="primary-button new-booking">
+                + New booking
+            </a>
+
+        </section>
+
+
+        <!-- =====================================
+             BOOKING CATEGORY TABS
+        ====================================== -->
+
+        <nav class="tabs"
+             aria-label="Booking categories"
+             role="tablist">
+
+            <button type="button"
+                    class="tab active"
+                    role="tab"
+                    aria-selected="true"
+                    data-tab="upcoming">
+
+                Upcoming
+                <span id="upcoming-count">(0)</span>
+
+            </button>
+
+            <button type="button"
+                    class="tab"
+                    role="tab"
+                    aria-selected="false"
+                    data-tab="past">
+
+                Past
+                <span id="past-count">(0)</span>
+
+            </button>
+
+            <button type="button"
+                    class="tab"
+                    role="tab"
+                    aria-selected="false"
+                    data-tab="cancelled">
+
+                Cancelled
+                <span id="cancelled-count">(0)</span>
+
+            </button>
+
+        </nav>
+
+
+        <!-- JavaScript inserts booking cards here -->
+        <section id="booking-list"
+                 class="booking-list"
+                 aria-live="polite">
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================
+         CUSTOMER REVIEW POP-UP
+    ====================================== -->
+
+    <div class="modal-backdrop"
+         id="review-modal"
+         aria-hidden="true">
+
+        <section class="review-modal"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="review-title">
+
+            <!-- Close button -->
+            <button type="button"
+                    class="modal-close"
+                    id="close-modal"
+                    aria-label="Close review window">
+
+                &times;
+
+            </button>
+
+
+            <div class="modal-kicker">
+                YOUR FEEDBACK MATTERS
+            </div>
+
+            <h2 id="review-title">
+                Rate your cleaning
+            </h2>
+
+            <p class="modal-intro">
+                Share your experience so we can keep
+                improving our service.
+            </p>
+
+
+            <!-- Booking information -->
+            <div class="review-booking-summary"
+                 id="review-booking-summary">
+            </div>
+
+
+            <form id="review-form">
+
+                <!-- Booking reference -->
+                <input type="hidden"
+                       id="review-booking-id">
+
+
+                <!-- =================================
+                     RATE THE CLEANER
+                ================================== -->
+
+                <fieldset class="rating-field">
+
+                    <legend>
+                        Rate the cleaner
+                        <span id="cleaner-name"></span>
+                    </legend>
+
+                    <div class="star-rating"
+                         data-rating="cleaner"
+                         role="group"
+                         aria-label="Rate the cleaner from one to five stars">
+                    </div>
+
+                    <div class="rating-hint">
+                        <span>Not satisfied</span>
+                        <span>Excellent</span>
+                    </div>
+
+                </fieldset>
+
+
+
+                <!-- =================================
+                     RATE THE OVERALL SERVICE
+                ================================== -->
+
+                <fieldset class="rating-field">
+
+                    <legend>
+                        Rate the overall service
+                    </legend>
+
+                    <div class="star-rating"
+                         data-rating="service"
+                         role="group"
+                         aria-label="Rate the service from one to five stars">
+                    </div>
+
+                    <div class="rating-hint">
+                        <span>Needs improvement</span>
+                        <span>Excellent</span>
+                    </div>
+
+                </fieldset>
+
+
+
+                <!-- =================================
+                     WRITTEN FEEDBACK
+                ================================== -->
+
+                <div class="form-group">
+
+                    <label for="review-comment">
+                        Tell us why you feel this way
+
+                        <span class="optional">
+                            (optional)
+                        </span>
+                    </label>
+
+                    <textarea
+                        id="review-comment"
+                        rows="4"
+                        maxlength="1000"
+                        placeholder="What went well? What could we do better?">
+                    </textarea>
+
+                    <div class="character-count">
+                        <span id="comment-count">0</span>/1000
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     RECOMMENDATION SCORE
+                ================================== -->
+
+                <fieldset class="recommend-field">
+
+                    <legend>
+                        How likely are you to recommend
+                        Pilee Tech Group to someone else?
+                    </legend>
+
+                    <div class="recommend-scale"
+                         id="recommend-scale"
+                         role="group"
+                         aria-label="Recommendation score from one to ten">
+                    </div>
+
+                    <div class="scale-labels">
+                        <span>1 = Not likely</span>
+                        <span>10 = Very likely</span>
+                    </div>
+
+                </fieldset>
+
+
+
+                <!-- Validation message -->
+                <p class="form-error"
+                   id="form-error"
+                   role="alert">
+                </p>
+
+
+
+                <!-- Form buttons -->
+                <div class="modal-actions">
+
+                    <button type="button"
+                            class="secondary-button"
+                            id="cancel-review">
+
+                        Cancel
+
+                    </button>
+
+                    <button type="submit"
+                            class="primary-button"
+                            id="save-review">
+
+                        Submit review
+
+                    </button>
+
+                </div>
+
+
+                <p class="privacy-note">
+                    You can edit your review at any time
+                    from this booking.
+                </p>
+
+            </form>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =====================================
+         THANK-YOU POP-UP
+         SHOWN FOR 3–5 SERVICE STARS
+    ====================================== -->
+
+    <div class="modal-backdrop"
+         id="thank-you-modal"
+         aria-hidden="true">
+
+        <section class="review-modal message-modal"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="thank-you-title">
+
+
+            <!-- Success icon -->
+            <div class="success-icon" aria-hidden="true">
+                ✓
+            </div>
+
+
+            <div class="modal-kicker">
+                THANK YOU FOR CHOOSING US
+            </div>
+
+
+            <h2 id="thank-you-title">
+                Thank you for your review!
+            </h2>
+
+
+            <p>
+                Thank you for booking with Pilee Tech Group
+                and taking the time to share your experience.
+                We truly appreciate your feedback and hope
+                to welcome you back for another booking soon.
+            </p>
+
+
+            <p class="message-signature">
+                Kind regards,<br>
+                <strong>Pilee Tech Group</strong>
+            </p>
+
+
+            <button type="button"
+                    class="primary-button"
+                    id="close-thank-you">
+
+                Done
+
+            </button>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =====================================
+         APOLOGY AND IMPROVEMENT POP-UP
+         SHOWN FOR 1–2 SERVICE STARS
+    ====================================== -->
+
+    <div class="modal-backdrop"
+         id="improve-modal"
+         aria-hidden="true">
+
+        <section class="review-modal message-modal"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="improve-title">
+
+
+            <!-- Apology icon -->
+            <div class="apology-icon" aria-hidden="true">
+                !
+            </div>
+
+
+            <div class="modal-kicker">
+                YOUR EXPERIENCE MATTERS
+            </div>
+
+
+            <h2 id="improve-title">
+                How can we improve?
+            </h2>
+
+
+            <p>
+                We sincerely apologise that your experience
+                did not meet your expectations. At Pilee Tech
+                Group, we take your feedback seriously and
+                would appreciate the opportunity to make
+                things better.
+            </p>
+
+
+            <!-- Improvement feedback form -->
+            <form id="improve-form">
+
+                <div class="form-group">
+
+                    <label for="improvement-feedback">
+                        Please tell us how we can improve
+                        our services.
+                    </label>
+
+                    <textarea
+                        id="improvement-feedback"
+                        rows="4"
+                        maxlength="1000"
+                        placeholder="Tell us what went wrong or what we could improve..."
+                        required>
+                    </textarea>
+
+                </div>
+
+
+                <p class="follow-up-note">
+                    Our team will be in contact with you
+                    shortly to follow up on your experience.
+                </p>
+
+
+                <p class="message-signature">
+                    We sincerely apologise again.<br>
+                    <strong>Pilee Tech Group</strong>
+                </p>
+
+
+                <!-- Follow-up validation message -->
+                <p class="form-error"
+                   id="improve-error"
+                   role="alert">
+                </p>
+
+
+                <button type="submit"
+                        class="primary-button"
+                        id="submit-improvement">
+
+                    Submit feedback
+
+                </button>
+
+            </form>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =====================================
+         SUCCESS NOTIFICATION
+    ====================================== -->
+
+    <div class="toast"
+         id="toast"
+         role="status"
+         aria-live="polite">
+    </div>
+
+
+
+    <!-- JavaScript -->
+    <script src="bookingHistory.js"></script>
+    <script src="header.js"></script>
+
+</body>
+</html>

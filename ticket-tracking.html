@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ticket Tracking | Pilee Tech</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ticket-tracking.css">
+</head>
+<body>
+
+
+
+    
+   <!-- NAVBAR -->
+<!-- NAVBAR -->
+<header class="site-header">
+    <div class="logo-container">
+        
+            <h1 class="site-heading">
+                <span class="pile">Pilee</span><span class="tech">Tech</span>
+            </h1>
+        </a>
+
+        <!-- ADMIN DASHBOARD BUTTON -->
+        <a href="admin-dashboard.html" class="admin-dashboard-link">
+            <span aria-hidden="true">⚙</span>
+            <span>Admin Dashboard</span>
+        </a>
+    </div>
+</header>
+
+    <!-- BLUE PAGE BANNER -->
+    <section class="page-banner">
+        <div class="banner-icon">🎫</div>
+
+        <div>
+
+
+
+
+
+
+            
+            <p>Welcome,Admin! </p>
+            <h1>Ticket Tracking</h1>
+            <p>Track your customers requests and check their progress.</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="ticket-container">
+
+        <section class="page-intro">
+            <span class="eyebrow">SUPPORT CENTRE</span>
+            <h2>Your Support Tickets</h2>
+            <p>
+                View your tickets, check their status, and find updates
+                about your enquiries.
+            </p>
+        </section>
+
+        <!-- SUMMARY CARDS -->
+        <section class="ticket-stats">
+
+            <article class="stat-card">
+                <div class="stat-icon purple-icon">🎫</div>
+                <div>
+                    <p>Total Tickets</p>
+                    <h3 id="totalTickets">3</h3>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon orange-icon">◷</div>
+                <div>
+                    <p>Open Tickets</p>
+                    <h3 id="openTickets">1</h3>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon blue-icon">↻</div>
+                <div>
+                    <p>In Progress</p>
+                    <h3 id="progressTickets">1</h3>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon green-icon">✓</div>
+                <div>
+                    <p>Resolved</p>
+                    <h3 id="resolvedTickets">1</h3>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- TICKET LIST -->
+        <section class="tickets-panel">
+
+            <div class="tickets-heading">
+                <div>
+                    <h2>My Tickets</h2>
+                    <p>Review your recent support requests.</p>
+                </div>
+
+              
+            </div>
+
+            <!-- SEARCH AND FILTER -->
+            <div class="ticket-controls">
+
+                <div class="search-box">
+                    <span>⌕</span>
+                    <input type="search" id="ticketSearch"
+                           placeholder="Search by ticket ID or subject..."
+                           aria-label="Search tickets">
+                </div>
+
+                <select id="statusFilter" aria-label="Filter by status">
+                    <option value="all">All Statuses</option>
+                    <option value="Open">Open</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                </select>
+
+            </div>
+
+            <!-- TICKET TABLE -->
+            <div class="table-wrapper">
+                <table class="ticket-table">
+                    <thead>
+                        <tr>
+                            <th>Ticket Details</th>
+                            <th>Date Created</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="ticketTableBody">
+
+                        <tr data-status="Open"
+                            data-ticket="TKT-10021">
+                            <td>
+                                <div class="ticket-detail">
+                                    <span class="ticket-symbol">!</span>
+                                    <div>
+                                        <strong>TKT-10021</strong>
+                                        <p>Cleaning service issue</p>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>05 Oct 2026</td>
+
+                            
+
+                            <td>
+                                <span class="status status-open">Open</span>
+                            </td>
+
+                            <td>
+                                <button class="view-button"
+                                        data-ticket-id="TKT-10021">
+                                    View Details
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr data-status="Resolved"
+                            data-ticket="TKT-10022">
+                            <td>
+                                <div class="ticket-detail">
+                                    <span class="ticket-symbol">↻</span>
+                                    <div>
+                                        <strong>TKT-10022</strong>
+                                        <p>Reschedule cleaning request</p>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>04 Oct 2026</td>
+
+                           
+                            <td>
+                                <span class="status status-resolved">
+                                    Resolved
+                                </span>
+                            </td>
+
+                            <td>
+                                <button class="view-button"
+                                        data-ticket-id="TKT-10022">
+                                    View Details
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr data-status="In Progress"
+                            data-ticket="TKT-10023">
+                            <td>
+                                <div class="ticket-detail">
+                                    <span class="ticket-symbol">₿</span>
+                                    <div>
+                                        <strong>TKT-10023</strong>
+                                        <p>Payment confirmation</p>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>03 Oct 2026</td>
+
+                           
+
+                            <td>
+                                <span class="status status-progress">
+                                    In Progress
+                                </span>
+                            </td>
+
+                            <td>
+                                <button class="view-button"
+                                        data-ticket-id="TKT-10023">
+                                    View Details
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <div id="noTickets" class="no-tickets" hidden>
+                    <span>🔎</span>
+                    <h3>No tickets found</h3>
+                    <p>Try another search term or status filter.</p>
+                </div>
+            </div>
+
+            
+        </section>
+
+        <!-- TICKET DETAILS -->
+        <section class="ticket-details-panel" id="ticketDetails" hidden>
+            <div class="details-heading">
+                <div>
+                    <span class="eyebrow">TICKET INFORMATION</span>
+                    <h2 id="detailTicketId">TKT-10021</h2>
+                </div>
+
+                <button type="button" id="closeDetails"
+                        class="close-button" aria-label="Close ticket details">
+                    ✕
+                </button>
+            </div>
+
+            <div class="details-grid">
+                <div>
+                    <span>Subject</span>
+                    <strong id="detailSubject"></strong>
+                </div>
+
+                <div>
+                    <span>Date Created</span>
+                    <strong id="detailDate"></strong>
+                </div>
+
+                
+
+                <div>
+                    <span>Current Status</span>
+                    <strong id="detailStatus"></strong>
+                </div>
+            </div>
+
+            <div class="ticket-update">
+                <h3>Support Update</h3>
+                <p id="detailUpdate"></p>
+            </div>
+
+            <p class="details-disclaimer">
+                These are sample ticket details. Actual support updates
+                must be retrieved from the project database.
+            </p>
+        </section>
+
+    </main>
+
+    
+
+    <script src="ticket-tracking.js"></script>
+
+</body>
+</html>

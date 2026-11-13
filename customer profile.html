@@ -1,0 +1,874 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Dashboard | Pilee Tech</title>
+
+    <link rel="stylesheet" href="customer-profile.css">
+    <link rel="stylesheet" href="header.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+
+<header class="site-header">
+
+    <!-- PILEE TECH LOGO -->
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="Pilee Tech Group Logo">
+    </a>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="navigation" id="mainNavigation">
+
+    <!-- HOME DROPDOWN -->
+    <div class="nav-dropdown">
+
+        <button class="dropdown-trigger active"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="home-dropdown">
+
+            Home
+            <span class="dropdown-arrow"></span>
+
+        </button>
+
+        <div class="dropdown-menu" id="home-dropdown">
+            <a href="index.html#top">Homepage</a>
+            <a href="index.html#about">Who We Are</a>
+            <a href="index.html#values">Our Core Values</a>
+            <a href="index.html#why-us">Why Choose Us</a>
+            <a href="index.html#divisions">Business Divisions</a>
+            <a href="index.html#contact">Contact Section</a>
+        </div>
+
+    </div>
+
+
+    <!-- ABOUT US DROPDOWN -->
+    <div class="nav-dropdown">
+
+        <button class="dropdown-trigger"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="about-dropdown">
+
+            About Us
+            <span class="dropdown-arrow"></span>
+
+        </button>
+
+        <div class="dropdown-menu" id="about-dropdown">
+            <a href="AboutPage.html#who-we-are">Who We Are</a>
+            <a href="AboutPage.html#our-story">Our Story</a>
+            <a href="AboutPage.html#business-divisions">Business Divisions</a>
+            <a href="AboutPage.html#core-values">Our Core Values</a>
+            <a href="AboutPage.html#our-approach">Our Approach</a>
+            <a href="AboutPage.html#contact-section">Contact Section</a>
+        </div>
+
+    </div>
+        <a href="services.php">Pilee Cleaning Services</a>
+        <a href="projects.php">Other Divisions</a>
+        <a href="contact-us.php">Contact</a>
+        <a href="cleaning-partner-recruitment.html">Careers Page</a>
+
+        <a href="Request-service.html" class="request-service">
+            Book a  Cleaning Service
+        </a>
+
+    </nav>
+
+    
+
+    <!-- LOGIN LINK: Visible when logged out -->
+<a href="login.html" class="login-link" id="loginLink">
+    Login
+</a>
+
+<!-- PROFILE MENU: Visible when logged in -->
+<div class="profile-menu-container" id="profileMenuContainer" hidden>
+
+    <button class="profile-btn"
+            id="profileBtn"
+            type="button"
+            aria-label="Open customer profile menu"
+            aria-expanded="false"
+            aria-controls="profileDropdown">
+
+        <span class="profile-icon" aria-hidden="true"></span>
+    </button>
+
+    <div class="profile-dropdown" id="profileDropdown" hidden>
+
+        <div class="profile-dropdown-header">
+            <strong>My Account</strong>
+            <p>Welcome back!</p>
+        </div>
+
+        <a href="customer profile.html">👤 My Profile</a>
+        <a href="report-issue.html">🎧 My Support</a>
+        <a href="customer-booking-history-page.html">📋 Booking History</a>
+
+        <div class="profile-dropdown-divider"></div>
+
+        <a href="#" class="logout-link" id="logoutBtn">
+            ↪ Logout
+        </a>
+
+    </div>
+</div>
+
+    <!-- MOBILE MENU -->
+    <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+
+<!-- ================= PAGE BANNER ================= -->
+<section class="page-banner">
+
+    <div class="banner-icon" aria-hidden="true">👤</div>
+
+    <div>
+        <p class="banner-label">CUSTOMER ACCOUNT</p>
+        <h1>My Dashboard</h1>
+        <p>Manage your profile, addresses and cleaning services.</p>
+    </div>
+
+</section>
+
+
+<!-- ================= CUSTOMER DASHBOARD ================= -->
+<main class="dashboard-container">
+
+    <!-- DASHBOARD HEADING -->
+    <div class="dashboard-heading">
+
+        <div>
+            <span class="eyebrow">CUSTOMER PORTAL</span>
+
+            <h2>Welcome to Your Dashboard</h2>
+
+            <p>
+                Manage your Pilee Tech account in one place.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- SIDEBAR + MAIN CONTENT -->
+<div class="dashboard-layout">
+
+    <!-- MOBILE SIDEBAR TOGGLE -->
+    <button type="button"
+            class="sidebar-toggle"
+            id="sidebarToggle"
+            aria-expanded="false"
+            aria-controls="customerSidebar">
+        ☰ Customer Menu
+    </button>
+
+    <!-- MOBILE SIDEBAR OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="dashboard-sidebar" id="customerSidebar">
+
+        <h3>Customer Menu</h3>
+
+        <button type="button"
+                class="sidebar-link active"
+                data-section="profile-section">
+            <span class="sidebar-icon">👤</span>
+            <span>My Profile</span>
+        </button>
+
+        <button type="button"
+                class="sidebar-link"
+                data-section="address-section">
+            <span class="sidebar-icon">📍</span>
+            <span>Address Book</span>
+        </button>
+
+        <button type="button"
+                class="sidebar-link"
+                data-section="history-section">
+            <span class="sidebar-icon">📋</span>
+            <span>Service History</span>
+        </button>
+
+        <a href="report-issue.html" class="sidebar-link">
+            <span class="sidebar-icon">⚠️</span>
+            <span>Report an Issue</span>
+        </a>
+
+        <a href="index.html" class="sidebar-logout">
+            <span>↪</span>
+            Back to Website
+        </a>
+
+    </aside>
+
+    
+        <!-- =====================================
+             RIGHT MAIN CONTENT
+        ====================================== -->
+        <div class="dashboard-main">
+
+
+            <!-- =================================
+                 MY PROFILE SECTION
+            ================================== -->
+            <section class="dashboard-section active"
+                     id="profile-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">ACCOUNT SETTINGS</span>
+
+                        <h2>My Profile</h2>
+
+                        <p>
+                            View and update your personal information.
+                        </p>
+                    </div>
+
+                    <span class="section-icon">👤</span>
+
+                </div>
+
+
+                <!-- CUSTOMER SUMMARY -->
+                <div class="profile-summary-card">
+
+                    <div class="profile-avatar">
+                        👤
+                    </div>
+
+                    <div class="profile-summary-details">
+
+                        <h3 id="summaryName">
+                            Loading profile...
+                        </h3>
+
+                        <p>
+                            Customer ID:
+                            <strong id="customerId">
+                                Loading...
+                            </strong>
+                        </p>
+
+                    </div>
+
+                    <span class="account-status" id="accountStatus">
+                        Loading status...
+                    </span>
+
+                </div>
+
+
+                <!-- PERSONAL INFORMATION -->
+                <div class="content-card">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <h3>Personal Information</h3>
+
+                            <p>
+                                Keep your contact details up to date.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <form id="profileForm">
+
+                        <div class="form-grid">
+
+
+                            <!-- FIRST NAME -->
+                            <div class="form-group">
+
+                                <label for="firstName">
+                                    First Name
+                                </label>
+
+                                <input type="text"
+                                       id="firstName"
+                                       name="firstName"
+                                       placeholder="Enter your first name"
+                                       autocomplete="given-name"
+                                       required>
+
+                            </div>
+
+
+                            <!-- LAST NAME -->
+                            <div class="form-group">
+
+                                <label for="lastName">
+                                    Last Name
+                                </label>
+
+                                <input type="text"
+                                       id="lastName"
+                                       name="lastName"
+                                       placeholder="Enter your last name"
+                                       autocomplete="family-name"
+                                       required>
+
+                            </div>
+
+
+                            <!-- EMAIL -->
+                            <div class="form-group">
+
+                                <label for="email">
+                                    Email Address
+                                </label>
+
+                                <input type="email"
+                                       id="email"
+                                       name="email"
+                                       placeholder="Enter your email"
+                                       autocomplete="email"
+                                       required>
+
+                            </div>
+
+
+                            <!-- PHONE -->
+                            <div class="form-group">
+
+                                <label for="phone">
+                                    Phone Number
+                                </label>
+
+                                <input type="tel"
+                                       id="phone"
+                                       name="phone"
+                                       placeholder="Enter your phone number"
+                                       autocomplete="tel"
+                                       required>
+
+                            </div>
+
+
+                            
+
+
+                            
+
+
+                            
+
+                        </div>
+
+
+                        <!-- SAVE PROFILE -->
+                        <button type="submit" class="primary-button">
+                            Save Changes
+                        </button>
+
+
+                        <p id="profileMessage"
+                           class="form-message"
+                           role="status"
+                           aria-live="polite">
+                        </p>
+
+
+                    </form>
+
+                    
+                        <!-- BOOK A SERVICE BUTTON -->
+<div class="book-service-action">
+    <a href="Request-service.html" class="primary-button">
+        🧹 Book a Service
+    </a>
+</div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 ADDRESS BOOK SECTION
+            ================================== -->
+            <section class="dashboard-section"
+                     id="address-section"
+                     hidden>
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">SAVED LOCATIONS</span>
+
+                        <h2>My Address Book</h2>
+
+                        <p>
+                            Manage the addresses used for your cleaning services.
+                        </p>
+                    </div>
+
+                    <span class="section-icon">📍</span>
+
+                </div>
+
+
+                <div class="content-card">
+
+
+                    <!-- ADDRESS HEADER -->
+                    <div class="address-book-header">
+
+                        <div>
+                            <h3>Saved Addresses</h3>
+
+                            <p id="addressCount">
+                                0 of 5 addresses saved
+                            </p>
+                        </div>
+
+
+                        <button type="button"
+                                id="addAddressButton"
+                                class="primary-button">
+
+                            + Add Address
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- ADD / EDIT ADDRESS FORM -->
+                    <form id="addressForm" hidden>
+
+                        <input type="hidden"
+                               id="addressId"
+                               name="addressId">
+
+
+                        <div class="form-grid">
+
+
+                            <!-- ADDRESS LABEL -->
+                            <div class="form-group">
+
+                                <label for="addressLabel">
+                                    Address Label
+                                </label>
+
+                                <select id="addressLabel"
+                                        name="label"
+                                        required>
+
+                                    <option value="">
+                                        Choose a label
+                                    </option>
+
+                                    <option value="Home">
+                                        Home
+                                    </option>
+
+                                    <option value="Work">
+                                        Work
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- STREET ADDRESS -->
+                            <div class="form-group">
+
+                                <label for="addressLine">
+                                    Street Address
+                                </label>
+
+                                <input type="text"
+                                       id="addressLine"
+                                       name="addressLine"
+                                       placeholder="Street and house number"
+                                       required>
+
+                            </div>
+
+
+                            <!-- CITY -->
+                            <div class="form-group">
+
+                                <label for="addressCity">
+                                    City
+                                </label>
+
+                                <input type="text"
+                                       id="addressCity"
+                                       name="city"
+                                       required>
+
+                            </div>
+
+
+                            <!-- PROVINCE -->
+                            <div class="form-group">
+
+                                <label for="addressProvince">
+                                    Province
+                                </label>
+
+                                <input type="text"
+                                       id="addressProvince"
+                                       name="province"
+                                       required>
+
+                            </div>
+
+
+                            <!-- POSTAL CODE -->
+                            <div class="form-group">
+
+                                <label for="addressPostalCode">
+                                    Postal Code
+                                </label>
+
+                                <input type="text"
+                                       id="addressPostalCode"
+                                       name="postalCode"
+                                       required>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- DEFAULT ADDRESS -->
+                        <label class="address-default-option">
+
+                            <input type="checkbox"
+                                   id="isDefault"
+                                   name="isDefault">
+
+                            Set as my default address
+
+                        </label>
+
+
+
+                        <!-- FORM ACTIONS -->
+                        <div class="form-actions">
+
+                            <button type="button"
+                                    id="cancelAddressButton"
+                                    class="secondary-button">
+
+                                Cancel
+
+                            </button>
+
+
+                            <button type="submit"
+                                    class="primary-button">
+
+                                Save Address
+
+                            </button>
+
+                        </div>
+
+
+                        <p id="addressMessage"
+                           class="form-message"
+                           role="status"
+                           aria-live="polite">
+                        </p>
+
+                    </form>
+
+
+
+                    <!-- SAVED ADDRESS LIST -->
+                    <div id="addressList" class="address-list">
+
+                        <div class="empty-state">
+
+                            <div class="empty-state-icon">
+                                📍
+                            </div>
+
+                            <h3>No Saved Addresses</h3>
+
+                            <p>
+                                Add an address to make booking your services easier.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 SERVICE HISTORY SECTION
+            ================================== -->
+            <section class="dashboard-section"
+                     id="history-section"
+                     hidden>
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">YOUR BOOKINGS</span>
+
+                        <h2>Service History</h2>
+
+                        <p>
+                            Review your previous cleaning requests and bookings.
+                        </p>
+                    </div>
+
+                    <span class="section-icon">📋</span>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <h3>Previous Services</h3>
+
+                            <p>
+                                Your completed and previous service requests.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- SERVICE HISTORY TABLE -->
+                    <div class="table-wrapper">
+
+                        <table class="history-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Booking Reference</th>
+                                    <th>Service</th>
+                                    <th>Service Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+
+
+                            <tbody id="serviceHistoryList">
+
+                                <tr>
+                                    <td colspan="4">
+
+                                        <div class="empty-state table-empty">
+
+                                            <div class="empty-state-icon">
+                                                📋
+                                            </div>
+
+                                            <h3>No Service History Yet</h3>
+
+                                            <p>
+                                                Your previous bookings will appear
+                                                here once you have requested a service.
+                                            </p>
+
+                                            <a href="services.php"
+                                               class="primary-button">
+
+                                                Explore Services
+
+                                            </a>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 SUPPORT NOTE
+            ================================== -->
+            <div class="support-note">
+
+                <span class="support-note-icon">ℹ️</span>
+
+                <div>
+
+                    <h3>Need urgent assistance?</h3>
+
+                    <p>
+                        You can also contact our team directly through
+                        our <a href="contact.php">Contact Us</a> page.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <!-- END RIGHT MAIN CONTENT -->
+
+
+    </div>
+    <!-- END DASHBOARD LAYOUT -->
+
+</main>
+
+
+<!-- ================= PILEE TECH GROUP FOOTER ================= -->
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+        <!-- COMPANY INFORMATION -->
+        <div class="footer-brand">
+
+            <h3>Pilee Tech Group</h3>
+
+            <p>Technology. Cleaning. Logistics.</p>
+            <p>Excellence Delivered.</p>
+
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-column">
+
+            <h4>Quick Links</h4>
+            <span class="footer-line"></span>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="AboutPage.html">About Us</a></li>
+                <li><a href="services.php">Services</a></li>
+                <li><a href="projects.php">Projects</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
+                <li><a href="cleaning-partner-recruitment.html">Careers Page</a></li>
+            </ul>
+
+        </div>
+
+        <!-- BUSINESS DIVISIONS -->
+        <div class="footer-column">
+
+            <h4>Business Divisions</h4>
+            <span class="footer-line"></span>
+
+            <ul>
+                <li><a href="tech-projects.php">Technology Solutions</a></li>
+                <li><a href="cleaning-projects.php">Professional Cleaning</a></li>
+                <li><a href="logistics-projects.php">Logistics &amp; Transport</a></li>
+            </ul>
+
+        </div>
+
+        <!-- SOCIAL MEDIA -->
+        <div class="footer-column">
+
+            <h4>Follow Us</h4>
+            <span class="footer-line"></span>
+
+            <ul>
+                <li>
+                    <a href="https://www.facebook.com/share/1LMzQFZyqJ/"
+                       target="_blank" rel="noopener noreferrer">
+                        Facebook
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.linkedin.com/in/pilee-tech-group-5b0611444?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android"
+                       target="_blank" rel="noopener noreferrer">
+                        LinkedIn
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.instagram.com/pilee_tech_group?psln=MW04ZHkyZ2gwYWU1eA%3D%3D&amp;utm_source=qr"
+                       target="_blank" rel="noopener noreferrer">
+                        Instagram
+                    </a>
+                </li>
+
+                <li><a href="https://x.com/PILEETECHGROUP" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="footer-bottom">
+
+        <p>
+            &copy; 2026 Pilee Tech Group. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="customer-profile.js"></script>
+
+</body>
+</html>

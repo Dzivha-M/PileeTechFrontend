@@ -1,0 +1,530 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Support Documents | Pilee Tech Group</title>
+
+    
+
+    <link rel="stylesheet" href="CleanerSupport.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="profile">
+            <div class="profile-icon" aria-hidden="true">👤</div>
+
+            <div class="profile-details">
+                <h3>Name</h3>
+                <p>Surname</p>
+            </div>
+        </div>
+
+        <nav class="navigation" aria-label="Dashboard navigation">
+
+            <a href="DashbordCleaner.html" class="nav-link">
+                <span class="nav-icon" aria-hidden="true">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="SCHEDULEDBOOKINGPAGE.html" class="nav-link">
+                <span class="nav-icon" aria-hidden="true">▣</span>
+                <span>Scheduled bookings</span>
+            </a>
+
+            <a href="Request-Supplies.html" class="nav-link">
+                <span class="nav-icon" aria-hidden="true">⚒</span>
+                <span>Request supplies</span>
+            </a>
+
+            <a href="PREVIOUSbOOKING.html" class="nav-link">
+                <span class="nav-icon" aria-hidden="true">◷</span>
+                <span>Previous bookings</span>
+            </a>
+
+            <a href="ReportPage.html" class="nav-link">
+                <span class="nav-icon" aria-hidden="true">⚑</span>
+                <span>Report an issue</span>
+            </a>
+
+            <a href="CleanerSupport.html"
+               class="nav-link active"
+               aria-current="page">
+                <span class="nav-icon" aria-hidden="true">▤</span>
+                <span>Support Documents</span>
+            </a>
+
+            <a href="cleaner-login-page.html" class="nav-link logout">
+                <span class="nav-icon" aria-hidden="true">⇥</span>
+                <span>Log out</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div class="topbar-content">
+                <span class="breadcrumb">
+                    Cleaner Portal / Support Documents
+                </span>
+
+                <h2>Support Documents</h2>
+            </div>
+
+        </header>
+
+
+        <!-- PAGE INTRO -->
+        <section class="page-intro">
+
+            <div class="intro-content">
+
+                <span class="eyebrow">ACCOUNT VERIFICATION</span>
+
+                <h1>Banking & Supporting Documents</h1>
+
+                <p>
+                    Complete your banking information and upload
+                    the required supporting documents to finalise
+                    your cleaner profile verification.
+                </p>
+
+            </div>
+
+            <div class="intro-icon" aria-hidden="true">▤</div>
+
+        </section>
+
+
+        <!-- NOTICE -->
+        <div class="notice">
+
+            <span class="notice-icon" aria-hidden="true">i</span>
+
+            <p>
+                Please ensure that all information is accurate
+                and matches your official bank documents.
+                All supporting documents must be clear, complete
+                and certified where required.
+            </p>
+
+        </div>
+
+
+        <!-- SUPPORT FORM -->
+        <form id="supportForm" enctype="multipart/form-data">
+
+            <div class="content-grid">
+
+                <!-- LEFT COLUMN -->
+                <div class="left-column">
+
+                    <!-- BANKING INFORMATION -->
+                    <section class="form-card">
+
+                        <div class="card-heading">
+
+                            <div class="section-icon" aria-hidden="true">₿</div>
+
+                            <div>
+                                <h3>Banking Information</h3>
+                                <p>Provide your account details below.</p>
+                            </div>
+
+                        </div>
+
+                        <div class="form-fields">
+
+                            <div class="form-group full-width">
+
+                                <label for="accountHolder">
+                                    Account Holder Name <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="accountHolder"
+                                    name="accountHolder"
+                                    placeholder="Enter full account holder name"
+                                    autocomplete="name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="bankName">
+                                    Bank Name <span>*</span>
+                                </label>
+
+                                <select id="bankName" name="bankName" required>
+
+                                    <option value="">Select your bank</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="branchCode">
+                                    Branch Code
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="branchCode"
+                                    name="branchCode"
+                                    placeholder="Automatically displayed"
+                                    readonly
+                                >
+
+                                <small class="field-hint">
+                                    Automatically populated based on your bank.
+                                </small>
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label for="accountNumber">
+                                    Account Number <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="accountNumber"
+                                    name="accountNumber"
+                                    inputmode="numeric"
+                                    autocomplete="off"
+                                    placeholder="Enter your account number"
+                                    maxlength="20"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label for="accountType">
+                                    Account Type <span>*</span>
+                                </label>
+
+                                <select
+                                    id="accountType"
+                                    name="accountType"
+                                    required
+                                >
+
+                                    <option value="">Select account type</option>
+                                    <option value="Savings">Savings Account</option>
+                                    <option value="Cheque">Cheque Account</option>
+                                    <option value="Current">Current Account</option>
+                                    <option value="Transmission">Transmission Account</option>
+                                    <option value="Business">Business Account</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- BANK CONFIRMATION LETTER -->
+                    <section class="form-card">
+
+                        <div class="card-heading">
+
+                            <div class="section-icon" aria-hidden="true">▧</div>
+
+                            <div>
+                                <h3>Bank Confirmation Letter</h3>
+                                <p>Upload your official bank confirmation letter.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="upload-area">
+
+                            <input
+                                type="file"
+                                id="bankLetter"
+                                name="bankLetter"
+                                accept=".pdf,application/pdf"
+                                hidden
+                                required
+                            >
+
+                            <label for="bankLetter" class="upload-label">
+
+                                <div class="upload-icon">↑</div>
+
+                                <strong>Upload Bank Confirmation Letter</strong>
+
+                                <span>
+                                    Click to browse and select your PDF document
+                                </span>
+
+                                <small>PDF format · Maximum 5MB</small>
+
+                            </label>
+
+                            <div class="file-preview" id="bankPreview"></div>
+
+                        </div>
+
+
+                        <div class="document-tip">
+                            Your bank confirmation letter must clearly
+                            display your account holder name, bank name
+                            and banking details.
+                        </div>
+
+                    </section>
+
+
+                    <!-- POLICE CLEARANCE -->
+                    <section class="form-card">
+
+                        <div class="card-heading">
+
+                            <div class="section-icon" aria-hidden="true">▤</div>
+
+                            <div>
+                                <h3>Police Clearance</h3>
+                                <p>Upload your certified police clearance document.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="upload-area">
+
+                            <input
+                                type="file"
+                                id="policeClearance"
+                                name="policeClearance"
+                                accept=".pdf,application/pdf"
+                                hidden
+                                required
+                            >
+
+                            <label for="policeClearance" class="upload-label">
+
+                                <div class="upload-icon">↑</div>
+
+                                <strong>Upload Police Clearance</strong>
+
+                                <span>
+                                    Click to browse and select your PDF document
+                                </span>
+
+                                <small>PDF format · Maximum 5MB</small>
+
+                            </label>
+
+                            <div class="file-preview" id="policePreview"></div>
+
+                        </div>
+
+
+                        <div class="document-tip">
+                            Ensure that your police clearance document
+                            is readable, complete and certified where required.
+                        </div>
+
+                    </section>
+
+                </div>
+
+
+                <!-- RIGHT COLUMN -->
+                <aside class="right-column">
+
+                    <!-- CHECKLIST -->
+                    <section class="side-card">
+
+                        <h3>Submission Checklist</h3>
+
+                        <p>
+                            Complete all three requirements before
+                            submitting your information.
+                        </p>
+
+
+                        <div class="checklist-item">
+
+                            <span>01</span>
+
+                            <div>
+                                <strong>Banking Information</strong>
+                                <small>Account and payment details</small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="checklist-item">
+
+                            <span>02</span>
+
+                            <div>
+                                <strong>Bank Confirmation</strong>
+                                <small>Official bank confirmation PDF</small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="checklist-item">
+
+                            <span>03</span>
+
+                            <div>
+                                <strong>Police Clearance</strong>
+                                <small>Certified clearance PDF</small>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- SECURITY -->
+                    <section class="side-card security-card">
+
+                        <div class="security-icon">✓</div>
+
+                        <h3>Secure Information</h3>
+
+                        <p>
+                            Your information is intended for authorised
+                            Pilee Tech Group personnel responsible for
+                            verification and payment administration.
+                        </p>
+
+                    </section>
+
+
+                    <!-- SUPPORT -->
+                    <section class="side-card help-card">
+
+                        <h3>Need Assistance?</h3>
+
+                        <p>
+                            Contact our support team if you experience
+                            difficulties submitting your documents.
+                        </p>
+
+                        <a href="contact.html">Contact Support →</a>
+
+                    </section>
+
+                </aside>
+
+            </div>
+
+
+            <!-- SUBMISSION AREA -->
+            <section class="submit-section">
+
+                <div class="submit-content">
+
+                    <h3>Ready to Submit?</h3>
+
+                    <p>
+                        Review all your information before submitting.
+                        All required fields and documents must be completed.
+                    </p>
+
+                </div>
+
+
+                <button type="submit" id="submitButton">
+
+                    <span id="submitText">Submit All Documents</span>
+
+                    <span aria-hidden="true">→</span>
+
+                </button>
+
+            </section>
+
+        </form>
+
+
+        <!-- FOOTER -->
+        <footer class="page-footer">
+            © 2026 Pilee Tech Group. All Rights Reserved.
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- SUCCESS POPUP -->
+<div class="modal-overlay" id="successModal">
+
+    <div class="success-modal">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Submission Successful!</h2>
+
+        <p>
+            Thank you for submitting your banking information
+            and supporting documents to Pilee Tech Group.
+        </p>
+
+        <div class="submission-status">
+
+            <span class="status-dot"></span>
+
+            Submitted – Pending Verification
+
+        </div>
+
+        <p class="modal-note">
+            Our administration team will review your information.
+            You will be notified if any additional information is required.
+        </p>
+
+        <button type="button" id="closeModal">
+            Continue to Dashboard
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script src="CleanerSupport.js"></script>
+
+</body>
+</html>

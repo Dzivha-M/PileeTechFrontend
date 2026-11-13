@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Manage scheduled cleaning bookings on the Pilee Tech Group staff portal.">
+
+    <title>Pilee Tech Group | Scheduled Bookings</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="scheduled.css">
+    <link rel="stylesheet" href="mainstylepage.css">
+
+    <!-- JavaScript -->
+    <script src="scheduled.js" defer></script>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+        <!-- Staff Profile -->
+        <div class="profile">
+
+            <div class="profile-icon" aria-hidden="true">
+                👤
+            </div>
+
+            <div class="profile-details">
+                <p id="staffName">Name Surname</p>
+                <span>Staff member</span>
+            </div>
+
+        </div>
+
+        <!-- Navigation -->
+        <nav class="navigation" aria-label="Dashboard navigation">
+
+            <a href="DashbordCleaner.html" class="nav-link">
+                <span class="nav-icon" aria-hidden="true">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="SCHEDULEDBOOKINGPAGE.html"
+               class="nav-link active"
+               aria-current="page">
+                <span class="nav-icon" aria-hidden="true">▣</span>
+                <span>Scheduled bookings</span>
+            </a>
+
+            <a href="Request-Supplies.html" class="nav-link">
+                <span class="nav-icon" aria-hidden="true">⚒</span>
+                <span>Request supplies</span>
+            </a>
+
+            <a href="PREVIOUSbOOKING.html" class="nav-link">
+                <span class="nav-icon" aria-hidden="true">◷</span>
+                <span>Previous bookings</span>
+            </a>
+
+            <a href="ReportPage.html" class="nav-link">
+                <span class="nav-icon" aria-hidden="true">⚑</span>
+                <span>Report an issue</span>
+            </a>
+            <a href="CleanerSupport.html"
+               class="nav-link active"
+               aria-current="page">
+
+                <span class="nav-icon" aria-hidden="true">▤</span>
+                <span>Support Documents</span>
+
+            </a>
+
+            <a href="cleaner-login-page.html"
+               class="nav-link logout">
+                <span class="nav-icon" aria-hidden="true">⇥</span>
+                <span>Log out</span>
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            Pilee Tech Group
+            <span>Staff portal</span>
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="main-content">
+
+        <!-- Page Header -->
+        <header class="page-header">
+
+            <div>
+                <p class="eyebrow">BOOKING MANAGEMENT</p>
+
+                <h1>Scheduled bookings</h1>
+
+                <p class="page-subtitle">
+                    Review incoming bookings, respond to requests
+                    and manage your cleaning schedule.
+                </p>
+            </div>
+
+            <div class="header-date">
+                <span class="date-dot" aria-hidden="true"></span>
+                <span>November schedule</span>
+            </div>
+
+        </header>
+
+
+        <!-- =====================================
+             BOOKING STATISTICS
+        ====================================== -->
+
+        <section class="stats-grid"
+                 aria-label="Booking status summary">
+
+            <!-- Pending -->
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span class="stat-label">Pending</span>
+
+                    <span class="stat-icon pending-icon"
+                          aria-hidden="true">◷</span>
+                </div>
+
+                <strong id="pendingCount"
+                        class="stat-number pending-number">0</strong>
+
+                <span class="stat-note">
+                    Awaiting your response
+                </span>
+
+            </article>
+
+
+            <!-- Accepted -->
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span class="stat-label">Accepted</span>
+
+                    <span class="stat-icon accepted-icon"
+                          aria-hidden="true">✓</span>
+                </div>
+
+                <strong id="acceptedCount"
+                        class="stat-number accepted-number">0</strong>
+
+                <span class="stat-note">
+                    Confirmed bookings
+                </span>
+
+            </article>
+
+
+            <!-- Declined -->
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span class="stat-label">Declined</span>
+
+                    <span class="stat-icon declined-icon"
+                          aria-hidden="true">×</span>
+                </div>
+
+                <strong id="declinedCount"
+                        class="stat-number declined-number">0</strong>
+
+                <span class="stat-note">
+                    Bookings declined
+                </span>
+
+            </article>
+
+        </section>
+
+
+        <!-- =====================================
+             BOOKING MANAGEMENT
+        ====================================== -->
+
+        <section class="booking-section"
+                 aria-label="Scheduled bookings">
+
+            <!-- Toolbar -->
+            <div class="toolbar">
+
+                <!-- Booking Filters -->
+                <div class="filter-buttons"
+                     role="group"
+                     aria-label="Filter bookings">
+
+                    <button class="filter-button active"
+                            type="button"
+                            data-filter="week"
+                            aria-pressed="true">
+                        This week (2–8 Nov)
+                    </button>
+
+                    <button class="filter-button"
+                            type="button"
+                            data-filter="month"
+                            aria-pressed="false">
+                        This month (Nov)
+                    </button>
+
+                </div>
+
+                
+
+            </div>
+
+
+            <!-- =====================================
+                 BOOKINGS TABLE
+            ====================================== -->
+
+            <div class="table-card">
+
+                <div class="table-scroll">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Date and time</th>
+                                <th scope="col">Service</th>
+                                <th scope="col">Client</th>
+                                <th scope="col">Action / Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="bookingRows">
+                            <!-- Rows are generated by scheduled.js -->
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- Table Footer -->
+                <div class="table-footer">
+
+                    <span id="resultsText">
+                        Showing 0 bookings
+                    </span>
+
+                    <span class="footer-hint">
+                        <span class="legend-dot"
+                              aria-hidden="true"></span>
+
+                        Respond to pending requests
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             DECLINE BOOKING EXPLANATION MODAL
+        ====================================== -->
+
+        <div id="declineModal"
+             class="modal-overlay"
+             aria-hidden="true"
+             hidden>
+
+            <section class="decline-modal"
+                     role="dialog"
+                     aria-modal="true"
+                     aria-labelledby="declineTitle"
+                     aria-describedby="declineDescription">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+
+                    <div>
+                        <p class="eyebrow">
+                            BOOKING MANAGEMENT
+                        </p>
+
+                        <h2 id="declineTitle">
+                            Decline booking
+                        </h2>
+                    </div>
+
+                    <button type="button"
+                            id="closeDeclineModal"
+                            class="modal-close"
+                            aria-label="Close decline explanation">
+                        &times;
+                    </button>
+
+                </div>
+
+
+                <!-- Instructions -->
+                <p id="declineDescription"
+                   class="modal-description">
+
+                    Please explain why you cannot accept this booking.
+                    Your reason will be recorded with the booking.
+
+                </p>
+
+
+                <!-- Selected Client -->
+                <p class="decline-client">
+                    Client:
+                    <strong id="declineClient">—</strong>
+                </p>
+
+
+                <!-- Decline Form -->
+                <form id="declineForm">
+
+                    <label for="declineReason">
+                        Reason for declining
+                        <span class="required-mark">*</span>
+                    </label>
+
+                    <textarea id="declineReason"
+                              name="declineReason"
+                              rows="5"
+                              minlength="5"
+                              maxlength="500"
+                              placeholder="Explain why you cannot accept this booking..."
+                              aria-describedby="reasonHelp reasonCharacterCount"
+                              required></textarea>
+
+
+                    <!-- Character Counter -->
+                    <div class="character-count">
+
+                        <span id="reasonHelp">
+                            Minimum 5 characters
+                        </span>
+
+                        <span id="reasonCharacterCount"
+                              aria-live="polite">
+                            0/500
+                        </span>
+
+                    </div>
+
+
+                    <!-- Validation Error -->
+                    <p id="declineError"
+                       class="decline-error"
+                       role="alert"
+                       hidden>
+
+                        Please enter a reason of at least 5 characters.
+
+                    </p>
+
+
+                    <!-- Modal Buttons -->
+                    <div class="modal-actions">
+
+                        <button type="button"
+                                id="cancelDecline"
+                                class="modal-cancel-button">
+                            Cancel
+                        </button>
+
+                        <button type="submit"
+                                class="modal-decline-button">
+                            Confirm decline
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </div>
+
+
+        <!-- =====================================
+             ACCESSIBLE STATUS ANNOUNCEMENTS
+        ====================================== -->
+
+        <div id="liveMessage"
+             class="sr-only"
+             aria-live="polite"
+             aria-atomic="true">
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

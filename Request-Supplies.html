@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Request Supplies | Pilee Tech Group</title>
+
+    <link rel="stylesheet" href="Request-supplies.css">
+
+    <script src="Request-supplies.js" defer></script>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+        <div class="profile">
+            <div class="profile-icon" aria-hidden="true">👤</div>
+
+            <div>
+                <h3>Name</h3>
+                <p>Surname</p>
+            </div>
+        </div>
+
+        <nav class="navigation" aria-label="Dashboard navigation">
+
+            <a href="DashbordCleaner.html" class="nav-link">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="SCHEDULEDBOOKINGPAGE.html" class="nav-link">
+                <span class="nav-icon">▣</span>
+                <span>Scheduled<br>bookings</span>
+            </a>
+
+            <a href="Request-Supplies.html"
+               class="nav-link active"
+               aria-current="page">
+                <span class="nav-icon">⚒</span>
+                <span>Request<br>Supplies</span>
+            </a>
+
+            <a href="PREVIOUSbOOKING.html" class="nav-link">
+                <span class="nav-icon">◷</span>
+                <span>Previous<br>bookings</span>
+            </a>
+
+            <a href="ReportPage.html" class="nav-link">
+                <span class="nav-icon">⚑</span>
+                <span>Report an issue</span>
+            </a>
+
+            <a href="CleanerSupport.html" class="nav-link">
+                <span class="nav-icon">▤</span>
+                <span>Support Documents</span>
+            </a>
+
+            <a href="cleaner-login-page.html" class="nav-link logout">
+                <span class="nav-icon">⇥</span>
+                <span>Log out</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="page">
+
+        <!-- PAGE HEADING -->
+
+        <header class="page-heading">
+
+            <h1>Request Supplies</h1>
+
+            <p>
+                Select the supplies you need for your next job.
+                Your supervisor will review your request.
+            </p>
+
+        </header>
+
+
+        <!-- =================================
+             SUPPLY CATEGORIES
+        ================================== -->
+
+        <nav class="category-tabs" aria-label="Supply categories">
+
+            <button type="button"
+                    class="tab active"
+                    data-category="machines"
+                    aria-selected="true">
+                Machines
+            </button>
+
+            <button type="button"
+                    class="tab"
+                    data-category="products"
+                    aria-selected="false">
+                Cleaning Products
+            </button>
+
+            <button type="button"
+                    class="tab"
+                    data-category="tools"
+                    aria-selected="false">
+                Tools &amp; Gear
+            </button>
+
+        </nav>
+
+
+        <!-- =================================
+             AVAILABLE SUPPLIES
+        ================================== -->
+
+        <section class="supplies-section"
+                 aria-labelledby="category-title">
+
+            <div class="section-heading">
+
+                <h2 id="category-title">Machines</h2>
+
+                <p>Select one or more items.</p>
+
+            </div>
+
+            <div class="supply-grid"
+                 id="supply-grid"
+                 aria-live="polite">
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             REQUEST FORM
+        ================================== -->
+
+        <form id="request-form">
+
+            <section class="request-section"
+                     aria-labelledby="request-heading">
+
+                <h2 id="request-heading">Your Request</h2>
+
+                <div class="request-box" id="request-box">
+
+                    <p class="empty-message">
+                        Select an item above to add it to your request.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- JOB LOCATION -->
+
+            <div class="form-field">
+
+                <label for="job-location">
+                    Job Location
+                </label>
+
+                <input
+                    type="text"
+                    id="job-location"
+                    name="jobLocation"
+                    placeholder="Enter the full job address or location"
+                    autocomplete="street-address"
+                    maxlength="255"
+                    required>
+
+            </div>
+
+
+            <!-- REQUIRED DATE -->
+
+            <div class="form-field">
+
+                <label for="request-date">
+                    When do you need the supplies?
+                </label>
+
+                <div class="date-time-fields">
+
+                    <div class="date-time-group">
+
+                        <label for="request-date">
+                            Choose Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="request-date"
+                            name="requestDate"
+                            required>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUPERVISOR NOTE -->
+
+            <div class="form-field note-field">
+
+                <label for="supervisor-note">
+                    Note for Your Supervisor (Optional)
+                </label>
+
+                <textarea
+                    id="supervisor-note"
+                    name="note"
+                    rows="3"
+                    maxlength="1000"
+                    placeholder="Add any additional information about your request.">
+                </textarea>
+
+            </div>
+
+
+            <!-- MOBILE SUBMIT -->
+
+            <div class="mobile-submit">
+
+                <span id="mobile-selection-count"
+                      aria-live="polite">
+                    Nothing selected yet
+                </span>
+
+                <button
+                    type="submit"
+                    id="send-request-mobile"
+                    disabled>
+                    Send Request
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <!-- =================================
+             MY SUPPLY REQUESTS
+        ================================== -->
+
+        <section class="request-history-section"
+                 aria-labelledby="history-heading">
+
+            <div class="history-heading">
+
+                <div>
+                    <h2 id="history-heading">My Supply Requests</h2>
+
+                    <p>
+                        View and track the status of your submitted
+                        equipment and cleaning supply requests.
+                    </p>
+                </div>
+
+                <div class="history-total">
+                    <span id="history-total">0</span>
+                    <small>Total Requests</small>
+                </div>
+
+            </div>
+
+
+            <!-- REQUEST HISTORY TABLE -->
+
+            <div class="history-table-wrapper">
+
+                <table class="history-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Request ID</th>
+                            <th>Supplies Requested</th>
+                            <th>Job Location</th>
+                            <th>Required Date</th>
+                            <th>Date Submitted</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="supply-request-history">
+
+                        <tr class="empty-history">
+
+                            <td colspan="6">
+                                No supply requests have been submitted yet.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- STATUS INFORMATION -->
+
+            <div class="status-information">
+
+                <h3>Request Status Guide</h3>
+
+                <div class="status-guide">
+
+                    <div class="status-guide-item">
+                        <span class="status-badge pending">
+                            Pending Review
+                        </span>
+                        <p>Waiting for the administrator to review your request.</p>
+                    </div>
+
+                    <div class="status-guide-item">
+                        <span class="status-badge approved">
+                            Approved
+                        </span>
+                        <p>Your request has been approved.</p>
+                    </div>
+
+                    <div class="status-guide-item">
+                        <span class="status-badge declined">
+                            Declined
+                        </span>
+                        <p>Your request was not approved.</p>
+                    </div>
+
+                    <div class="status-guide-item">
+                        <span class="status-badge issued">
+                            Issued
+                        </span>
+                        <p>Your requested supplies have been issued.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================
+     DESKTOP SUBMIT BAR
+====================================== -->
+
+<footer class="bottom-bar">
+
+    <div class="bottom-bar-inner">
+
+        <span id="selection-count" aria-live="polite">
+            Nothing selected yet
+        </span>
+
+        <button
+            type="submit"
+            form="request-form"
+            id="send-request"
+            disabled>
+            Send Request
+        </button>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================
+     CONFIRMATION DIALOG
+====================================== -->
+
+<dialog
+    id="confirmation-dialog"
+    class="confirmation-dialog"
+    aria-labelledby="confirmation-title">
+
+    <div class="confirmation-content">
+
+        <div class="confirmation-icon" aria-hidden="true">
+            ✓
+        </div>
+
+        <h2 id="confirmation-title">
+            Request Submitted Successfully!
+        </h2>
+
+        <p id="confirmation-message">
+            Your supply request has been submitted.
+        </p>
+
+        <div class="dialog-status">
+
+            <span class="status-dot"></span>
+
+            Submitted for Supervisor Review
+
+        </div>
+
+        <p class="dialog-note">
+            Your supervisor will review your request.
+            You can track its progress under My Supply Requests.
+        </p>
+
+        <button type="button" id="close-dialog">
+            Done
+        </button>
+
+    </div>
+
+</dialog>
+
+</body>
+</html>
