@@ -5,46 +5,8 @@ include 'includes/header.php';
 
 <section class="page-hero hero-projects">
     <div class="container">
-        <h1>Future Projects & Strategic Deployments</h1>
-        <p>Explore our active commercial cleaning contracts alongside upcoming future technology and logistics divisions.</p>
-    </div>
-</section>
-
-<section class="service-block">
-    <div class="container">
-        <h2>Active Commercial Cleaning Deployments</h2>
-        <p class="section-intro">Contract hygiene operations and specialized site cleans managed by our core cleaning division.</p>
-
-        <details class="service-accordion" open>
-            <summary>Commercial Office Complex Sanitisation - Midrand</summary>
-            <div class="accordion-content">
-                <p>Delivered scheduled janitorial cleaning, weekly sanitisation, and machine floor maintenance for a multi-storey corporate park with 300+ workstations.</p>
-                <ul>
-                    <li>Full daily reception, boardroom, and restroom maintenance.</li>
-                    <li>Weekend deep sanitisation and hygiene stock replenishment.</li>
-                    <li>Zero disruption to daily office operations.</li>
-                </ul>
-            </div>
-        </details>
-
-        <details class="service-accordion">
-            <summary>5,000 m² Logistics Warehouse Post-Construction Scrub</summary>
-            <div class="accordion-content">
-                <p>Conducted complete post-construction clearing, concrete degreasing, and machine scrubbing prior to tenant move-in.</p>
-                <ul>
-                    <li>High-bay dust extraction and structural beam wiping.</li>
-                    <li>Heavy-duty chemical degreasing of concrete bays.</li>
-                    <li>Handoff inspection passed on first assessment.</li>
-                </ul>
-            </div>
-        </details>
-
-        <details class="service-accordion">
-            <summary>Multi-Unit Residential Pre-Occupation Cleans</summary>
-            <div class="accordion-content">
-                <p>Carried out handover deep cleans for newly renovated apartment blocks, including carpet wet-vacuuming and glass polishing.</p>
-            </div>
-        </details>
+        <h1>Projects & Strategic Deployments</h1>
+        <p>Explore our upcoming technology and logistics divisions alongside strategic pilot deployments.</p>
     </div>
 </section>
 
