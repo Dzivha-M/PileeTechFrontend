@@ -13,141 +13,112 @@
 
     <link rel="stylesheet" href="booking.css">
     <link rel="stylesheet" href="header.css">
-
 </head>
 
 <body>
 
 <header class="site-header">
 
-    <!-- PILEE TECH LOGO -->
     <a href="index.html" class="logo">
         <img src="logo.png" alt="Pilee Tech Group Logo">
     </a>
 
-    <!-- MAIN NAVIGATION -->
     <nav class="navigation" id="mainNavigation">
 
-    <!-- HOME DROPDOWN -->
-    <div class="nav-dropdown">
+        <div class="nav-dropdown">
+            <button class="dropdown-trigger active"
+                    type="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="home-dropdown">
+                Home
+                <span class="dropdown-arrow"></span>
+            </button>
 
-        <button class="dropdown-trigger active"
-                type="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-                aria-controls="home-dropdown">
-
-            Home
-            <span class="dropdown-arrow"></span>
-
-        </button>
-
-        <div class="dropdown-menu" id="home-dropdown">
-            <a href="index.html#top">Homepage</a>
-            <a href="index.html#about">Who We Are</a>
-            <a href="index.html#values">Our Core Values</a>
-            <a href="index.html#why-us">Why Choose Us</a>
-            <a href="index.html#divisions">Business Divisions</a>
-            <a href="index.html#contact">Contact Section</a>
+            <div class="dropdown-menu" id="home-dropdown">
+                <a href="index.html#top">Homepage</a>
+                <a href="index.html#about">Who We Are</a>
+                <a href="index.html#values">Our Core Values</a>
+                <a href="index.html#why-us">Why Choose Us</a>
+                <a href="index.html#divisions">Business Divisions</a>
+                <a href="index.html#contact">Contact Section</a>
+            </div>
         </div>
 
-    </div>
+        <div class="nav-dropdown">
+            <button class="dropdown-trigger"
+                    type="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="about-dropdown">
+                About Us
+                <span class="dropdown-arrow"></span>
+            </button>
 
-
-    <!-- ABOUT US DROPDOWN -->
-    <div class="nav-dropdown">
-
-        <button class="dropdown-trigger"
-                type="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-                aria-controls="about-dropdown">
-
-            About Us
-            <span class="dropdown-arrow"></span>
-
-        </button>
-
-        <div class="dropdown-menu" id="about-dropdown">
-            <a href="AboutPage.html#who-we-are">Who We Are</a>
-            <a href="AboutPage.html#our-story">Our Story</a>
-            <a href="AboutPage.html#business-divisions">Business Divisions</a>
-            <a href="AboutPage.html#core-values">Our Core Values</a>
-            <a href="AboutPage.html#our-approach">Our Approach</a>
-            <a href="AboutPage.html#contact-section">Contact Section</a>
+            <div class="dropdown-menu" id="about-dropdown">
+                <a href="AboutPage.html#who-we-are">Who We Are</a>
+                <a href="AboutPage.html#our-story">Our Story</a>
+                <a href="AboutPage.html#business-divisions">Business Divisions</a>
+                <a href="AboutPage.html#core-values">Our Core Values</a>
+                <a href="AboutPage.html#our-approach">Our Approach</a>
+                <a href="AboutPage.html#contact-section">Contact Section</a>
+            </div>
         </div>
 
-    </div>
         <a href="services.php">Pilee Cleaning Services</a>
         <a href="projects.php">Other Divisions</a>
         <a href="contact-us.php">Contact</a>
         <a href="cleaning-partner-recruitment.html">Careers Page</a>
 
         <a href="Request-service.html" class="request-service">
-            Book a  Cleaning Service
+            Book a Cleaning Service
         </a>
 
     </nav>
 
-    
+    <a href="login.html" class="login-link" id="loginLink">
+        Login
+    </a>
 
-    <!-- LOGIN LINK: Visible when logged out -->
-<a href="login.html" class="login-link" id="loginLink">
-    Login
-</a>
+    <div class="profile-menu-container" id="profileMenuContainer" hidden>
+        <button class="profile-btn"
+                id="profileBtn"
+                type="button"
+                aria-label="Open customer profile menu"
+                aria-expanded="false"
+                aria-controls="profileDropdown">
+            <span class="profile-icon" aria-hidden="true"></span>
+        </button>
 
-<!-- PROFILE MENU: Visible when logged in -->
-<div class="profile-menu-container" id="profileMenuContainer" hidden>
+        <div class="profile-dropdown" id="profileDropdown" hidden>
+            <div class="profile-dropdown-header">
+                <strong>My Account</strong>
+                <p>Welcome back!</p>
+            </div>
 
-    <button class="profile-btn"
-            id="profileBtn"
-            type="button"
-            aria-label="Open customer profile menu"
-            aria-expanded="false"
-            aria-controls="profileDropdown">
+            <a href="customer profile.html">👤 My Profile</a>
+            <a href="report-issue.html">🎧 My Support</a>
+            <a href="customer-booking-history-page.html">📋 Booking History</a>
 
-        <span class="profile-icon" aria-hidden="true"></span>
-    </button>
+            <div class="profile-dropdown-divider"></div>
 
-    <div class="profile-dropdown" id="profileDropdown" hidden>
-
-        <div class="profile-dropdown-header">
-            <strong>My Account</strong>
-            <p>Welcome back!</p>
+            <a href="#" class="logout-link" id="logoutBtn">
+                ↪ Logout
+            </a>
         </div>
-
-        <a href="customer profile.html">👤 My Profile</a>
-        <a href="report-issue.html">🎧 My Support</a>
-        <a href="customer-booking-history-page.html">📋 Booking History</a>
-
-        <div class="profile-dropdown-divider"></div>
-
-        <a href="#" class="logout-link" id="logoutBtn">
-            ↪ Logout
-        </a>
-
     </div>
-</div>
-    <!-- MOBILE MENU -->
-    <button
-        type="button"
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Toggle navigation"
-        aria-expanded="false"
-    >
+
+    <button type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
     </button>
 
 </header>
-
-
-
-
-
-
 
 <main class="page-shell">
 
@@ -166,7 +137,6 @@
 
         <form id="bookingForm" class="booking-form" novalidate>
 
-            <!-- 01 PERSONAL DETAILS -->
             <section class="form-card">
                 <div class="section-heading">
                     <span class="step-number">01</span>
@@ -192,11 +162,8 @@
                         <input type="email" id="customerEmail" readonly>
                     </label>
                 </div>
-
-                
             </section>
 
-            <!-- 02 CLEANING LOCATION -->
             <section class="form-card">
                 <div class="section-heading">
                     <span class="step-number">02</span>
@@ -288,7 +255,6 @@
                 </div>
             </section>
 
-            <!-- 03 CLEANING FREQUENCY -->
             <section class="form-card">
                 <div class="section-heading">
                     <span class="step-number">03</span>
@@ -387,7 +353,6 @@
                 </div>
             </section>
 
-            <!-- 04 CHOOSE SERVICE -->
             <section class="form-card">
                 <div class="section-heading">
                     <span class="step-number">04</span>
@@ -444,7 +409,6 @@
                 <div id="additionalServices" class="extras-grid"></div>
             </section>
 
-            <!-- 05 CLEANING DURATION -->
             <section class="form-card">
                 <div class="section-heading">
                     <span class="step-number">05</span>
@@ -467,7 +431,6 @@
                 </div>
             </section>
 
-            <!-- 06 PREFERRED CLEANERS -->
             <section class="form-card">
                 <div class="section-heading">
                     <span class="step-number">06</span>
@@ -495,7 +458,6 @@
                 </p>
             </section>
 
-            <!-- 07 FINAL DETAILS -->
             <section class="form-card">
                 <div class="section-heading">
                     <span class="step-number">07</span>
@@ -541,7 +503,6 @@
 
         </form>
 
-        <!-- BOOKING SUMMARY -->
         <aside class="summary-card">
             <div class="summary-top">
                 <p class="eyebrow">YOUR BOOKING</p>
@@ -569,7 +530,6 @@
     </div>
 </main>
 
-<!-- CLEANER PROFILE MODAL -->
 <div class="modal-backdrop hidden" id="profileModal">
     <div class="modal">
         <button class="modal-close" type="button" data-close="profileModal">×</button>
@@ -577,7 +537,6 @@
     </div>
 </div>
 
-<!-- PAYMENT MODAL -->
 <div class="modal-backdrop hidden" id="paymentModal">
     <div class="modal payment-modal">
         <button class="modal-close" type="button" data-close="paymentModal">×</button>
@@ -611,7 +570,6 @@
     </div>
 </div>
 
-<!-- BOOKING CONFIRMATION MODAL -->
 <div class="modal-backdrop hidden" id="confirmationModal">
     <div class="modal confirmation-modal">
         <div class="success-mark">✓</div>
@@ -657,25 +615,17 @@
     </div>
 </div>
 
-<!-- ================= PILEE TECH GROUP FOOTER ================= -->
-
 <footer class="site-footer">
 
     <div class="footer-container">
 
-        <!-- COMPANY INFORMATION -->
         <div class="footer-brand">
-
             <h3>Pilee Tech Group</h3>
-
             <p>Technology. Cleaning. Logistics.</p>
             <p>Excellence Delivered.</p>
-
         </div>
 
-        <!-- QUICK LINKS -->
         <div class="footer-column">
-
             <h4>Quick Links</h4>
             <span class="footer-line"></span>
 
@@ -685,15 +635,11 @@
                 <li><a href="services.php">Services</a></li>
                 <li><a href="projects.php">Projects</a></li>
                 <li><a href="contact.php">Contact Us</a></li>
-               
                 <li><a href="cleaning-partner-recruitment.html">Careers Page</a></li>
             </ul>
-
         </div>
 
-        <!-- BUSINESS DIVISIONS -->
         <div class="footer-column">
-
             <h4>Business Divisions</h4>
             <span class="footer-line"></span>
 
@@ -702,12 +648,9 @@
                 <li><a href="cleaning-projects.php">Professional Cleaning</a></li>
                 <li><a href="logistics-projects.php">Logistics &amp; Transport</a></li>
             </ul>
-
         </div>
 
-        <!-- SOCIAL MEDIA -->
         <div class="footer-column">
-
             <h4>Follow Us</h4>
             <span class="footer-line"></span>
 
@@ -735,22 +678,15 @@
 
                 <li><a href="https://x.com/PILEETECHGROUP" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
             </ul>
-
         </div>
 
     </div>
 
-    <!-- COPYRIGHT -->
     <div class="footer-bottom">
-
-        <p>
-            &copy; 2026 Pilee Tech Group. All Rights Reserved.
-        </p>
-
+        <p>&copy; 2026 Pilee Tech Group. All Rights Reserved.</p>
     </div>
 
 </footer>
-
 
 <script src="booking.js"></script>
 <script src="header.js"></script>
